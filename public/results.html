@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Results &mdash; CST SMS</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+  <span class="crest">CST &middot; RUB</span>
+  <h1>Student Management System</h1>
+</header>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="login.html">Login</a>
+  <a href="register.html">Registration</a>
+  <a href="results.html">Results</a>
+</nav>
+<main>
+  <div class="card">
+    <h2>View Result</h2>
+    <form id="resultForm">
+      <label for="studentIdRes">Student ID</label>
+      <input id="studentIdRes" placeholder="e.g. 02230123" />
+      <button type="submit">View Result</button>
+    </form>
+    <div id="resMsg" class="message"></div>
+    <div id="resultDisplay" style="margin-top:1rem;"></div>
+  </div>
+</main>
+<script src="app.js"></script>
+<script>
+  document.getElementById("resultForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const id = document.getElementById("studentIdRes").value;
+    const msg = document.getElementById("resMsg");
+    const display = document.getElementById("resultDisplay");
+    display.innerHTML = "";
+    const res = await fetch("/api/results/" + encodeURIComponent(id));
+    const data = await res.json();
+    if (!res.ok) {
+      showMessage(msg, data.message, true);
+      return;
+    }
+    msg.classList.remove("show");
+    display.innerHTML = `
+      <div class="result-row"><span>Module Code</span><span>${data.moduleCode}</span></div>
+      <div class="result-row"><span>Module Title</span><span>${data.moduleTitle}</span></div>
+      <div class="result-row"><span>Grade</span><span>${data.grade}</span></div>
+    `;
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Login &mdash; CST SMS</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+  <span class="crest">CST &middot; RUB</span>
+  <h1>Student Management System</h1>
+</header>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="login.html">Login</a>
+  <a href="register.html">Registration</a>
+  <a href="results.html">Results</a>
+</nav>
+<main>
+  <div class="card">
+    <h2>Student Login</h2>
+    <form id="loginForm">
+      <label for="studentId">Student ID</label>
+      <input id="studentId" name="studentId" placeholder="e.g. 02230123" />
+
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" placeholder="e.g. Passw0rd" />
+
+      <button type="submit">Log In</button>
+    </form>
+    <div id="msg" class="message"></div>
+    <p style="font-family: system-ui, sans-serif; font-size:0.8rem; color:#8a8272; margin-top:1rem;">
+      Demo account: 02230123 / Passw0rd
+    </p>
+  </div>
+</main>
+<script src="app.js"></script>
+<script>
+  document.getElementById("loginForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const studentId = document.getElementById("studentId").value;
+    const password = document.getElementById("password").value;
+    const msg = document.getElementById("msg");
+    const { ok, data } = await postJSON("/api/login", { studentId, password });
+    showMessage(msg, data.message, !ok);
+  });
+</script>
+</body>
+</html>

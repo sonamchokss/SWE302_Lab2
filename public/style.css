@@ -1,0 +1,143 @@
+:root {
+  --ink: #10293a;
+  --teal: #1b7a72;
+  --teal-dark: #114f49;
+  --gold: #c9a227;
+  --paper: #f6f4ee;
+  --card: #ffffff;
+  --error: #b3261e;
+  --success: #1b7a72;
+  --border: #dcd6c7;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Georgia", "Iowan Old Style", serif;
+  min-height: 100vh;
+}
+
+header {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 1.25rem 2rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  border-bottom: 3px solid var(--gold);
+}
+
+header .crest {
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  color: var(--gold);
+}
+
+header h1 {
+  font-size: 1.15rem;
+  margin: 0;
+  font-weight: 500;
+}
+
+nav {
+  display: flex;
+  gap: 1.25rem;
+  padding: 0.75rem 2rem;
+  background: var(--teal-dark);
+}
+
+nav a {
+  color: var(--paper);
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-family: system-ui, sans-serif;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 2px;
+}
+
+nav a:hover, nav a:focus-visible { border-bottom-color: var(--gold); }
+
+main {
+  max-width: 520px;
+  margin: 2.5rem auto;
+  padding: 0 1.5rem;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2rem;
+}
+
+.card h2 {
+  margin-top: 0;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.75rem;
+}
+
+label {
+  display: block;
+  font-family: system-ui, sans-serif;
+  font-size: 0.85rem;
+  color: #4a5a63;
+  margin: 1rem 0 0.3rem;
+}
+
+input, select {
+  width: 100%;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  font-size: 0.95rem;
+  font-family: system-ui, sans-serif;
+}
+
+input:focus, select:focus, button:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 1px;
+}
+
+button {
+  margin-top: 1.5rem;
+  width: 100%;
+  padding: 0.7rem;
+  background: var(--teal);
+  color: white;
+  border: none;
+  border-radius: 3px;
+  font-size: 0.95rem;
+  font-family: system-ui, sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover { background: var(--teal-dark); }
+
+.message {
+  margin-top: 1.1rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: 3px;
+  font-family: system-ui, sans-serif;
+  font-size: 0.9rem;
+  display: none;
+}
+
+.message.show { display: block; }
+.message.error { background: #fbeceb; color: var(--error); border: 1px solid #f0c6c3; }
+.message.success { background: #e9f3f1; color: var(--success); border: 1px solid #bcded9; }
+
+.result-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.6rem 0;
+  border-bottom: 1px dashed var(--border);
+  font-family: system-ui, sans-serif;
+  font-size: 0.92rem;
+}
