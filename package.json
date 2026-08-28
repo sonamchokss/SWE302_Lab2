@@ -6,15 +6,19 @@
   "scripts": {
     "start": "node src/server.js",
     "dev": "node src/server.js",
-    "test": "jest --coverage"
+    "test": "jest --coverage --testPathIgnorePatterns=/tests/db/",
+    "test:db": "jest tests/db --runInBand"
   },
   "dependencies": {
     "express": "^4.19.2",
-    "multer": "^1.4.5-lts.1"
+    "multer": "^1.4.5-lts.1",
+    "pg": "^8.11.5"
   },
   "devDependencies": {
     "jest": "^29.7.0",
-    "supertest": "^7.0.0"
+    "supertest": "^7.0.0",
+    "testcontainers": "^10.9.0",
+    "@testcontainers/postgresql": "^10.9.0"
   },
   "jest": {
     "collectCoverageFrom": [

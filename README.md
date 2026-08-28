@@ -46,14 +46,34 @@ branches, functions, lines) for `src/validators.js` and
 
 ```
 cst-sms/
+├── migrations/
+│   └── 001_create_students_table.sql
 ├── src/
-│   ├── validators.js      # R1-R7 field validation (pure functions)
-│   ├── businessLogic.js   # payment, decision table, duplicate check, results
-│   └── server.js          # Express routes wiring it all together
-├── public/                # login.html, register.html, results.html, index.html
+│   ├── businessLogic.js       # payment, registration, duplicate checks, results
+│   ├── server.js              # Express app and API setup
+│   ├── studentRepository.js   # PostgreSQL CRUD operations
+│   ├── studentRoutes.js       # /api/students routes
+│   └── validators.js          # R1-R7 field validation
+├── public/
+│   ├── app.js                 # browser-side interactions
+│   ├── index.html             # home page
+│   ├── login.html             # student login
+│   ├── register.html          # payment and module registration
+│   ├── results.html           # result viewing
+│   └── style.css              # shared page styles
 ├── tests/
-│   ├── studentIdPassword.test.js
+│   ├── db/
+│   │   └── studentRepository.integration.test.js  # PostgreSQL/Testcontainers tests
+│   ├── businessLogic.test.js
 │   ├── paymentTransaction.test.js
-│   └── businessLogic.test.js
-└── package.json
+│   └── studentIdPassword.test.js
+├── .env                    # local environment variables
+├── .gitignore
+├── docker-compose.yml      # local PostgreSQL service
+├── package.json
+├── package-lock.json
+└── README.md
 ```
+
+Generated or local-only directories such as `node_modules/`, `uploads/`, and
+`coverage/` are excluded from version control.

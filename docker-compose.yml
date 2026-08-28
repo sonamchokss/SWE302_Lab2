@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  postgres:
+    image: postgres:15-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: cst_admin
+      POSTGRES_PASSWORD: cst_password
+      POSTGRES_DB: cst_sms
+    ports:
+      - "5432:5432"
+    volumes:
+      - cst_pgdata:/var/lib/postgresql/data
+      - ./migrations:/docker-entrypoint-initdb.d
+volumes:
+  cst_pgdata:

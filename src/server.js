@@ -1,6 +1,8 @@
 const express = require("express");
 const path = require("path");
 const multer = require("multer");
+const { Pool } = require("pg");                    // <-- Lab 5 addition
+const buildStudentRouter = require("./studentRoutes"); // <-- Lab 5 addition
 
 const {
   validateStudentId,
@@ -20,6 +22,12 @@ const app = express();
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "..", "public")));
 const upload = multer({ dest: "uploads/" });
+
+// ---- Lab 5 addition: mount /api/students only if a database is configured ----
+if (process.env.DATABASE_URL) {
+  const studentsPool = new Pool({ connectionString: process.env.DATABASE_URL });
+  app.use("/api/students", buildStudentRouter(studentsPool));
+}
 
 // ---- In-memory "database" for demo purposes ----
 const users = [{ studentId: "02230123", password: "Passw0rd" }];
