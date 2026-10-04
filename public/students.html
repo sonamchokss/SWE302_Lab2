@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Students &mdash; CST SMS</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+  <span class="crest">CST &middot; RUB</span>
+  <h1>Student Management System</h1>
+</header>
+<nav id="nav"></nav>
+<main class="wide">
+  <div class="card">
+    <h2>All Students</h2>
+    <div id="studentList"></div>
+    <div id="listMsg" class="message"></div>
+  </div>
+
+  <div class="card" style="margin-top:1.5rem;">
+    <h2>Find Student by ID</h2>
+    <form id="findForm">
+      <label for="findId">Student ID</label>
+      <input id="findId" placeholder="e.g. 02230123" />
+      <button type="submit">Find</button>
+    </form>
+    <div id="findMsg" class="message"></div>
+    <div id="findDisplay" style="margin-top:1rem;"></div>
+  </div>
+
+  <div class="card" style="margin-top:1.5rem;">
+    <h2>Add New Student</h2>
+    <form id="createForm">
+      <label for="newId">Student ID</label>
+      <input id="newId" placeholder="8 digits, e.g. 02230456" />
+      <label for="newName">Full Name</label>
+      <input id="newName" />
+      <label for="newEmail">Email</label>
+      <input id="newEmail" type="email" />
+      <label for="newProgram">Program</label>
+      <input id="newProgram" placeholder="e.g. BE Software Engineering" />
+      <label for="newPassword">Initial Password (8-12 chars, upper, lower, digit)</label>
+      <input id="newPassword" type="password" />
+      <button type="submit">Create Student</button>
+    </form>
+    <div id="createMsg" class="message"></div>
+  </div></main>
+<script src="app.js"></script>
+<script>
+  const user = requireLogin("admin");
+
+  async function loadStudents() {
+    const { ok, data } = await getJSON("/api/students");
+    const box = document.getElementById("studentList");
+    if (!ok) { showMessage(document.getElementById("listMsg"), data.message, true); return; }
+    box.innerHTML = data.length
+      ? '<table><thead><tr><th>ID</th><th>Name</th><th>Email</th><th>Program</th></tr></thead><tbody>' +
+        data.map((s) => `<tr><td>${escapeHtml(s.student_id)}</td><td>${escapeHtml(s.full_name)}</td><td>${escapeHtml(s.email)}</td><td>${escapeHtml(s.program)}</td></tr>`).join("") +
+        "</tbody></table>"
+      : '<p class="intro">No students yet.</p>';
+  }
+  if (user) loadStudents();
+
+  document.getElementById("findForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const msg = document.getElementById("findMsg");
+    const display = document.getElementById("findDisplay");
+    display.innerHTML = "";
+    const { ok, data } = await getJSON("/api/students/" + encodeURIComponent(document.getElementById("findId").value));
+    if (!ok) { showMessage(msg, data.message, true); return; }
+    msg.classList.remove("show");
+    const row = (k, v) => `<div class="result-row"><span>${k}</span><span>${escapeHtml(v)}</span></div>`;
+    display.innerHTML = row("Student ID", data.student_id) + row("Name", data.full_name) + row("Email", data.email) + row("Program", data.program);
+  });
+
+  document.getElementById("createForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const msg = document.getElementById("createMsg");
+    const { ok, data } = await postJSON("/api/students", {
+      studentId: document.getElementById("newId").value,
+      fullName: document.getElementById("newName").value,
+      email: document.getElementById("newEmail").value,
+      program: document.getElementById("newProgram").value,
+      password: document.getElementById("newPassword").value,
+    });
+    showMessage(msg, ok ? `Student ${data.student_id} created` : data.message, !ok);
+    if (ok) { e.target.reset(); loadStudents(); }
+  });
+</script>
+</body>
+</html>

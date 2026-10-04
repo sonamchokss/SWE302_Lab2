@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>CST Student Management System</title>
 <link rel="stylesheet" href="style.css" />
 </head>
@@ -10,21 +11,193 @@
   <span class="crest">CST &middot; RUB</span>
   <h1>Student Management System</h1>
 </header>
-<nav>
-  <a href="index.html">Home</a>
-  <a href="login.html">Login</a>
-  <a href="register.html">Registration</a>
-  <a href="results.html">Results</a>
-</nav>
-<main>
-  <div class="card">
-    <h2>SWE302 &mdash; Lab 2 Demo</h2>
-    <p style="font-family: system-ui, sans-serif; font-size: 0.92rem; color:#4a5a63;">
-      This demo implements the Student Login, Module Registration (with tuition
-      payment and drug test verification), and Result Viewing components from
-      the Lab 1 SRS. Use the navigation above to try each module.
-    </p>
+<nav id="nav"></nav>
+
+<main class="full" style="margin:0 auto; padding:0; max-width:none;">
+
+  <!-- ============ Visitor landing page ============ -->
+  <div id="landing">
+    <section class="hero">
+      <div class="hero-inner">
+        <span class="eyebrow">College of Science and Technology</span>
+        <h2>Everything for your studies, in one place.</h2>
+        <p>Log in to pay tuition, register for modules and check your results &mdash;
+           quickly, securely, and without queues at the registrar&rsquo;s office.</p>
+        <div class="btn-row">
+          <a class="btn" href="login.html">Log in to your account</a>
+          <a class="btn ghost" href="#features">See what you can do</a>
+        </div>
+        <div class="hero-stats">
+          <div><b>3</b><span>Simple steps to register</span></div>
+          <div><b>24/7</b><span>Access to your results</span></div>
+          <div><b>2</b><span>Roles: student &amp; admin</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <h3>What you can do</h3>
+      <p class="sub">Four tools every CST student needs, built from the Lab 1 requirements.</p>
+      <div class="grid cols-4">
+        <div class="feature"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div><h4>Secure login</h4>
+          <p>Sign in with your 8-digit Student ID. Your session is protected and your records stay private.</p></div>
+        <div class="feature"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg></div><h4>Tuition payment</h4>
+          <p>Upload your payment screenshot and transaction number to get an electronic receipt.</p></div>
+        <div class="feature"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5V21h16"/></svg></div><h4>Module registration</h4>
+          <p>Pick your modules once payment and drug-test checks are cleared and the period is open.</p></div>
+        <div class="feature"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div><h4>Result viewing</h4>
+          <p>See your grades for every registered module as soon as they are published.</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h3>How it works</h3>
+      <p class="sub">From login to results in three steps.</p>
+      <div class="grid cols-3 steps">
+        <div class="step"><h4>Log in</h4><p>Use your Student ID and password to open your personal dashboard.</p></div>
+        <div class="step"><h4>Pay &amp; register</h4><p>Submit your tuition proof, then choose the modules you are taking this semester.</p></div>
+        <div class="step"><h4>Track results</h4><p>Come back any time to see your modules and grades.</p></div>
+      </div>
+    </section>
+
+    <div class="cta">
+      <div><h3>Ready to get started?</h3><p>Demo student: 02230123 / Passw0rd &nbsp;&middot;&nbsp; Demo admin: 00000001 / Admin123</p></div>
+      <a class="btn" href="login.html">Go to login</a>
+    </div>
+    <div style="height:3rem"></div>
+  </div>
+
+  <!-- ============ Logged-in dashboard ============ -->
+  <div id="dashboard" class="dash" style="display:none;">
+    <div class="banner">
+      <div>
+        <h2 id="greeting">Welcome</h2>
+        <p id="subline"></p>
+      </div>
+      <span class="badge" id="roleBadge"></span>
+    </div>
+
+    <h3 class="block-title">Overview</h3>
+    <div class="grid cols-4" id="stats"><div class="skeleton">Loading&hellip;</div></div>
+
+    <h3 class="block-title">Quick actions</h3>
+    <div class="grid cols-3" id="actions"></div>
+
+    <div class="grid cols-2" style="margin-top:2rem;">
+      <div class="panel"><h3 id="leftTitle">My modules</h3><div id="leftBody" class="skeleton">Loading&hellip;</div></div>
+      <div class="panel"><h3 id="rightTitle">Recent results</h3><div id="rightBody" class="skeleton">Loading&hellip;</div></div>
+    </div>
+    <div style="height:3rem"></div>
   </div>
 </main>
+
+<script src="app.js"></script>
+<script>
+(function () {
+  const user = getUser();
+  if (!getToken() || !user) return;               // visitors see the landing page
+  document.getElementById("landing").style.display = "none";
+  document.getElementById("dashboard").style.display = "block";
+
+  const isAdmin = user.role === "admin";
+  const hour = new Date().getHours();
+  const part = hour < 12 ? "Good morning" : hour < 18 ? "Good afternoon" : "Good evening";
+  const today = new Date().toLocaleDateString(undefined, { weekday: "long", year: "numeric", month: "long", day: "numeric" });
+  document.getElementById("greeting").textContent = part + ", " + (user.fullName || user.studentId);
+  document.getElementById("subline").textContent = today + (isAdmin ? " \u00b7 Administrator" : " \u00b7 Student ID " + user.studentId);
+  document.getElementById("roleBadge").textContent = user.role;
+
+  const stat = (label, value, note) =>
+    `<div class="stat"><span>${label}</span><b>${escapeHtml(value)}</b><small>${escapeHtml(note || "")}</small></div>`;
+  const action = (href, title, text) =>
+    `<a class="action" href="${href}"><div><b>${title}</b><small>${text}</small></div></a>`;
+
+  // grade -> points (A=4 ... F=0, +/- adjust by 0.3, capped at 4)
+  function points(g) {
+    const base = { A: 4, B: 3, C: 2, D: 1, F: 0 }[g[0]] ?? 0;
+    const adj = g.endsWith("+") ? 0.3 : g.endsWith("-") ? -0.3 : 0;
+    return Math.max(0, Math.min(4, base + adj));
+  }
+  const pill = (g) => `<span class="pill ${points(g) < 1 ? "low" : ""}">${escapeHtml(g)}</span>`;
+
+  async function loadStudent() {
+    const [regs, res, me] = await Promise.all([
+      getJSON("/api/registrations"),
+      getJSON("/api/results"),
+      getJSON("/api/students/" + encodeURIComponent(user.studentId)),
+    ]);
+    const mods = regs.ok ? regs.data : [];
+    const results = res.ok ? res.data : [];
+    const credits = mods.reduce((n, m) => n + (m.credits || 0), 0);
+    const gpa = results.length ? (results.reduce((n, r) => n + points(r.grade), 0) / results.length).toFixed(2) : "\u2013";
+
+    document.getElementById("stats").innerHTML =
+      stat("Modules registered", mods.length, "this semester") +
+      stat("Credits", credits, "total registered") +
+      stat("Results published", results.length, "module grades") +
+      stat("Average grade point", gpa, "out of 4.00");
+
+    document.getElementById("actions").innerHTML =
+      action("register.html", "Pay tuition", "Upload your payment proof") +
+      action("register.html", "Register modules", "Choose your modules") +
+      action("results.html", "View results", "Check your grades");
+
+    document.getElementById("leftTitle").textContent = "My modules";
+    document.getElementById("leftBody").className = "";
+    document.getElementById("leftBody").innerHTML = mods.length
+      ? mods.map((m) => `<div class="list-row"><div>${escapeHtml(m.moduleTitle)}<small>${escapeHtml(m.moduleCode)} \u00b7 ${m.credits} credits</small></div></div>`).join("")
+      : '<p class="empty">No modules registered yet. <a href="register.html">Register now</a>.</p>';
+
+    document.getElementById("rightTitle").textContent = "My results";
+    document.getElementById("rightBody").className = "";
+    document.getElementById("rightBody").innerHTML = results.length
+      ? results.map((r) => `<div class="list-row"><div>${escapeHtml(r.moduleTitle)}<small>${escapeHtml(r.moduleCode)}</small></div>${pill(r.grade)}</div>`).join("")
+      : '<p class="empty">No results published yet.</p>';
+
+    if (me.ok) {
+      document.getElementById("subline").textContent += " \u00b7 " + me.data.program;
+    }
+  }
+
+  async function loadAdmin() {
+    const [studs, mods, res] = await Promise.all([
+      getJSON("/api/students"),
+      getJSON("/api/modules"),
+      getJSON("/api/results"),
+    ]);
+    const students = studs.ok ? studs.data : [];
+    const modules = mods.ok ? mods.data : [];
+    const results = res.ok ? res.data : [];
+
+    document.getElementById("stats").innerHTML =
+      stat("Students", students.length, "on record") +
+      stat("Modules offered", modules.length, "this semester") +
+      stat("Results recorded", results.length, "across all students") +
+      stat("Students graded", new Set(results.map((r) => r.studentId)).size, "with at least one result");
+
+    document.getElementById("actions").innerHTML =
+      action("students.html", "Manage students", "List, find and add students") +
+      action("results.html", "Record grades", "Enter or update results") +
+      action("register.html", "Register a student", "Module registration for anyone");
+
+    document.getElementById("leftTitle").textContent = "Students";
+    document.getElementById("leftBody").className = "";
+    document.getElementById("leftBody").innerHTML = students.length
+      ? students.slice(0, 6).map((s) => `<div class="list-row"><div>${escapeHtml(s.full_name)}<small>${escapeHtml(s.student_id)} \u00b7 ${escapeHtml(s.program)}</small></div></div>`).join("") +
+        (students.length > 6 ? '<p class="empty"><a href="students.html">View all ' + students.length + ' students</a></p>' : "")
+      : '<p class="empty">No students yet. <a href="students.html">Add one</a>.</p>';
+
+    document.getElementById("rightTitle").textContent = "Latest results";
+    document.getElementById("rightBody").className = "";
+    document.getElementById("rightBody").innerHTML = results.length
+      ? results.slice(-6).reverse().map((r) => `<div class="list-row"><div>${escapeHtml(r.moduleTitle)}<small>${escapeHtml(r.studentId)} \u00b7 ${escapeHtml(r.moduleCode)}</small></div>${pill(r.grade)}</div>`).join("")
+      : '<p class="empty">No results recorded yet.</p>';
+  }
+
+  (isAdmin ? loadAdmin() : loadStudent()).catch(() => {
+    document.getElementById("stats").innerHTML = '<p class="empty">Could not load your dashboard. Please refresh.</p>';
+  });
+})();
+</script>
 </body>
 </html>

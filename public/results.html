@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Results &mdash; CST SMS</title>
 <link rel="stylesheet" href="style.css" />
 </head>
@@ -10,12 +11,7 @@
   <span class="crest">CST &middot; RUB</span>
   <h1>Student Management System</h1>
 </header>
-<nav>
-  <a href="index.html">Home</a>
-  <a href="login.html">Login</a>
-  <a href="register.html">Registration</a>
-  <a href="results.html">Results</a>
-</nav>
+<nav id="nav"></nav>
 <main>
   <div class="card">
     <h2>View Result</h2>
@@ -27,27 +23,90 @@
     <div id="resMsg" class="message"></div>
     <div id="resultDisplay" style="margin-top:1rem;"></div>
   </div>
-</main>
+
+  <div class="card" style="margin-top:1.5rem;">
+    <h2 id="listTitle">My Results</h2>
+    <div id="resultList"></div>
+  </div>
+
+  <div id="recordCard" class="card" style="margin-top:1.5rem; display:none;">
+    <h2>Record a Grade (admin)</h2>
+    <form id="recordForm">
+      <label for="recStudent">Student ID</label>
+      <input id="recStudent" placeholder="e.g. 02230123" />
+      <label for="recModule">Module</label>
+      <select id="recModule"></select>
+      <label for="recGrade">Grade</label>
+      <input id="recGrade" placeholder="A, B+, C, D, F ..." />
+      <button type="submit">Save Grade</button>
+    </form>
+    <div id="recMsg" class="message"></div>
+  </div></main>
 <script src="app.js"></script>
 <script>
+  const user = requireLogin();
+  const idInput = document.getElementById("studentIdRes");
+
+  async function loadList() {
+    // GET list: own results (student) or all results (admin)
+    const { ok, data } = await getJSON("/api/results");
+    const box = document.getElementById("resultList");
+    if (!ok) return;
+    box.innerHTML = data.length
+      ? `<table><thead><tr>${user.role === "admin" ? "<th>Student</th>" : ""}<th>Module</th><th>Title</th><th>Grade</th></tr></thead><tbody>` +
+        data.map((r) => `<tr>${user.role === "admin" ? `<td>${escapeHtml(r.studentId)}</td>` : ""}<td>${escapeHtml(r.moduleCode)}</td><td>${escapeHtml(r.moduleTitle)}</td><td>${escapeHtml(r.grade)}</td></tr>`).join("") +
+        "</tbody></table>"
+      : '<p class="intro">No results yet.</p>';
+  }
+
+  async function init() {
+    if (!user) return;
+    idInput.value = user.studentId;
+    if (user.role !== "admin") idInput.readOnly = true;
+    if (user.role === "admin") {
+      document.getElementById("listTitle").textContent = "All Results";
+      document.getElementById("recordCard").style.display = "block";
+      const mods = await getJSON("/api/modules");
+      if (mods.ok) {
+        document.getElementById("recModule").innerHTML = mods.data
+          .map((m) => `<option value="${escapeHtml(m.moduleCode)}">${escapeHtml(m.moduleCode)} &mdash; ${escapeHtml(m.moduleTitle)}</option>`)
+          .join("");
+      }
+    }
+    loadList();
+  }
+  init();
+
+  // GET by ID
   document.getElementById("resultForm").addEventListener("submit", async (e) => {
     e.preventDefault();
-    const id = document.getElementById("studentIdRes").value;
     const msg = document.getElementById("resMsg");
     const display = document.getElementById("resultDisplay");
     display.innerHTML = "";
-    const res = await fetch("/api/results/" + encodeURIComponent(id));
-    const data = await res.json();
-    if (!res.ok) {
+    const { ok, data } = await getJSON("/api/results/" + encodeURIComponent(idInput.value));
+    if (!ok) {
       showMessage(msg, data.message, true);
       return;
     }
     msg.classList.remove("show");
-    display.innerHTML = `
-      <div class="result-row"><span>Module Code</span><span>${data.moduleCode}</span></div>
-      <div class="result-row"><span>Module Title</span><span>${data.moduleTitle}</span></div>
-      <div class="result-row"><span>Grade</span><span>${data.grade}</span></div>
-    `;
+    display.innerHTML = (data.results || [data]).map((r) => `
+      <div class="result-row"><span>Module Code</span><span>${escapeHtml(r.moduleCode)}</span></div>
+      <div class="result-row"><span>Module Title</span><span>${escapeHtml(r.moduleTitle)}</span></div>
+      <div class="result-row"><span>Grade</span><span>${escapeHtml(r.grade)}</span></div>
+      <div style="height:.6rem"></div>`).join("");
+  });
+
+  // POST (admin): record a grade
+  document.getElementById("recordForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const msg = document.getElementById("recMsg");
+    const { ok, data } = await postJSON("/api/results", {
+      studentId: document.getElementById("recStudent").value,
+      moduleCode: document.getElementById("recModule").value,
+      grade: document.getElementById("recGrade").value,
+    });
+    showMessage(msg, ok ? "Grade saved" : data.message, !ok);
+    if (ok) loadList();
   });
 </script>
 </body>

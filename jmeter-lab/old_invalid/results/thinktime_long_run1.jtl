@@ -1,0 +1,1130 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1791113390077,253,POST Login,200,OK,Thread Group 1-1,text,true,,419,228,1,1,http://localhost:3000/api/login,253,0,22
+1791113390860,207,POST Login,200,OK,Thread Group 1-2,text,true,,419,228,2,2,http://localhost:3000/api/login,207,0,3
+1791113391856,211,POST Login,200,OK,Thread Group 1-3,text,true,,419,228,3,3,http://localhost:3000/api/login,211,0,2
+1791113392848,208,POST Login,200,OK,Thread Group 1-4,text,true,,419,228,4,4,http://localhost:3000/api/login,208,0,3
+1791113393849,206,POST Login,200,OK,Thread Group 1-5,text,true,,419,228,5,5,http://localhost:3000/api/login,206,0,3
+1791113390374,170,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-1,,false,,15582,1132,5,5,null,0,3516,0
+1791113391277,7,GET View Module,200,OK,Thread Group 1-1,text,true,,309,223,2,2,http://localhost:3000/api/modules/SWE302,7,0,0
+1791113392161,10,GET List Students,200,OK,Thread Group 1-1,text,true,,14648,217,3,3,http://localhost:3000/api/students,10,0,0
+1791113393130,6,POST Add Student,409,Conflict,Thread Group 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,363,4,4,http://localhost:3000/api/students,6,0,0
+1791113393912,147,POST Add Result,200,OK,Thread Group 1-1,text,true,,331,329,5,5,http://localhost:3000/api/results,147,0,0
+1791113391070,249,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-2,,false,,15582,1132,5,5,null,0,3256,0
+1791113391958,113,GET View Module,200,OK,Thread Group 1-2,text,true,,309,223,3,3,http://localhost:3000/api/modules/SWE302,112,0,0
+1791113392936,125,GET List Students,200,OK,Thread Group 1-2,text,true,,14648,217,4,4,http://localhost:3000/api/students,125,0,0
+1791113393771,7,POST Add Student,409,Conflict,Thread Group 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,363,4,4,http://localhost:3000/api/students,7,0,0
+1791113394570,4,POST Add Result,200,OK,Thread Group 1-2,text,true,,331,329,5,5,http://localhost:3000/api/results,4,0,0
+1791113392068,21,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-3,,false,,15582,1132,5,5,null,0,2924,0
+1791113392724,5,GET View Module,200,OK,Thread Group 1-3,text,true,,309,223,3,3,http://localhost:3000/api/modules/SWE302,5,0,0
+1791113393444,6,GET List Students,200,OK,Thread Group 1-3,text,true,,14648,217,4,4,http://localhost:3000/api/students,6,0,0
+1791113394282,6,POST Add Student,409,Conflict,Thread Group 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,363,5,5,http://localhost:3000/api/students,5,0,0
+1791113395008,4,POST Add Result,200,OK,Thread Group 1-3,text,true,,331,329,5,5,http://localhost:3000/api/results,4,0,0
+1791113393058,22,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-4,,false,,15582,1132,5,5,null,0,2960,0
+1791113393682,5,GET View Module,200,OK,Thread Group 1-4,text,true,,309,223,4,4,http://localhost:3000/api/modules/SWE302,5,0,0
+1791113394512,6,GET List Students,200,OK,Thread Group 1-4,text,true,,14648,217,5,5,http://localhost:3000/api/students,6,0,0
+1791113395217,6,POST Add Student,409,Conflict,Thread Group 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,363,5,5,http://localhost:3000/api/students,6,0,0
+1791113396035,5,POST Add Result,200,OK,Thread Group 1-4,text,true,,331,329,5,5,http://localhost:3000/api/results,5,0,0
+1791113394062,19,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-1,,false,,15582,1132,5,5,null,0,2742,0
+1791113394741,4,GET View Module,200,OK,Thread Group 1-1,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791113395264,6,GET List Students,200,OK,Thread Group 1-1,text,true,,14648,217,5,5,http://localhost:3000/api/students,6,0,0
+1791113395823,4,POST Add Student,409,Conflict,Thread Group 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,363,5,5,http://localhost:3000/api/students,4,0,0
+1791113396817,5,POST Add Result,200,OK,Thread Group 1-1,text,true,,331,329,5,5,http://localhost:3000/api/results,5,0,0
+1791113394056,19,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-5,,false,,15582,1132,5,5,null,0,3029,0
+1791113394653,4,GET View Module,200,OK,Thread Group 1-5,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791113395549,6,GET List Students,200,OK,Thread Group 1-5,text,true,,14648,217,5,5,http://localhost:3000/api/students,6,0,0
+1791113396558,5,POST Add Student,409,Conflict,Thread Group 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,363,5,5,http://localhost:3000/api/students,4,0,0
+1791113397099,4,POST Add Result,200,OK,Thread Group 1-5,text,true,,331,329,5,5,http://localhost:3000/api/results,4,0,0
+1791113394576,19,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-2,,false,,15582,1132,5,5,null,0,3265,0
+1791113395441,5,GET View Module,200,OK,Thread Group 1-2,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,5,0,0
+1791113396441,5,GET List Students,200,OK,Thread Group 1-2,text,true,,14648,217,5,5,http://localhost:3000/api/students,5,0,0
+1791113397038,5,POST Add Student,409,Conflict,Thread Group 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,363,5,5,http://localhost:3000/api/students,4,0,0
+1791113397856,4,POST Add Result,200,OK,Thread Group 1-2,text,true,,331,329,5,5,http://localhost:3000/api/results,4,0,0
+1791113395015,20,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-3,,false,,15582,1132,5,5,null,0,3030,0
+1791113395986,5,GET View Module,200,OK,Thread Group 1-3,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,5,0,0
+1791113396736,5,GET List Students,200,OK,Thread Group 1-3,text,true,,14648,217,5,5,http://localhost:3000/api/students,5,0,0
+1791113397413,5,POST Add Student,409,Conflict,Thread Group 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,363,5,5,http://localhost:3000/api/students,4,0,0
+1791113398060,5,POST Add Result,200,OK,Thread Group 1-3,text,true,,331,329,5,5,http://localhost:3000/api/results,4,0,0
+1791113396042,21,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-4,,false,,15582,1132,5,5,null,0,2771,0
+1791113396808,6,GET View Module,200,OK,Thread Group 1-4,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,6,0,0
+1791113397485,5,GET List Students,200,OK,Thread Group 1-4,text,true,,14648,217,5,5,http://localhost:3000/api/students,5,0,0
+1791113398134,5,POST Add Student,409,Conflict,Thread Group 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,363,5,5,http://localhost:3000/api/students,5,0,0
+1791113398829,5,POST Add Result,200,OK,Thread Group 1-4,text,true,,331,329,5,5,http://localhost:3000/api/results,5,0,0
+1791113396824,16,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-1,,false,,15582,1133,5,5,null,0,2782,0
+1791113397340,4,GET View Module,200,OK,Thread Group 1-1,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791113397994,4,GET List Students,200,OK,Thread Group 1-1,text,true,,14648,217,5,5,http://localhost:3000/api/students,4,0,0
+1791113398841,5,POST Add Student,409,Conflict,Thread Group 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,4,0,0
+1791113399619,3,POST Add Result,200,OK,Thread Group 1-1,text,true,,331,329,5,5,http://localhost:3000/api/results,3,0,0
+1791113397105,17,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-5,,false,,15582,1133,5,5,null,0,3076,0
+1791113397852,4,GET View Module,200,OK,Thread Group 1-5,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791113398576,6,GET List Students,200,OK,Thread Group 1-5,text,true,,14648,217,5,5,http://localhost:3000/api/students,6,0,0
+1791113399214,4,POST Add Student,409,Conflict,Thread Group 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,4,0,0
+1791113400194,3,POST Add Result,200,OK,Thread Group 1-5,text,true,,331,329,5,5,http://localhost:3000/api/results,3,0,0
+1791113397862,14,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-2,,false,,15582,1133,5,5,null,0,2830,0
+1791113398443,5,GET View Module,200,OK,Thread Group 1-2,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,5,0,0
+1791113399111,3,GET List Students,200,OK,Thread Group 1-2,text,true,,14648,217,5,5,http://localhost:3000/api/students,3,0,0
+1791113399853,3,POST Add Student,409,Conflict,Thread Group 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,3,0,0
+1791113400703,3,POST Add Result,200,OK,Thread Group 1-2,text,true,,331,329,5,5,http://localhost:3000/api/results,3,0,0
+1791113398066,12,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-3,,false,,15582,1133,5,5,null,0,3140,0
+1791113399043,4,GET View Module,200,OK,Thread Group 1-3,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791113399723,3,GET List Students,200,OK,Thread Group 1-3,text,true,,14648,217,5,5,http://localhost:3000/api/students,3,0,0
+1791113400688,2,POST Add Student,409,Conflict,Thread Group 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,2,0,0
+1791113401214,3,POST Add Result,200,OK,Thread Group 1-3,text,true,,331,329,5,5,http://localhost:3000/api/results,3,0,0
+1791113398835,14,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-4,,false,,15582,1133,5,5,null,0,3099,0
+1791113399635,3,GET View Module,200,OK,Thread Group 1-4,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791113400335,5,GET List Students,200,OK,Thread Group 1-4,text,true,,14648,217,5,5,http://localhost:3000/api/students,4,0,0
+1791113401184,3,POST Add Student,409,Conflict,Thread Group 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,3,0,0
+1791113401944,3,POST Add Result,200,OK,Thread Group 1-4,text,true,,331,329,5,5,http://localhost:3000/api/results,3,0,0
+1791113399623,13,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-1,,false,,15582,1133,5,5,null,0,3324,0
+1791113400621,3,GET View Module,200,OK,Thread Group 1-1,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791113401269,4,GET List Students,200,OK,Thread Group 1-1,text,true,,14648,217,5,5,http://localhost:3000/api/students,4,0,0
+1791113401987,2,POST Add Student,409,Conflict,Thread Group 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,2,0,0
+1791113402955,4,POST Add Result,200,OK,Thread Group 1-1,text,true,,331,329,5,5,http://localhost:3000/api/results,4,0,0
+1791113400198,13,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-5,,false,,15582,1133,5,5,null,0,2950,0
+1791113401013,3,GET View Module,200,OK,Thread Group 1-5,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791113401743,4,GET List Students,200,OK,Thread Group 1-5,text,true,,14648,217,5,5,http://localhost:3000/api/students,4,0,0
+1791113402367,3,POST Add Student,409,Conflict,Thread Group 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,3,0,0
+1791113403158,3,POST Add Result,200,OK,Thread Group 1-5,text,true,,331,329,5,5,http://localhost:3000/api/results,3,0,0
+1791113400707,15,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-2,,false,,15582,1133,5,5,null,0,2915,0
+1791113401448,3,GET View Module,200,OK,Thread Group 1-2,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791113402255,5,GET List Students,200,OK,Thread Group 1-2,text,true,,14648,217,5,5,http://localhost:3000/api/students,5,0,0
+1791113402976,4,POST Add Student,409,Conflict,Thread Group 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,4,0,0
+1791113403634,3,POST Add Result,200,OK,Thread Group 1-2,text,true,,331,329,5,5,http://localhost:3000/api/results,3,0,0
+1791113401218,13,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-3,,false,,15582,1133,5,5,null,0,3108,0
+1791113402054,3,GET View Module,200,OK,Thread Group 1-3,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791113402685,3,GET List Students,200,OK,Thread Group 1-3,text,true,,14648,217,5,5,http://localhost:3000/api/students,3,0,0
+1791113403517,3,POST Add Student,409,Conflict,Thread Group 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,3,0,0
+1791113404334,4,POST Add Result,200,OK,Thread Group 1-3,text,true,,331,329,5,5,http://localhost:3000/api/results,4,0,0
+1791113401948,14,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-4,,false,,15582,1133,5,5,null,0,2995,0
+1791113402823,4,GET View Module,200,OK,Thread Group 1-4,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791113403689,4,GET List Students,200,OK,Thread Group 1-4,text,true,,14648,217,5,5,http://localhost:3000/api/students,4,0,0
+1791113404439,3,POST Add Student,409,Conflict,Thread Group 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,3,0,0
+1791113404954,3,POST Add Result,200,OK,Thread Group 1-4,text,true,,331,329,5,5,http://localhost:3000/api/results,3,0,0
+1791113402961,14,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-1,,false,,15582,1133,5,5,null,0,2814,0
+1791113403906,3,GET View Module,200,OK,Thread Group 1-1,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791113404606,3,GET List Students,200,OK,Thread Group 1-1,text,true,,14648,217,5,5,http://localhost:3000/api/students,3,0,0
+1791113405248,4,POST Add Student,409,Conflict,Thread Group 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,4,0,0
+1791113405784,4,POST Add Result,200,OK,Thread Group 1-1,text,true,,331,329,5,5,http://localhost:3000/api/results,4,0,0
+1791113403162,17,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-5,,false,,15582,1133,5,5,null,0,3445,0
+1791113404156,3,GET View Module,200,OK,Thread Group 1-5,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791113405040,4,GET List Students,200,OK,Thread Group 1-5,text,true,,14648,217,5,5,http://localhost:3000/api/students,3,0,0
+1791113405747,5,POST Add Student,409,Conflict,Thread Group 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,5,0,0
+1791113406619,5,POST Add Result,200,OK,Thread Group 1-5,text,true,,331,329,5,5,http://localhost:3000/api/results,4,0,0
+1791113403637,17,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-2,,false,,15582,1133,5,5,null,0,3199,0
+1791113404603,3,GET View Module,200,OK,Thread Group 1-2,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791113405353,4,GET List Students,200,OK,Thread Group 1-2,text,true,,14648,217,5,5,http://localhost:3000/api/students,4,0,0
+1791113406121,5,POST Add Student,409,Conflict,Thread Group 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,5,0,0
+1791113406848,5,POST Add Result,200,OK,Thread Group 1-2,text,true,,331,329,5,5,http://localhost:3000/api/results,5,0,0
+1791113404340,17,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-3,,false,,15582,1133,5,5,null,0,2893,0
+1791113405131,3,GET View Module,200,OK,Thread Group 1-3,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791113405894,5,GET List Students,200,OK,Thread Group 1-3,text,true,,14648,217,5,5,http://localhost:3000/api/students,5,0,0
+1791113406525,5,POST Add Student,409,Conflict,Thread Group 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,5,0,0
+1791113407245,4,POST Add Result,200,OK,Thread Group 1-3,text,true,,331,329,5,5,http://localhost:3000/api/results,4,0,0
+1791113404957,19,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-4,,false,,15582,1133,5,5,null,0,3048,0
+1791113405774,5,GET View Module,200,OK,Thread Group 1-4,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,5,0,0
+1791113406440,6,GET List Students,200,OK,Thread Group 1-4,text,true,,14648,217,5,5,http://localhost:3000/api/students,5,0,0
+1791113407412,5,POST Add Student,409,Conflict,Thread Group 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,5,0,0
+1791113408020,3,POST Add Result,200,OK,Thread Group 1-4,text,true,,331,329,5,5,http://localhost:3000/api/results,3,0,0
+1791113405790,18,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-1,,false,,15582,1133,5,5,null,0,2772,0
+1791113406514,4,GET View Module,200,OK,Thread Group 1-1,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791113407417,5,GET List Students,200,OK,Thread Group 1-1,text,true,,14648,217,5,5,http://localhost:3000/api/students,5,0,0
+1791113407945,4,POST Add Student,409,Conflict,Thread Group 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,4,0,0
+1791113408575,5,POST Add Result,200,OK,Thread Group 1-1,text,true,,331,329,5,5,http://localhost:3000/api/results,5,0,0
+1791113406626,18,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-5,,false,,15582,1133,5,5,null,0,3220,0
+1791113407472,5,GET View Module,200,OK,Thread Group 1-5,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,5,0,0
+1791113408379,5,GET List Students,200,OK,Thread Group 1-5,text,true,,14648,217,5,5,http://localhost:3000/api/students,5,0,0
+1791113409002,4,POST Add Student,409,Conflict,Thread Group 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,4,0,0
+1791113409860,4,POST Add Result,200,OK,Thread Group 1-5,text,true,,331,329,5,5,http://localhost:3000/api/results,3,0,0
+1791113406854,20,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-2,,false,,15582,1133,5,5,null,0,3279,0
+1791113407618,4,GET View Module,200,OK,Thread Group 1-2,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791113408560,6,GET List Students,200,OK,Thread Group 1-2,text,true,,14648,217,5,5,http://localhost:3000/api/students,6,0,0
+1791113409545,6,POST Add Student,409,Conflict,Thread Group 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,6,0,0
+1791113410149,4,POST Add Result,200,OK,Thread Group 1-2,text,true,,331,329,5,5,http://localhost:3000/api/results,3,0,0
+1791113407251,18,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-3,,false,,15582,1133,5,5,null,0,3349,0
+1791113408098,4,GET View Module,200,OK,Thread Group 1-3,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791113409014,7,GET List Students,200,OK,Thread Group 1-3,text,true,,14648,217,5,5,http://localhost:3000/api/students,7,0,0
+1791113409850,4,POST Add Student,409,Conflict,Thread Group 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,4,0,0
+1791113410614,3,POST Add Result,200,OK,Thread Group 1-3,text,true,,331,329,5,5,http://localhost:3000/api/results,3,0,0
+1791113408025,19,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-4,,false,,15582,1133,5,5,null,0,2868,0
+1791113408530,5,GET View Module,200,OK,Thread Group 1-4,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,5,0,0
+1791113409396,6,GET List Students,200,OK,Thread Group 1-4,text,true,,14648,217,5,5,http://localhost:3000/api/students,5,0,0
+1791113409985,4,POST Add Student,409,Conflict,Thread Group 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,4,0,0
+1791113410908,4,POST Add Result,200,OK,Thread Group 1-4,text,true,,331,329,5,5,http://localhost:3000/api/results,4,0,0
+1791113408581,18,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-1,,false,,15582,1133,5,5,null,0,3147,0
+1791113409469,5,GET View Module,200,OK,Thread Group 1-1,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,5,0,0
+1791113410390,5,GET List Students,200,OK,Thread Group 1-1,text,true,,14648,217,5,5,http://localhost:3000/api/students,4,0,0
+1791113411191,4,POST Add Student,409,Conflict,Thread Group 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,4,0,0
+1791113411741,4,POST Add Result,200,OK,Thread Group 1-1,text,true,,331,329,5,5,http://localhost:3000/api/results,4,0,0
+1791113410154,17,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-2,,false,,15582,1133,5,5,null,0,2401,0
+1791113410884,4,GET View Module,200,OK,Thread Group 1-2,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791113411490,5,GET List Students,200,OK,Thread Group 1-2,text,true,,14648,217,5,5,http://localhost:3000/api/students,4,0,0
+1791113412062,4,POST Add Student,409,Conflict,Thread Group 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,4,0,0
+1791113412568,4,POST Add Result,200,OK,Thread Group 1-2,text,true,,331,329,5,5,http://localhost:3000/api/results,4,0,0
+1791113409865,17,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-5,,false,,15582,1133,5,5,null,0,3365,0
+1791113410824,4,GET View Module,200,OK,Thread Group 1-5,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791113411444,5,GET List Students,200,OK,Thread Group 1-5,text,true,,14648,217,5,5,http://localhost:3000/api/students,5,0,0
+1791113412271,4,POST Add Student,409,Conflict,Thread Group 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,4,0,0
+1791113413242,4,POST Add Result,200,OK,Thread Group 1-5,text,true,,331,329,5,5,http://localhost:3000/api/results,4,0,0
+1791113410619,17,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-3,,false,,15582,1133,5,5,null,0,3431,0
+1791113411458,5,GET View Module,200,OK,Thread Group 1-3,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,5,0,0
+1791113412300,4,GET List Students,200,OK,Thread Group 1-3,text,true,,14648,217,5,5,http://localhost:3000/api/students,4,0,0
+1791113413115,4,POST Add Student,409,Conflict,Thread Group 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,4,0,0
+1791113414063,4,POST Add Result,200,OK,Thread Group 1-3,text,true,,331,329,5,5,http://localhost:3000/api/results,4,0,0
+1791113410913,18,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-4,,false,,15582,1133,5,5,null,0,3487,0
+1791113411882,5,GET View Module,200,OK,Thread Group 1-4,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,5,0,0
+1791113412783,4,GET List Students,200,OK,Thread Group 1-4,text,true,,14648,217,5,5,http://localhost:3000/api/students,4,0,0
+1791113413785,5,POST Add Student,409,Conflict,Thread Group 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,5,0,0
+1791113414414,4,POST Add Result,200,OK,Thread Group 1-4,text,true,,331,329,5,5,http://localhost:3000/api/results,4,0,0
+1791113411746,16,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-1,,false,,15582,1133,5,5,null,0,2741,0
+1791113412557,4,GET View Module,200,OK,Thread Group 1-1,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791113413169,5,GET List Students,200,OK,Thread Group 1-1,text,true,,14648,217,5,5,http://localhost:3000/api/students,5,0,0
+1791113413684,3,POST Add Student,409,Conflict,Thread Group 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,3,0,0
+1791113414499,4,POST Add Result,200,OK,Thread Group 1-1,text,true,,331,329,5,5,http://localhost:3000/api/results,4,0,0
+1791113412573,17,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-2,,false,,15582,1133,5,5,null,0,3251,0
+1791113413229,4,GET View Module,200,OK,Thread Group 1-2,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791113413914,5,GET List Students,200,OK,Thread Group 1-2,text,true,,14648,217,5,5,http://localhost:3000/api/students,5,0,0
+1791113414839,4,POST Add Student,409,Conflict,Thread Group 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,4,0,0
+1791113415836,4,POST Add Result,200,OK,Thread Group 1-2,text,true,,331,329,5,5,http://localhost:3000/api/results,4,0,0
+1791113413248,16,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-5,,false,,15582,1133,5,5,null,0,2970,0
+1791113413802,4,GET View Module,200,OK,Thread Group 1-5,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791113414553,5,GET List Students,200,OK,Thread Group 1-5,text,true,,14648,217,5,5,http://localhost:3000/api/students,4,0,0
+1791113415484,4,POST Add Student,409,Conflict,Thread Group 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,3,0,0
+1791113416231,3,POST Add Result,200,OK,Thread Group 1-5,text,true,,331,329,5,5,http://localhost:3000/api/results,2,0,0
+1791113414419,14,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-4,,false,,15582,1133,5,5,null,0,2959,0
+1791113414989,3,GET View Module,200,OK,Thread Group 1-4,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791113415862,4,GET List Students,200,OK,Thread Group 1-4,text,true,,14648,217,5,5,http://localhost:3000/api/students,4,0,0
+1791113416598,3,POST Add Student,409,Conflict,Thread Group 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,3,0,0
+1791113417388,4,POST Add Result,200,OK,Thread Group 1-4,text,true,,331,329,5,5,http://localhost:3000/api/results,4,0,0
+1791113414068,15,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-3,,false,,15582,1133,5,5,null,0,3314,0
+1791113415024,4,GET View Module,200,OK,Thread Group 1-3,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791113415706,4,GET List Students,200,OK,Thread Group 1-3,text,true,,14648,217,5,5,http://localhost:3000/api/students,4,0,0
+1791113416431,3,POST Add Student,409,Conflict,Thread Group 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,3,0,0
+1791113417393,4,POST Add Result,200,OK,Thread Group 1-3,text,true,,331,329,5,5,http://localhost:3000/api/results,3,0,0
+1791113414503,17,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-1,,false,,15582,1133,5,5,null,0,2991,0
+1791113415107,4,GET View Module,200,OK,Thread Group 1-1,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791113415988,4,GET List Students,200,OK,Thread Group 1-1,text,true,,14648,217,5,5,http://localhost:3000/api/students,4,0,0
+1791113416684,5,POST Add Student,409,Conflict,Thread Group 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,4,0,0
+1791113417507,4,POST Add Result,200,OK,Thread Group 1-1,text,true,,331,329,5,5,http://localhost:3000/api/results,4,0,0
+1791113415842,16,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-2,,false,,15582,1133,5,5,null,0,3294,0
+1791113416488,3,GET View Module,200,OK,Thread Group 1-2,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791113417408,5,GET List Students,200,OK,Thread Group 1-2,text,true,,14648,217,5,5,http://localhost:3000/api/students,5,0,0
+1791113418377,4,POST Add Student,409,Conflict,Thread Group 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,4,0,0
+1791113419148,4,POST Add Result,200,OK,Thread Group 1-2,text,true,,331,329,5,5,http://localhost:3000/api/results,4,0,0
+1791113416234,17,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-5,,false,,15582,1133,5,5,null,0,3219,0
+1791113417151,4,GET View Module,200,OK,Thread Group 1-5,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791113418104,5,GET List Students,200,OK,Thread Group 1-5,text,true,,14648,217,5,5,http://localhost:3000/api/students,5,0,0
+1791113418636,4,POST Add Student,409,Conflict,Thread Group 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,4,0,0
+1791113419466,4,POST Add Result,200,OK,Thread Group 1-5,text,true,,331,329,5,5,http://localhost:3000/api/results,4,0,0
+1791113417398,18,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-3,,false,,15582,1133,5,5,null,0,2925,0
+1791113418155,4,GET View Module,200,OK,Thread Group 1-3,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791113418789,5,GET List Students,200,OK,Thread Group 1-3,text,true,,14648,217,5,5,http://localhost:3000/api/students,4,0,0
+1791113419409,5,POST Add Student,409,Conflict,Thread Group 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,5,0,0
+1791113420338,4,POST Add Result,200,OK,Thread Group 1-3,text,true,,331,329,5,5,http://localhost:3000/api/results,3,0,0
+1791113417393,16,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-4,,false,,15582,1133,5,5,null,0,3360,0
+1791113418163,4,GET View Module,200,OK,Thread Group 1-4,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791113419079,5,GET List Students,200,OK,Thread Group 1-4,text,true,,14648,217,5,5,http://localhost:3000/api/students,4,0,0
+1791113419829,4,POST Add Student,409,Conflict,Thread Group 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,4,0,0
+1791113420766,3,POST Add Result,200,OK,Thread Group 1-4,text,true,,331,329,5,5,http://localhost:3000/api/results,3,0,0
+1791113417512,22,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-1,,false,,15582,1133,5,5,null,0,3397,0
+1791113418513,4,GET View Module,200,OK,Thread Group 1-1,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791113419210,10,GET List Students,200,OK,Thread Group 1-1,text,true,,14648,217,5,5,http://localhost:3000/api/students,10,0,0
+1791113420076,4,POST Add Student,409,Conflict,Thread Group 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,4,0,0
+1791113420928,4,POST Add Result,200,OK,Thread Group 1-1,text,true,,331,329,5,5,http://localhost:3000/api/results,4,0,0
+1791113419153,16,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-2,,false,,15582,1133,5,5,null,0,2945,0
+1791113419884,4,GET View Module,200,OK,Thread Group 1-2,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791113420828,5,GET List Students,200,OK,Thread Group 1-2,text,true,,14648,217,5,5,http://localhost:3000/api/students,4,0,0
+1791113421460,3,POST Add Student,409,Conflict,Thread Group 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,3,0,0
+1791113422111,4,POST Add Result,200,OK,Thread Group 1-2,text,true,,331,329,5,5,http://localhost:3000/api/results,4,0,0
+1791113419471,15,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-5,,false,,15582,1133,5,5,null,0,3120,0
+1791113420388,4,GET View Module,200,OK,Thread Group 1-5,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791113420911,4,GET List Students,200,OK,Thread Group 1-5,text,true,,14648,217,5,5,http://localhost:3000/api/students,4,0,0
+1791113421773,3,POST Add Student,409,Conflict,Thread Group 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,3,0,0
+1791113422603,4,POST Add Result,200,OK,Thread Group 1-5,text,true,,331,329,5,5,http://localhost:3000/api/results,4,0,0
+1791113420342,16,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-3,,false,,15582,1133,5,5,null,0,3069,0
+1791113421117,4,GET View Module,200,OK,Thread Group 1-3,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791113421856,4,GET List Students,200,OK,Thread Group 1-3,text,true,,14648,217,5,5,http://localhost:3000/api/students,4,0,0
+1791113422654,4,POST Add Student,409,Conflict,Thread Group 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,3,0,0
+1791113423423,4,POST Add Result,200,OK,Thread Group 1-3,text,true,,331,329,5,5,http://localhost:3000/api/results,4,0,0
+1791113420770,16,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-4,,false,,15582,1133,5,5,null,0,2897,0
+1791113421465,4,GET View Module,200,OK,Thread Group 1-4,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791113422324,4,GET List Students,200,OK,Thread Group 1-4,text,true,,14648,217,5,5,http://localhost:3000/api/students,4,0,0
+1791113423020,4,POST Add Student,409,Conflict,Thread Group 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,4,0,0
+1791113423679,4,POST Add Result,200,OK,Thread Group 1-4,text,true,,331,329,5,5,http://localhost:3000/api/results,4,0,0
+1791113420933,15,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-1,,false,,15582,1133,5,5,null,0,2743,0
+1791113421770,4,GET View Module,200,OK,Thread Group 1-1,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791113422358,4,GET List Students,200,OK,Thread Group 1-1,text,true,,14648,217,5,5,http://localhost:3000/api/students,4,0,0
+1791113422985,4,POST Add Student,409,Conflict,Thread Group 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,4,0,0
+1791113423687,3,POST Add Result,200,OK,Thread Group 1-1,text,true,,331,329,5,5,http://localhost:3000/api/results,3,0,0
+1791113422116,17,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-2,,false,,15582,1133,5,5,null,0,2956,0
+1791113422637,4,GET View Module,200,OK,Thread Group 1-2,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791113423579,5,GET List Students,200,OK,Thread Group 1-2,text,true,,14648,217,5,5,http://localhost:3000/api/students,4,0,0
+1791113424195,4,POST Add Student,409,Conflict,Thread Group 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,4,0,0
+1791113425084,4,POST Add Result,200,OK,Thread Group 1-2,text,true,,331,329,5,5,http://localhost:3000/api/results,4,0,0
+1791113422608,15,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-5,,false,,15582,1133,5,5,null,0,3728,0
+1791113423368,3,GET View Module,200,OK,Thread Group 1-5,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791113424356,5,GET List Students,200,OK,Thread Group 1-5,text,true,,14648,217,5,5,http://localhost:3000/api/students,5,0,0
+1791113425349,4,POST Add Student,409,Conflict,Thread Group 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,4,0,0
+1791113426348,3,POST Add Result,200,OK,Thread Group 1-5,text,true,,331,329,5,5,http://localhost:3000/api/results,3,0,0
+1791113423428,14,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-3,,false,,15582,1133,5,5,null,0,2914,0
+1791113424428,4,GET View Module,200,OK,Thread Group 1-3,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791113425240,4,GET List Students,200,OK,Thread Group 1-3,text,true,,14648,217,5,5,http://localhost:3000/api/students,4,0,0
+1791113425832,4,POST Add Student,409,Conflict,Thread Group 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,4,0,0
+1791113426354,2,POST Add Result,200,OK,Thread Group 1-3,text,true,,331,329,5,5,http://localhost:3000/api/results,2,0,0
+1791113423691,15,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-1,,false,,15582,1133,5,5,null,0,3045,0
+1791113424685,4,GET View Module,200,OK,Thread Group 1-1,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791113425312,4,GET List Students,200,OK,Thread Group 1-1,text,true,,14648,217,5,5,http://localhost:3000/api/students,3,0,0
+1791113426071,4,POST Add Student,409,Conflict,Thread Group 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,4,0,0
+1791113426748,3,POST Add Result,200,OK,Thread Group 1-1,text,true,,331,329,5,5,http://localhost:3000/api/results,3,0,0
+1791113423684,15,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-4,,false,,15582,1133,5,5,null,0,3270,0
+1791113424529,3,GET View Module,200,OK,Thread Group 1-4,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791113425342,4,GET List Students,200,OK,Thread Group 1-4,text,true,,14648,217,5,5,http://localhost:3000/api/students,4,0,0
+1791113425974,4,POST Add Student,409,Conflict,Thread Group 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,4,0,0
+1791113426965,4,POST Add Result,200,OK,Thread Group 1-4,text,true,,331,329,5,5,http://localhost:3000/api/results,4,0,0
+1791113425089,12,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-2,,false,,15582,1133,5,5,null,0,2837,0
+1791113426074,3,GET View Module,200,OK,Thread Group 1-2,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791113426632,3,GET List Students,200,OK,Thread Group 1-2,text,true,,14648,217,5,5,http://localhost:3000/api/students,3,0,0
+1791113427399,3,POST Add Student,409,Conflict,Thread Group 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,3,0,0
+1791113427934,3,POST Add Result,200,OK,Thread Group 1-2,text,true,,331,329,5,5,http://localhost:3000/api/results,3,0,0
+1791113426357,17,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-3,,false,,15582,1133,5,5,null,0,2463,0
+1791113426916,4,GET View Module,200,OK,Thread Group 1-3,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791113427430,3,GET List Students,200,OK,Thread Group 1-3,text,true,,14648,217,5,5,http://localhost:3000/api/students,3,0,0
+1791113427934,6,POST Add Student,409,Conflict,Thread Group 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,6,0,0
+1791113428833,4,POST Add Result,200,OK,Thread Group 1-3,text,true,,331,329,5,5,http://localhost:3000/api/results,4,0,0
+1791113426352,15,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-5,,false,,15582,1133,5,5,null,0,2694,0
+1791113427088,3,GET View Module,200,OK,Thread Group 1-5,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791113427712,4,GET List Students,200,OK,Thread Group 1-5,text,true,,14648,217,5,5,http://localhost:3000/api/students,4,0,0
+1791113428538,4,POST Add Student,409,Conflict,Thread Group 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,4,0,0
+1791113429057,4,POST Add Result,200,OK,Thread Group 1-5,text,true,,331,329,5,5,http://localhost:3000/api/results,3,0,0
+1791113426751,13,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-1,,false,,15582,1133,5,5,null,0,2525,0
+1791113427265,2,GET View Module,200,OK,Thread Group 1-1,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,2,0,0
+1791113427879,4,GET List Students,200,OK,Thread Group 1-1,text,true,,14648,217,5,5,http://localhost:3000/api/students,4,0,0
+1791113428652,3,POST Add Student,409,Conflict,Thread Group 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,3,0,0
+1791113429284,4,POST Add Result,200,OK,Thread Group 1-1,text,true,,331,329,5,5,http://localhost:3000/api/results,4,0,0
+1791113426970,17,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-4,,false,,15582,1133,5,5,null,0,3628,0
+1791113427930,4,GET View Module,200,OK,Thread Group 1-4,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791113428898,5,GET List Students,200,OK,Thread Group 1-4,text,true,,14648,217,5,5,http://localhost:3000/api/students,4,0,0
+1791113429744,4,POST Add Student,409,Conflict,Thread Group 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,4,0,0
+1791113430610,4,POST Add Result,200,OK,Thread Group 1-4,text,true,,331,329,5,5,http://localhost:3000/api/results,4,0,0
+1791113427938,16,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-2,,false,,15582,1133,5,5,null,0,3206,0
+1791113428827,4,GET View Module,200,OK,Thread Group 1-2,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791113429826,4,GET List Students,200,OK,Thread Group 1-2,text,true,,14648,217,5,5,http://localhost:3000/api/students,4,0,0
+1791113430558,4,POST Add Student,409,Conflict,Thread Group 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,4,0,0
+1791113431155,4,POST Add Result,200,OK,Thread Group 1-2,text,true,,331,329,5,5,http://localhost:3000/api/results,4,0,0
+1791113428838,17,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-3,,false,,15582,1133,5,5,null,0,2965,0
+1791113429657,4,GET View Module,200,OK,Thread Group 1-3,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791113430539,4,GET List Students,200,OK,Thread Group 1-3,text,true,,14648,217,5,5,http://localhost:3000/api/students,4,0,0
+1791113431246,5,POST Add Student,409,Conflict,Thread Group 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,5,0,0
+1791113431815,4,POST Add Result,200,OK,Thread Group 1-3,text,true,,331,329,5,5,http://localhost:3000/api/results,3,0,0
+1791113429061,17,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-5,,false,,15582,1133,5,5,null,0,3108,0
+1791113430013,4,GET View Module,200,OK,Thread Group 1-5,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791113430721,5,GET List Students,200,OK,Thread Group 1-5,text,true,,14648,217,5,5,http://localhost:3000/api/students,5,0,0
+1791113431303,4,POST Add Student,409,Conflict,Thread Group 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,4,0,0
+1791113432180,4,POST Add Result,200,OK,Thread Group 1-5,text,true,,331,329,5,5,http://localhost:3000/api/results,4,0,0
+1791113429289,16,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-1,,false,,15582,1133,5,5,null,0,3167,0
+1791113430110,4,GET View Module,200,OK,Thread Group 1-1,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791113431036,4,GET List Students,200,OK,Thread Group 1-1,text,true,,14648,217,5,5,http://localhost:3000/api/students,4,0,0
+1791113431687,4,POST Add Student,409,Conflict,Thread Group 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,4,0,0
+1791113432467,4,POST Add Result,200,OK,Thread Group 1-1,text,true,,331,329,5,5,http://localhost:3000/api/results,4,0,0
+1791113430615,13,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-4,,false,,15582,1133,5,5,null,0,3372,0
+1791113431436,4,GET View Module,200,OK,Thread Group 1-4,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791113432272,4,GET List Students,200,OK,Thread Group 1-4,text,true,,14648,217,5,5,http://localhost:3000/api/students,4,0,0
+1791113433185,3,POST Add Student,409,Conflict,Thread Group 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,3,0,0
+1791113433998,2,POST Add Result,200,OK,Thread Group 1-4,text,true,,331,329,5,5,http://localhost:3000/api/results,2,0,0
+1791113431160,15,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-2,,false,,15582,1133,5,5,null,0,3038,0
+1791113431945,3,GET View Module,200,OK,Thread Group 1-2,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791113432763,5,GET List Students,200,OK,Thread Group 1-2,text,true,,14648,217,5,5,http://localhost:3000/api/students,4,0,0
+1791113433315,3,POST Add Student,409,Conflict,Thread Group 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,3,0,0
+1791113434209,4,POST Add Result,200,OK,Thread Group 1-2,text,true,,331,329,5,5,http://localhost:3000/api/results,4,0,0
+1791113431819,14,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-3,,false,,15582,1133,5,5,null,0,2785,0
+1791113432634,4,GET View Module,200,OK,Thread Group 1-3,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791113433581,3,GET List Students,200,OK,Thread Group 1-3,text,true,,14648,217,5,5,http://localhost:3000/api/students,3,0,0
+1791113434093,3,POST Add Student,409,Conflict,Thread Group 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,3,0,0
+1791113434614,4,POST Add Result,200,OK,Thread Group 1-3,text,true,,331,329,5,5,http://localhost:3000/api/results,4,0,0
+1791113432185,14,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-5,,false,,15582,1133,5,5,null,0,2737,0
+1791113432788,4,GET View Module,200,OK,Thread Group 1-5,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791113433383,4,GET List Students,200,OK,Thread Group 1-5,text,true,,14648,217,5,5,http://localhost:3000/api/students,4,0,0
+1791113434164,3,POST Add Student,409,Conflict,Thread Group 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,3,0,0
+1791113434933,3,POST Add Result,200,OK,Thread Group 1-5,text,true,,331,329,5,5,http://localhost:3000/api/results,3,0,0
+1791113432472,12,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-1,,false,,15582,1133,5,5,null,0,3330,0
+1791113433352,4,GET View Module,200,OK,Thread Group 1-1,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791113434294,4,GET List Students,200,OK,Thread Group 1-1,text,true,,14648,217,5,5,http://localhost:3000/api/students,4,0,0
+1791113435258,2,POST Add Student,409,Conflict,Thread Group 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,2,0,0
+1791113435812,2,POST Add Result,200,OK,Thread Group 1-1,text,true,,331,329,5,5,http://localhost:3000/api/results,2,0,0
+1791113434000,11,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-4,,false,,15582,1133,5,5,null,0,2883,0
+1791113434523,2,GET View Module,200,OK,Thread Group 1-4,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,2,0,0
+1791113435167,3,GET List Students,200,OK,Thread Group 1-4,text,true,,14648,217,5,5,http://localhost:3000/api/students,3,0,0
+1791113436027,4,POST Add Student,409,Conflict,Thread Group 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,4,0,0
+1791113436892,2,POST Add Result,200,OK,Thread Group 1-4,text,true,,331,329,5,5,http://localhost:3000/api/results,2,0,0
+1791113434214,11,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-2,,false,,15582,1133,5,5,null,0,3241,0
+1791113435156,2,GET View Module,200,OK,Thread Group 1-2,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,2,0,0
+1791113435854,3,GET List Students,200,OK,Thread Group 1-2,text,true,,14648,217,5,5,http://localhost:3000/api/students,2,0,0
+1791113436487,3,POST Add Student,409,Conflict,Thread Group 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,3,0,0
+1791113437463,3,POST Add Result,200,OK,Thread Group 1-2,text,true,,331,329,5,5,http://localhost:3000/api/results,3,0,0
+1791113434618,10,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-3,,false,,15582,1133,5,5,null,0,2934,0
+1791113435551,2,GET View Module,200,OK,Thread Group 1-3,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,2,0,0
+1791113436350,4,GET List Students,200,OK,Thread Group 1-3,text,true,,14648,217,5,5,http://localhost:3000/api/students,4,0,0
+1791113436870,2,POST Add Student,409,Conflict,Thread Group 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,2,0,0
+1791113437559,2,POST Add Result,200,OK,Thread Group 1-3,text,true,,331,329,5,5,http://localhost:3000/api/results,2,0,0
+1791113434936,10,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-5,,false,,15582,1133,5,5,null,0,3061,0
+1791113435683,3,GET View Module,200,OK,Thread Group 1-5,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,2,0,0
+1791113436635,3,GET List Students,200,OK,Thread Group 1-5,text,true,,14648,217,5,5,http://localhost:3000/api/students,3,0,0
+1791113437384,2,POST Add Student,409,Conflict,Thread Group 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,2,0,0
+1791113438005,2,POST Add Result,200,OK,Thread Group 1-5,text,true,,331,329,5,5,http://localhost:3000/api/results,2,0,0
+1791113435815,12,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-1,,false,,15582,1133,5,5,null,0,2986,0
+1791113436526,3,GET View Module,200,OK,Thread Group 1-1,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791113437523,3,GET List Students,200,OK,Thread Group 1-1,text,true,,14648,217,5,5,http://localhost:3000/api/students,3,0,0
+1791113438052,2,POST Add Student,409,Conflict,Thread Group 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,2,0,0
+1791113438809,4,POST Add Result,200,OK,Thread Group 1-1,text,true,,331,329,5,5,http://localhost:3000/api/results,4,0,0
+1791113436895,10,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-4,,false,,15582,1133,5,5,null,0,2697,0
+1791113437616,3,GET View Module,200,OK,Thread Group 1-4,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791113438521,3,GET List Students,200,OK,Thread Group 1-4,text,true,,14648,217,5,5,http://localhost:3000/api/students,3,0,0
+1791113439057,2,POST Add Student,409,Conflict,Thread Group 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,2,0,0
+1791113439600,2,POST Add Result,200,OK,Thread Group 1-4,text,true,,331,329,5,5,http://localhost:3000/api/results,2,0,0
+1791113437562,10,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-3,,false,,15582,1133,5,5,null,0,2942,0
+1791113438215,2,GET View Module,200,OK,Thread Group 1-3,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,2,0,0
+1791113438721,3,GET List Students,200,OK,Thread Group 1-3,text,true,,14648,217,5,5,http://localhost:3000/api/students,2,0,0
+1791113439594,2,POST Add Student,409,Conflict,Thread Group 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,2,0,0
+1791113440511,3,POST Add Result,200,OK,Thread Group 1-3,text,true,,331,329,5,5,http://localhost:3000/api/results,2,0,0
+1791113437466,12,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-2,,false,,15582,1133,5,5,null,0,3147,0
+1791113438047,2,GET View Module,200,OK,Thread Group 1-2,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,2,0,0
+1791113438703,3,GET List Students,200,OK,Thread Group 1-2,text,true,,14648,217,5,5,http://localhost:3000/api/students,3,0,0
+1791113439698,3,POST Add Student,409,Conflict,Thread Group 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,3,0,0
+1791113440621,4,POST Add Result,200,OK,Thread Group 1-2,text,true,,331,329,5,5,http://localhost:3000/api/results,4,0,0
+1791113438008,10,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-5,,false,,15582,1133,5,5,null,0,2995,0
+1791113438630,3,GET View Module,200,OK,Thread Group 1-5,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791113439617,2,GET List Students,200,OK,Thread Group 1-5,text,true,,14648,217,5,5,http://localhost:3000/api/students,2,0,0
+1791113440502,2,POST Add Student,409,Conflict,Thread Group 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,2,0,0
+1791113441010,3,POST Add Result,200,OK,Thread Group 1-5,text,true,,331,329,5,5,http://localhost:3000/api/results,3,0,0
+1791113438814,13,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-1,,false,,15582,1133,5,5,null,0,2554,0
+1791113439425,4,GET View Module,200,OK,Thread Group 1-1,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791113439997,4,GET List Students,200,OK,Thread Group 1-1,text,true,,14648,217,5,5,http://localhost:3000/api/students,4,0,0
+1791113440860,3,POST Add Student,409,Conflict,Thread Group 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,3,0,0
+1791113441378,2,POST Add Result,200,OK,Thread Group 1-1,text,true,,331,329,5,5,http://localhost:3000/api/results,2,0,0
+1791113439602,10,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-4,,false,,15582,1133,5,5,null,0,3017,0
+1791113440465,2,GET View Module,200,OK,Thread Group 1-4,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,2,0,0
+1791113441128,3,GET List Students,200,OK,Thread Group 1-4,text,true,,14648,217,5,5,http://localhost:3000/api/students,3,0,0
+1791113441936,3,POST Add Student,409,Conflict,Thread Group 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,3,0,0
+1791113442627,2,POST Add Result,200,OK,Thread Group 1-4,text,true,,331,329,5,5,http://localhost:3000/api/results,2,0,0
+1791113440514,12,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-3,,false,,15582,1133,5,5,null,0,3022,0
+1791113441453,2,GET View Module,200,OK,Thread Group 1-3,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,2,0,0
+1791113442003,5,GET List Students,200,OK,Thread Group 1-3,text,true,,14648,217,5,5,http://localhost:3000/api/students,5,0,0
+1791113442880,2,POST Add Student,409,Conflict,Thread Group 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,2,0,0
+1791113443545,3,POST Add Result,200,OK,Thread Group 1-3,text,true,,331,329,5,5,http://localhost:3000/api/results,3,0,0
+1791113440626,15,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-2,,false,,15582,1133,5,5,null,0,3251,0
+1791113441363,2,GET View Module,200,OK,Thread Group 1-2,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,2,0,0
+1791113442162,4,GET List Students,200,OK,Thread Group 1-2,text,true,,14648,217,5,5,http://localhost:3000/api/students,3,0,0
+1791113443108,4,POST Add Student,409,Conflict,Thread Group 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,4,0,0
+1791113443887,5,POST Add Result,200,OK,Thread Group 1-2,text,true,,331,329,5,5,http://localhost:3000/api/results,5,0,0
+1791113441013,9,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-5,,false,,15582,1133,5,5,null,0,3195,0
+1791113441881,3,GET View Module,200,OK,Thread Group 1-5,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791113442828,2,GET List Students,200,OK,Thread Group 1-5,text,true,,14648,217,5,5,http://localhost:3000/api/students,2,0,0
+1791113443417,2,POST Add Student,409,Conflict,Thread Group 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,2,0,0
+1791113444214,2,POST Add Result,200,OK,Thread Group 1-5,text,true,,331,329,5,5,http://localhost:3000/api/results,2,0,0
+1791113441381,14,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-1,,false,,15582,1133,5,5,null,0,2883,0
+1791113442041,3,GET View Module,200,OK,Thread Group 1-1,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791113442698,4,GET List Students,200,OK,Thread Group 1-1,text,true,,14648,217,5,5,http://localhost:3000/api/students,4,0,0
+1791113443670,3,POST Add Student,409,Conflict,Thread Group 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,3,0,0
+1791113444274,4,POST Add Result,200,OK,Thread Group 1-1,text,true,,331,329,5,5,http://localhost:3000/api/results,4,0,0
+1791113442630,11,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-4,,false,,15582,1133,5,5,null,0,3272,0
+1791113443589,3,GET View Module,200,OK,Thread Group 1-4,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791113444575,3,GET List Students,200,OK,Thread Group 1-4,text,true,,14648,217,5,5,http://localhost:3000/api/students,3,0,0
+1791113445175,2,POST Add Student,409,Conflict,Thread Group 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,2,0,0
+1791113445909,3,POST Add Result,200,OK,Thread Group 1-4,text,true,,331,329,5,5,http://localhost:3000/api/results,2,0,0
+1791113443549,12,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-3,,false,,15582,1133,5,5,null,0,3069,0
+1791113444501,4,GET View Module,200,OK,Thread Group 1-3,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791113445116,4,GET List Students,200,OK,Thread Group 1-3,text,true,,14648,217,5,5,http://localhost:3000/api/students,3,0,0
+1791113445768,2,POST Add Student,409,Conflict,Thread Group 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,2,0,0
+1791113446627,2,POST Add Result,200,OK,Thread Group 1-3,text,true,,331,329,5,5,http://localhost:3000/api/results,2,0,0
+1791113443893,10,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-2,,false,,15582,1133,5,5,null,0,2958,0
+1791113444668,3,GET View Module,200,OK,Thread Group 1-2,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791113445577,3,GET List Students,200,OK,Thread Group 1-2,text,true,,14648,217,5,5,http://localhost:3000/api/students,3,0,0
+1791113446324,2,POST Add Student,409,Conflict,Thread Group 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,2,0,0
+1791113446857,2,POST Add Result,200,OK,Thread Group 1-2,text,true,,331,329,5,5,http://localhost:3000/api/results,2,0,0
+1791113444217,13,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-5,,false,,15582,1133,5,5,null,0,2818,0
+1791113444808,4,GET View Module,200,OK,Thread Group 1-5,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791113445364,3,GET List Students,200,OK,Thread Group 1-5,text,true,,14648,217,5,5,http://localhost:3000/api/students,3,0,0
+1791113446142,3,POST Add Student,409,Conflict,Thread Group 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,3,0,0
+1791113447044,3,POST Add Result,200,OK,Thread Group 1-5,text,true,,331,329,5,5,http://localhost:3000/api/results,3,0,0
+1791113444279,12,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-1,,false,,15582,1133,5,5,null,0,2856,0
+1791113444847,2,GET View Module,200,OK,Thread Group 1-1,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,2,0,0
+1791113445615,3,GET List Students,200,OK,Thread Group 1-1,text,true,,14648,217,5,5,http://localhost:3000/api/students,3,0,0
+1791113446353,4,POST Add Student,409,Conflict,Thread Group 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,2,0,0
+1791113447142,3,POST Add Result,200,OK,Thread Group 1-1,text,true,,331,329,5,5,http://localhost:3000/api/results,3,0,0
+1791113445912,12,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-4,,false,,15582,1133,5,5,null,0,3347,0
+1791113446770,2,GET View Module,200,OK,Thread Group 1-4,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,2,0,0
+1791113447524,3,GET List Students,200,OK,Thread Group 1-4,text,true,,14648,217,5,5,http://localhost:3000/api/students,3,0,0
+1791113448352,3,POST Add Student,409,Conflict,Thread Group 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,3,0,0
+1791113449267,4,POST Add Result,200,OK,Thread Group 1-4,text,true,,331,329,5,5,http://localhost:3000/api/results,4,0,0
+1791113446629,13,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-3,,false,,15582,1133,5,5,null,0,2716,0
+1791113447397,2,GET View Module,200,OK,Thread Group 1-3,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,2,0,0
+1791113447926,4,GET List Students,200,OK,Thread Group 1-3,text,true,,14648,217,5,5,http://localhost:3000/api/students,4,0,0
+1791113448635,3,POST Add Student,409,Conflict,Thread Group 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,3,0,0
+1791113449354,4,POST Add Result,200,OK,Thread Group 1-3,text,true,,331,329,5,5,http://localhost:3000/api/results,4,0,0
+1791113446860,12,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-2,,false,,15582,1133,5,5,null,0,2643,0
+1791113447496,3,GET View Module,200,OK,Thread Group 1-2,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791113448262,4,GET List Students,200,OK,Thread Group 1-2,text,true,,14648,217,5,5,http://localhost:3000/api/students,4,0,0
+1791113448950,2,POST Add Student,409,Conflict,Thread Group 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,2,0,0
+1791113449512,3,POST Add Result,200,OK,Thread Group 1-2,text,true,,331,329,5,5,http://localhost:3000/api/results,3,0,0
+1791113447146,19,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-1,,false,,15582,1133,5,5,null,0,2998,4
+1791113447842,4,GET View Module,200,OK,Thread Group 1-1,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791113448842,4,GET List Students,200,OK,Thread Group 1-1,text,true,,14648,217,5,5,http://localhost:3000/api/students,4,0,0
+1791113449543,4,POST Add Student,409,Conflict,Thread Group 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,4,0,0
+1791113450156,7,POST Add Result,200,OK,Thread Group 1-1,text,true,,331,329,5,5,http://localhost:3000/api/results,7,0,4
+1791113447047,17,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-5,,false,,15582,1133,5,5,null,0,3490,0
+1791113447968,3,GET View Module,200,OK,Thread Group 1-5,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791113448962,2,GET List Students,200,OK,Thread Group 1-5,text,true,,14648,217,5,5,http://localhost:3000/api/students,2,0,0
+1791113449543,8,POST Add Student,409,Conflict,Thread Group 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,8,0,0
+1791113450551,4,POST Add Result,200,OK,Thread Group 1-5,text,true,,331,329,5,5,http://localhost:3000/api/results,4,0,0
+1791113449271,13,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-4,,false,,15582,1133,5,5,null,0,2379,0
+1791113449852,3,GET View Module,200,OK,Thread Group 1-4,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791113450438,2,GET List Students,200,OK,Thread Group 1-4,text,true,,14648,217,5,5,http://localhost:3000/api/students,2,0,0
+1791113451103,4,POST Add Student,409,Conflict,Thread Group 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,4,0,0
+1791113451660,4,POST Add Result,200,OK,Thread Group 1-4,text,true,,331,329,5,5,http://localhost:3000/api/results,4,0,0
+1791113449358,13,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-3,,false,,15582,1133,5,5,null,0,2900,2
+1791113449955,4,GET View Module,200,OK,Thread Group 1-3,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791113450756,2,GET List Students,200,OK,Thread Group 1-3,text,true,,14648,217,5,5,http://localhost:3000/api/students,2,0,0
+1791113451295,3,POST Add Student,409,Conflict,Thread Group 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,3,0,0
+1791113452268,4,POST Add Result,200,OK,Thread Group 1-3,text,true,,331,329,5,5,http://localhost:3000/api/results,4,0,2
+1791113449515,14,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-2,,false,,15582,1133,5,5,null,0,2830,2
+1791113450190,3,GET View Module,200,OK,Thread Group 1-2,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791113450947,5,GET List Students,200,OK,Thread Group 1-2,text,true,,14648,217,5,5,http://localhost:3000/api/students,5,0,2
+1791113451561,3,POST Add Student,409,Conflict,Thread Group 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,3,0,0
+1791113452357,3,POST Add Result,200,OK,Thread Group 1-2,text,true,,331,329,5,5,http://localhost:3000/api/results,3,0,0
+1791113450164,13,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-1,,false,,15582,1133,5,5,null,0,2939,0
+1791113450731,3,GET View Module,200,OK,Thread Group 1-1,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791113451265,6,GET List Students,200,OK,Thread Group 1-1,text,true,,14648,217,5,5,http://localhost:3000/api/students,6,0,0
+1791113452244,2,POST Add Student,409,Conflict,Thread Group 1-1,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,2,0,0
+1791113453114,2,POST Add Result,200,OK,Thread Group 1-1,text,true,,331,329,5,5,http://localhost:3000/api/results,2,0,0
+1791113450556,13,Browse and Register Student,409,"Number of samples in transaction : 4, number of failing samples : 1",Thread Group 1-5,,false,,15582,1133,5,5,null,0,2896,0
+1791113451183,3,GET View Module,200,OK,Thread Group 1-5,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791113451957,5,GET List Students,200,OK,Thread Group 1-5,text,true,,14648,217,5,5,http://localhost:3000/api/students,5,0,0
+1791113452680,2,POST Add Student,409,Conflict,Thread Group 1-5,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,364,5,5,http://localhost:3000/api/students,2,0,0
+1791113453462,3,POST Add Result,200,OK,Thread Group 1-5,text,true,,331,329,5,5,http://localhost:3000/api/results,3,0,0
+1791113453465,798,Browse and Register Student,200,,Thread Group 1-5,,true,,309,223,5,5,null,0,0,0
+1791113454257,6,GET View Module,200,OK,Thread Group 1-5,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,6,0,3
+1791113452272,2020,Browse and Register Student,409,,Thread Group 1-3,,false,,15251,805,4,4,null,0,0,0
+1791113453067,2,GET View Module,200,OK,Thread Group 1-3,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,2,0,0
+1791113453630,2,GET List Students,200,OK,Thread Group 1-3,text,true,,14648,217,5,5,http://localhost:3000/api/students,2,0,0
+1791113454290,2,POST Add Student,409,Conflict,Thread Group 1-3,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,365,4,4,http://localhost:3000/api/students,2,0,0
+1791113452360,2054,Browse and Register Student,409,,Thread Group 1-2,,false,,15251,805,3,3,null,0,0,0
+1791113453165,2,GET View Module,200,OK,Thread Group 1-2,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,2,0,0
+1791113453785,3,GET List Students,200,OK,Thread Group 1-2,text,true,,14648,217,5,5,http://localhost:3000/api/students,3,0,0
+1791113454412,2,POST Add Student,409,Conflict,Thread Group 1-2,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,365,3,3,http://localhost:3000/api/students,2,0,0
+1791113451665,2802,Browse and Register Student,409,,Thread Group 1-4,,false,,15251,805,2,2,null,0,0,0
+1791113452569,3,GET View Module,200,OK,Thread Group 1-4,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791113453481,4,GET List Students,200,OK,Thread Group 1-4,text,true,,14648,217,5,5,http://localhost:3000/api/students,4,0,2
+1791113454464,3,POST Add Student,409,Conflict,Thread Group 1-4,text,false,"Test failed: code expected to equal /
+
+****** received  : [[[409]]]
+
+****** comparison: [[[201]]]
+
+/",294,365,2,2,http://localhost:3000/api/students,3,0,0
+1791113453116,1393,Browse and Register Student,200,,Thread Group 1-1,,true,,14957,440,1,1,null,0,0,0
+1791113453930,2,GET View Module,200,OK,Thread Group 1-1,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,2,0,0
+1791113454506,3,GET List Students,200,OK,Thread Group 1-1,text,true,,14648,217,1,1,http://localhost:3000/api/students,3,0,0

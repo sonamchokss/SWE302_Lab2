@@ -1,0 +1,525 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1791036492433,349,POST Login,200,OK,Thread Group 1-1,text,true,,419,228,1,1,http://localhost:3000/api/login,349,0,85
+1791036493137,221,POST Login,200,OK,Thread Group 1-2,text,true,,419,228,2,2,http://localhost:3000/api/login,221,0,1
+1791036494135,218,POST Login,200,OK,Thread Group 1-3,text,true,,419,228,3,3,http://localhost:3000/api/login,218,0,1
+1791036495133,234,POST Login,200,OK,Thread Group 1-4,text,true,,419,228,4,4,http://localhost:3000/api/login,234,0,1
+1791036492861,31,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-1,,true,,1421,1132,4,4,null,0,3057,0
+1791036493761,12,GET View Module,200,OK,Thread Group 1-1,text,true,,309,223,2,2,http://localhost:3000/api/modules/SWE302,12,0,0
+1791036494427,7,GET List Students,200,OK,Thread Group 1-1,text,true,,400,217,3,3,http://localhost:3000/api/students,7,0,0
+1791036495013,8,POST Add Student,201,Created,Thread Group 1-1,text,true,,376,363,3,3,http://localhost:3000/api/students,8,0,0
+1791036495944,4,POST Add Result,201,Created,Thread Group 1-1,text,true,,336,329,4,4,http://localhost:3000/api/results,4,0,0
+1791036496121,221,POST Login,200,OK,Thread Group 1-5,text,true,,419,228,5,5,http://localhost:3000/api/login,221,0,2
+1791036494355,19,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-3,,true,,1558,1132,5,5,null,0,2102,0
+1791036494867,6,GET View Module,200,OK,Thread Group 1-3,text,true,,309,223,3,3,http://localhost:3000/api/modules/SWE302,6,0,0
+1791036495428,3,GET List Students,200,OK,Thread Group 1-3,text,true,,537,217,4,4,http://localhost:3000/api/students,3,0,0
+1791036495955,5,POST Add Student,201,Created,Thread Group 1-3,text,true,,376,363,4,4,http://localhost:3000/api/students,5,0,0
+1791036496469,5,POST Add Result,201,Created,Thread Group 1-3,text,true,,336,329,5,5,http://localhost:3000/api/results,5,0,0
+1791036493360,405,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-2,,true,,1558,1132,5,5,null,0,3271,0
+1791036494271,87,GET View Module,200,OK,Thread Group 1-2,text,true,,309,223,3,3,http://localhost:3000/api/modules/SWE302,86,0,0
+1791036495231,187,GET List Students,200,OK,Thread Group 1-2,text,true,,537,217,4,4,http://localhost:3000/api/students,187,0,0
+1791036496220,127,POST Add Student,201,Created,Thread Group 1-2,text,true,,376,363,5,5,http://localhost:3000/api/students,127,0,0
+1791036497031,4,POST Add Result,201,Created,Thread Group 1-2,text,true,,336,329,5,5,http://localhost:3000/api/results,4,0,0
+1791036495369,18,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-4,,true,,1830,1132,5,5,null,0,2899,0
+1791036495871,5,GET View Module,200,OK,Thread Group 1-4,text,true,,309,223,4,4,http://localhost:3000/api/modules/SWE302,5,0,0
+1791036496786,5,GET List Students,200,OK,Thread Group 1-4,text,true,,809,217,5,5,http://localhost:3000/api/students,5,0,0
+1791036497631,4,POST Add Student,201,Created,Thread Group 1-4,text,true,,376,363,5,5,http://localhost:3000/api/students,4,0,0
+1791036498282,4,POST Add Result,201,Created,Thread Group 1-4,text,true,,336,329,5,5,http://localhost:3000/api/results,4,0,0
+1791036495950,18,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-1,,true,,1966,1132,5,5,null,0,2887,0
+1791036496771,6,GET View Module,200,OK,Thread Group 1-1,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,6,0,0
+1791036497698,4,GET List Students,200,OK,Thread Group 1-1,text,true,,945,217,5,5,http://localhost:3000/api/students,4,0,0
+1791036498248,5,POST Add Student,201,Created,Thread Group 1-1,text,true,,376,363,5,5,http://localhost:3000/api/students,5,0,0
+1791036498851,3,POST Add Result,201,Created,Thread Group 1-1,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036496343,15,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-5,,true,,1966,1132,5,5,null,0,2523,0
+1791036497193,4,GET View Module,200,OK,Thread Group 1-5,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791036497727,4,GET List Students,200,OK,Thread Group 1-5,text,true,,945,217,5,5,http://localhost:3000/api/students,4,0,0
+1791036498256,3,POST Add Student,201,Created,Thread Group 1-5,text,true,,376,363,5,5,http://localhost:3000/api/students,3,0,0
+1791036498877,4,POST Add Result,201,Created,Thread Group 1-5,text,true,,336,329,5,5,http://localhost:3000/api/results,4,0,0
+1791036496477,13,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-3,,true,,1966,1132,5,5,null,0,2947,0
+1791036497302,3,GET View Module,200,OK,Thread Group 1-3,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036498000,3,GET List Students,200,OK,Thread Group 1-3,text,true,,945,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036498655,4,POST Add Student,201,Created,Thread Group 1-3,text,true,,376,363,5,5,http://localhost:3000/api/students,4,0,0
+1791036499433,3,POST Add Result,201,Created,Thread Group 1-3,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036497037,16,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-2,,true,,2375,1132,5,5,null,0,3387,0
+1791036497911,4,GET View Module,200,OK,Thread Group 1-2,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791036498860,3,GET List Students,200,OK,Thread Group 1-2,text,true,,1354,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036499807,5,POST Add Student,201,Created,Thread Group 1-2,text,true,,376,363,5,5,http://localhost:3000/api/students,5,0,0
+1791036500436,4,POST Add Result,201,Created,Thread Group 1-2,text,true,,336,329,5,5,http://localhost:3000/api/results,4,0,0
+1791036498287,13,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-4,,true,,2375,1132,5,5,null,0,2804,0
+1791036498975,3,GET View Module,200,OK,Thread Group 1-4,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036499517,3,GET List Students,200,OK,Thread Group 1-4,text,true,,1354,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036500372,4,POST Add Student,201,Created,Thread Group 1-4,text,true,,376,363,5,5,http://localhost:3000/api/students,4,0,0
+1791036501101,3,POST Add Result,201,Created,Thread Group 1-4,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036498856,15,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-1,,true,,2512,1133,5,5,null,0,2699,0
+1791036499523,3,GET View Module,200,OK,Thread Group 1-1,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036500312,4,GET List Students,200,OK,Thread Group 1-1,text,true,,1490,217,5,5,http://localhost:3000/api/students,4,0,0
+1791036500956,4,POST Add Student,201,Created,Thread Group 1-1,text,true,,377,364,5,5,http://localhost:3000/api/students,4,0,0
+1791036501565,4,POST Add Result,201,Created,Thread Group 1-1,text,true,,336,329,5,5,http://localhost:3000/api/results,4,0,0
+1791036498882,12,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-5,,true,,2512,1133,5,5,null,0,2772,0
+1791036499454,2,GET View Module,200,OK,Thread Group 1-5,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,2,0,0
+1791036500279,4,GET List Students,200,OK,Thread Group 1-5,text,true,,1490,217,5,5,http://localhost:3000/api/students,4,0,0
+1791036500915,2,POST Add Student,201,Created,Thread Group 1-5,text,true,,377,364,5,5,http://localhost:3000/api/students,2,0,0
+1791036501662,4,POST Add Result,201,Created,Thread Group 1-5,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036499437,12,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-3,,true,,2922,1133,5,5,null,0,2851,0
+1791036500298,3,GET View Module,200,OK,Thread Group 1-3,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036501027,3,GET List Students,200,OK,Thread Group 1-3,text,true,,1900,217,5,5,http://localhost:3000/api/students,2,0,0
+1791036501564,3,POST Add Student,201,Created,Thread Group 1-3,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036502297,3,POST Add Result,201,Created,Thread Group 1-3,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036500441,14,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-2,,true,,3059,1133,5,5,null,0,3064,0
+1791036501139,4,GET View Module,200,OK,Thread Group 1-2,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791036502112,3,GET List Students,200,OK,Thread Group 1-2,text,true,,2037,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036502923,4,POST Add Student,201,Created,Thread Group 1-2,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036503515,3,POST Add Result,201,Created,Thread Group 1-2,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036501105,15,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-4,,true,,3059,1133,5,5,null,0,2922,0
+1791036501742,4,GET View Module,200,OK,Thread Group 1-4,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791036502392,3,GET List Students,200,OK,Thread Group 1-4,text,true,,2037,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036503321,4,POST Add Student,201,Created,Thread Group 1-4,text,true,,377,364,5,5,http://localhost:3000/api/students,4,0,0
+1791036504038,4,POST Add Result,201,Created,Thread Group 1-4,text,true,,336,329,5,5,http://localhost:3000/api/results,4,0,0
+1791036501570,13,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-1,,true,,3059,1133,5,5,null,0,2832,0
+1791036502125,2,GET View Module,200,OK,Thread Group 1-1,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,2,0,0
+1791036502725,3,GET List Students,200,OK,Thread Group 1-1,text,true,,2037,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036503642,4,POST Add Student,201,Created,Thread Group 1-1,text,true,,377,364,5,5,http://localhost:3000/api/students,4,0,0
+1791036504410,4,POST Add Result,201,Created,Thread Group 1-1,text,true,,336,329,5,5,http://localhost:3000/api/results,4,0,0
+1791036501666,15,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-5,,true,,3196,1133,5,5,null,0,3000,0
+1791036502184,4,GET View Module,200,OK,Thread Group 1-5,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791036503041,4,GET List Students,200,OK,Thread Group 1-5,text,true,,2174,217,5,5,http://localhost:3000/api/students,4,0,0
+1791036503781,3,POST Add Student,201,Created,Thread Group 1-5,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036504677,4,POST Add Result,201,Created,Thread Group 1-5,text,true,,336,329,5,5,http://localhost:3000/api/results,4,0,0
+1791036502301,15,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-3,,true,,3607,1133,5,5,null,0,3004,0
+1791036503003,4,GET View Module,200,OK,Thread Group 1-3,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791036503920,5,GET List Students,200,OK,Thread Group 1-3,text,true,,2585,217,5,5,http://localhost:3000/api/students,5,0,0
+1791036504534,3,POST Add Student,201,Created,Thread Group 1-3,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036505316,3,POST Add Result,201,Created,Thread Group 1-3,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036503519,15,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-2,,true,,3744,1133,5,5,null,0,2959,0
+1791036504507,4,GET View Module,200,OK,Thread Group 1-2,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791036505100,4,GET List Students,200,OK,Thread Group 1-2,text,true,,2722,217,5,5,http://localhost:3000/api/students,4,0,0
+1791036505745,3,POST Add Student,201,Created,Thread Group 1-2,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036506488,4,POST Add Result,201,Created,Thread Group 1-2,text,true,,336,329,5,5,http://localhost:3000/api/results,4,0,0
+1791036504043,13,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-4,,true,,3881,1133,5,5,null,0,3213,0
+1791036504916,3,GET View Module,200,OK,Thread Group 1-4,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036505833,4,GET List Students,200,OK,Thread Group 1-4,text,true,,2859,217,5,5,http://localhost:3000/api/students,4,0,0
+1791036506727,3,POST Add Student,201,Created,Thread Group 1-4,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036507266,3,POST Add Result,201,Created,Thread Group 1-4,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036504416,15,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-1,,true,,3744,1133,5,5,null,0,3015,0
+1791036504925,4,GET View Module,200,OK,Thread Group 1-1,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791036505664,4,GET List Students,200,OK,Thread Group 1-1,text,true,,2722,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036506500,3,POST Add Student,201,Created,Thread Group 1-1,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036507442,4,POST Add Result,201,Created,Thread Group 1-1,text,true,,336,329,5,5,http://localhost:3000/api/results,4,0,0
+1791036505320,10,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-3,,true,,3881,1133,5,5,null,0,2706,0
+1791036505892,2,GET View Module,200,OK,Thread Group 1-3,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,2,0,0
+1791036506476,2,GET List Students,200,OK,Thread Group 1-3,text,true,,2859,217,5,5,http://localhost:3000/api/students,2,0,0
+1791036507474,3,POST Add Student,201,Created,Thread Group 1-3,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036508032,3,POST Add Result,201,Created,Thread Group 1-3,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036504682,12,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-5,,true,,3881,1133,5,5,null,0,3437,0
+1791036505481,3,GET View Module,200,OK,Thread Group 1-5,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036506468,3,GET List Students,200,OK,Thread Group 1-5,text,true,,2859,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036507455,3,POST Add Student,201,Created,Thread Group 1-5,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036508128,3,POST Add Result,201,Created,Thread Group 1-5,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036507269,9,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-4,,true,,4429,1133,5,5,null,0,2325,0
+1791036507796,2,GET View Module,200,OK,Thread Group 1-4,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,2,0,0
+1791036508394,3,GET List Students,200,OK,Thread Group 1-4,text,true,,3407,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036509083,2,POST Add Student,201,Created,Thread Group 1-4,text,true,,377,364,5,5,http://localhost:3000/api/students,2,0,0
+1791036509601,2,POST Add Result,201,Created,Thread Group 1-4,text,true,,336,329,5,5,http://localhost:3000/api/results,2,0,0
+1791036506493,13,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-2,,true,,4429,1133,5,5,null,0,3149,0
+1791036507088,4,GET View Module,200,OK,Thread Group 1-2,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791036507850,4,GET List Students,200,OK,Thread Group 1-2,text,true,,3407,217,5,5,http://localhost:3000/api/students,4,0,0
+1791036508700,3,POST Add Student,201,Created,Thread Group 1-2,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036509652,2,POST Add Result,201,Created,Thread Group 1-2,text,true,,336,329,5,5,http://localhost:3000/api/results,2,0,0
+1791036507447,13,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-1,,true,,4566,1133,5,5,null,0,2396,0
+1791036508071,4,GET View Module,200,OK,Thread Group 1-1,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791036508799,3,GET List Students,200,OK,Thread Group 1-1,text,true,,3544,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036509325,3,POST Add Student,201,Created,Thread Group 1-1,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036509853,3,POST Add Result,201,Created,Thread Group 1-1,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036508131,15,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-5,,true,,4840,1133,5,5,null,0,3127,0
+1791036508775,5,GET View Module,200,OK,Thread Group 1-5,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,5,0,0
+1791036509645,3,GET List Students,200,OK,Thread Group 1-5,text,true,,3818,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036510384,3,POST Add Student,201,Created,Thread Group 1-5,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036511269,4,POST Add Result,201,Created,Thread Group 1-5,text,true,,336,329,5,5,http://localhost:3000/api/results,4,0,0
+1791036508036,12,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-3,,true,,4840,1133,5,5,null,0,3288,0
+1791036508988,2,GET View Module,200,OK,Thread Group 1-3,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,2,0,0
+1791036509882,4,GET List Students,200,OK,Thread Group 1-3,text,true,,3818,217,5,5,http://localhost:3000/api/students,4,0,0
+1791036510659,3,POST Add Student,201,Created,Thread Group 1-3,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036511333,3,POST Add Result,201,Created,Thread Group 1-3,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036509857,12,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-1,,true,,5114,1133,5,5,null,0,2659,0
+1791036510576,3,GET View Module,200,OK,Thread Group 1-1,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036511148,3,GET List Students,200,OK,Thread Group 1-1,text,true,,4092,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036511990,2,POST Add Student,201,Created,Thread Group 1-1,text,true,,377,364,5,5,http://localhost:3000/api/students,2,0,0
+1791036512525,4,POST Add Result,201,Created,Thread Group 1-1,text,true,,336,329,5,5,http://localhost:3000/api/results,4,0,0
+1791036509655,14,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-2,,true,,5114,1133,5,5,null,0,2945,0
+1791036510635,5,GET View Module,200,OK,Thread Group 1-2,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,5,0,0
+1791036511161,3,GET List Students,200,OK,Thread Group 1-2,text,true,,4092,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036511868,3,POST Add Student,201,Created,Thread Group 1-2,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036512611,3,POST Add Result,201,Created,Thread Group 1-2,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036509604,14,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-4,,true,,5114,1133,5,5,null,0,3123,0
+1791036510230,3,GET View Module,200,OK,Thread Group 1-4,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036511051,2,GET List Students,200,OK,Thread Group 1-4,text,true,,4092,217,5,5,http://localhost:3000/api/students,2,0,0
+1791036512049,4,POST Add Student,201,Created,Thread Group 1-4,text,true,,377,364,5,5,http://localhost:3000/api/students,4,0,0
+1791036512736,5,POST Add Result,201,Created,Thread Group 1-4,text,true,,336,329,5,5,http://localhost:3000/api/results,5,0,0
+1791036511338,14,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-3,,true,,5526,1133,5,5,null,0,3039,0
+1791036511972,4,GET View Module,200,OK,Thread Group 1-3,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791036512776,5,GET List Students,200,OK,Thread Group 1-3,text,true,,4504,217,5,5,http://localhost:3000/api/students,5,0,0
+1791036513641,3,POST Add Student,201,Created,Thread Group 1-3,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036514390,2,POST Add Result,201,Created,Thread Group 1-3,text,true,,336,329,5,5,http://localhost:3000/api/results,2,0,0
+1791036511275,12,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-5,,true,,5526,1133,5,5,null,0,3342,0
+1791036512051,4,GET View Module,200,OK,Thread Group 1-5,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791036512672,3,GET List Students,200,OK,Thread Group 1-5,text,true,,4504,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036513676,3,POST Add Student,201,Created,Thread Group 1-5,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036514628,2,POST Add Result,201,Created,Thread Group 1-5,text,true,,336,329,5,5,http://localhost:3000/api/results,2,0,0
+1791036512615,11,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-2,,true,,5800,1133,5,5,null,0,2647,0
+1791036513462,3,GET View Module,200,OK,Thread Group 1-2,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036514054,3,GET List Students,200,OK,Thread Group 1-2,text,true,,4778,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036514587,3,POST Add Student,201,Created,Thread Group 1-2,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036515270,2,POST Add Result,201,Created,Thread Group 1-2,text,true,,336,329,5,5,http://localhost:3000/api/results,2,0,0
+1791036512742,11,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-4,,true,,5800,1133,5,5,null,0,2845,0
+1791036513517,2,GET View Module,200,OK,Thread Group 1-4,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,2,0,0
+1791036514167,3,GET List Students,200,OK,Thread Group 1-4,text,true,,4778,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036514727,3,POST Add Student,201,Created,Thread Group 1-4,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036515595,3,POST Add Result,201,Created,Thread Group 1-4,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036512530,15,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-1,,true,,5800,1133,5,5,null,0,3085,0
+1791036513512,5,GET View Module,200,OK,Thread Group 1-1,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,5,0,0
+1791036514103,3,GET List Students,200,OK,Thread Group 1-1,text,true,,4778,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036515008,4,POST Add Student,201,Created,Thread Group 1-1,text,true,,377,364,5,5,http://localhost:3000/api/students,4,0,0
+1791036515627,3,POST Add Result,201,Created,Thread Group 1-1,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036514630,13,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-5,,true,,6211,1133,5,5,null,0,2751,0
+1791036515418,3,GET View Module,200,OK,Thread Group 1-5,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036516234,3,GET List Students,200,OK,Thread Group 1-5,text,true,,5189,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036516847,3,POST Add Student,201,Created,Thread Group 1-5,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036517389,4,POST Add Result,201,Created,Thread Group 1-5,text,true,,336,329,5,5,http://localhost:3000/api/results,4,0,0
+1791036514393,13,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-3,,true,,6211,1133,5,5,null,0,3329,0
+1791036515321,4,GET View Module,200,OK,Thread Group 1-3,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791036516008,4,GET List Students,200,OK,Thread Group 1-3,text,true,,5189,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036516768,3,POST Add Student,201,Created,Thread Group 1-3,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036517732,2,POST Add Result,201,Created,Thread Group 1-3,text,true,,336,329,5,5,http://localhost:3000/api/results,2,0,0
+1791036515273,14,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-2,,true,,6485,1133,5,5,null,0,2931,0
+1791036516010,4,GET View Module,200,OK,Thread Group 1-2,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791036516852,2,GET List Students,200,OK,Thread Group 1-2,text,true,,5463,217,5,5,http://localhost:3000/api/students,2,0,0
+1791036517608,4,POST Add Student,201,Created,Thread Group 1-2,text,true,,377,364,5,5,http://localhost:3000/api/students,4,0,0
+1791036518213,4,POST Add Result,201,Created,Thread Group 1-2,text,true,,336,329,5,5,http://localhost:3000/api/results,4,0,0
+1791036515599,12,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-4,,true,,6348,1133,5,5,null,0,2631,0
+1791036516212,3,GET View Module,200,OK,Thread Group 1-4,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036516797,3,GET List Students,200,OK,Thread Group 1-4,text,true,,5326,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036517644,3,POST Add Student,201,Created,Thread Group 1-4,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036518238,3,POST Add Result,201,Created,Thread Group 1-4,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036515631,14,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-1,,true,,6485,1133,5,5,null,0,3119,0
+1791036516274,3,GET View Module,200,OK,Thread Group 1-1,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036516874,3,GET List Students,200,OK,Thread Group 1-1,text,true,,5463,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036517825,5,POST Add Student,201,Created,Thread Group 1-1,text,true,,377,364,5,5,http://localhost:3000/api/students,5,0,0
+1791036518760,3,POST Add Result,201,Created,Thread Group 1-1,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036517393,14,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-5,,true,,6896,1133,5,5,null,0,2871,0
+1791036518141,3,GET View Module,200,OK,Thread Group 1-5,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036518954,3,GET List Students,200,OK,Thread Group 1-5,text,true,,5874,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036519481,3,POST Add Student,201,Created,Thread Group 1-5,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036520273,5,POST Add Result,201,Created,Thread Group 1-5,text,true,,336,329,5,5,http://localhost:3000/api/results,4,0,0
+1791036517735,15,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-3,,true,,6896,1133,5,5,null,0,2531,0
+1791036518351,3,GET View Module,200,OK,Thread Group 1-3,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036518931,4,GET List Students,200,OK,Thread Group 1-3,text,true,,5874,217,5,5,http://localhost:3000/api/students,4,0,0
+1791036519578,4,POST Add Student,201,Created,Thread Group 1-3,text,true,,377,364,5,5,http://localhost:3000/api/students,4,0,0
+1791036520277,4,POST Add Result,201,Created,Thread Group 1-3,text,true,,336,329,5,5,http://localhost:3000/api/results,4,0,0
+1791036518218,13,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-2,,true,,7033,1133,5,5,null,0,2787,0
+1791036518997,3,GET View Module,200,OK,Thread Group 1-2,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036519540,3,GET List Students,200,OK,Thread Group 1-2,text,true,,6011,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036520324,4,POST Add Student,201,Created,Thread Group 1-2,text,true,,377,364,5,5,http://localhost:3000/api/students,4,0,0
+1791036521014,3,POST Add Result,201,Created,Thread Group 1-2,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036518764,10,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-1,,true,,7170,1133,5,5,null,0,2676,0
+1791036519315,2,GET View Module,200,OK,Thread Group 1-1,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,2,0,0
+1791036519910,3,GET List Students,200,OK,Thread Group 1-1,text,true,,6148,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036520742,3,POST Add Student,201,Created,Thread Group 1-1,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036521448,2,POST Add Result,201,Created,Thread Group 1-1,text,true,,336,329,5,5,http://localhost:3000/api/results,2,0,0
+1791036518242,12,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-4,,true,,7170,1133,5,5,null,0,3222,0
+1791036518930,3,GET View Module,200,OK,Thread Group 1-4,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036519928,3,GET List Students,200,OK,Thread Group 1-4,text,true,,6148,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036520776,3,POST Add Student,201,Created,Thread Group 1-4,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036521472,3,POST Add Result,201,Created,Thread Group 1-4,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036520282,15,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-3,,true,,7581,1133,5,5,null,0,2873,0
+1791036521154,4,GET View Module,200,OK,Thread Group 1-3,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791036521752,3,GET List Students,200,OK,Thread Group 1-3,text,true,,6559,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036522259,5,POST Add Student,201,Created,Thread Group 1-3,text,true,,377,364,5,5,http://localhost:3000/api/students,5,0,0
+1791036523168,3,POST Add Result,201,Created,Thread Group 1-3,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036520278,12,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-5,,true,,7581,1133,5,5,null,0,3030,0
+1791036521194,3,GET View Module,200,OK,Thread Group 1-5,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036521702,3,GET List Students,200,OK,Thread Group 1-5,text,true,,6559,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036522474,3,POST Add Student,201,Created,Thread Group 1-5,text,true,,377,364,5,5,http://localhost:3000/api/students,2,0,0
+1791036523317,3,POST Add Result,201,Created,Thread Group 1-5,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036521018,12,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-2,,true,,7855,1133,5,5,null,0,2884,0
+1791036521875,3,GET View Module,200,OK,Thread Group 1-2,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036522539,3,GET List Students,200,OK,Thread Group 1-2,text,true,,6833,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036523267,3,POST Add Student,201,Created,Thread Group 1-2,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036523912,3,POST Add Result,201,Created,Thread Group 1-2,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036521476,12,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-4,,true,,7855,1133,5,5,null,0,2837,0
+1791036522411,2,GET View Module,200,OK,Thread Group 1-4,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,2,0,0
+1791036523001,4,GET List Students,200,OK,Thread Group 1-4,text,true,,6833,217,5,5,http://localhost:3000/api/students,4,0,0
+1791036523658,2,POST Add Student,201,Created,Thread Group 1-4,text,true,,377,364,5,5,http://localhost:3000/api/students,2,0,0
+1791036524321,4,POST Add Result,201,Created,Thread Group 1-4,text,true,,336,329,5,5,http://localhost:3000/api/results,4,0,0
+1791036521451,11,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-1,,true,,7855,1133,5,5,null,0,3456,0
+1791036522249,4,GET View Module,200,OK,Thread Group 1-1,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791036523059,3,GET List Students,200,OK,Thread Group 1-1,text,true,,6833,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036523990,2,POST Add Student,201,Created,Thread Group 1-1,text,true,,377,364,5,5,http://localhost:3000/api/students,2,0,0
+1791036524916,2,POST Add Result,201,Created,Thread Group 1-1,text,true,,336,329,5,5,http://localhost:3000/api/results,2,0,0
+1791036523171,11,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-3,,true,,8266,1133,5,5,null,0,2801,0
+1791036523880,2,GET View Module,200,OK,Thread Group 1-3,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,2,0,0
+1791036524640,3,GET List Students,200,OK,Thread Group 1-3,text,true,,7244,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036525428,3,POST Add Student,201,Created,Thread Group 1-3,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036525980,3,POST Add Result,201,Created,Thread Group 1-3,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036523322,13,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-5,,true,,8266,1133,5,5,null,0,3412,0
+1791036524118,3,GET View Module,200,OK,Thread Group 1-5,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036525085,3,GET List Students,200,OK,Thread Group 1-5,text,true,,7244,217,5,5,http://localhost:3000/api/students,2,0,0
+1791036526002,4,POST Add Student,201,Created,Thread Group 1-5,text,true,,377,364,5,5,http://localhost:3000/api/students,4,0,0
+1791036526744,3,POST Add Result,201,Created,Thread Group 1-5,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036523916,11,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-2,,true,,8403,1133,5,5,null,0,3128,0
+1791036524768,3,GET View Module,200,OK,Thread Group 1-2,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036525727,3,GET List Students,200,OK,Thread Group 1-2,text,true,,7381,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036526380,2,POST Add Student,201,Created,Thread Group 1-2,text,true,,377,364,5,5,http://localhost:3000/api/students,2,0,0
+1791036527052,3,POST Add Result,201,Created,Thread Group 1-2,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036524326,10,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-4,,true,,8403,1133,5,5,null,0,3032,0
+1791036525255,3,GET View Module,200,OK,Thread Group 1-4,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036525934,2,GET List Students,200,OK,Thread Group 1-4,text,true,,7381,217,5,5,http://localhost:3000/api/students,2,0,0
+1791036526583,2,POST Add Student,201,Created,Thread Group 1-4,text,true,,377,364,5,5,http://localhost:3000/api/students,2,0,0
+1791036527364,3,POST Add Result,201,Created,Thread Group 1-4,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036524919,15,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-1,,true,,8540,1133,5,5,null,0,2861,0
+1791036525659,4,GET View Module,200,OK,Thread Group 1-1,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791036526360,4,GET List Students,200,OK,Thread Group 1-1,text,true,,7518,217,5,5,http://localhost:3000/api/students,4,0,0
+1791036527282,3,POST Add Student,201,Created,Thread Group 1-1,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036527790,4,POST Add Result,201,Created,Thread Group 1-1,text,true,,336,329,5,5,http://localhost:3000/api/results,4,0,0
+1791036525984,13,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-3,,true,,8814,1133,5,5,null,0,2582,0
+1791036526532,2,GET View Module,200,OK,Thread Group 1-3,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,2,0,0
+1791036527114,3,GET List Students,200,OK,Thread Group 1-3,text,true,,7792,217,5,5,http://localhost:3000/api/students,2,0,0
+1791036527771,3,POST Add Student,201,Created,Thread Group 1-3,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036528573,5,POST Add Result,201,Created,Thread Group 1-3,text,true,,336,329,5,5,http://localhost:3000/api/results,5,0,0
+1791036526748,13,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-5,,true,,9088,1133,5,5,null,0,2729,0
+1791036527708,3,GET View Module,200,OK,Thread Group 1-5,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036528349,3,GET List Students,200,OK,Thread Group 1-5,text,true,,8066,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036528857,4,POST Add Student,201,Created,Thread Group 1-5,text,true,,377,364,5,5,http://localhost:3000/api/students,4,0,0
+1791036529486,3,POST Add Result,201,Created,Thread Group 1-5,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036527056,16,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-2,,true,,9088,1133,5,5,null,0,3089,0
+1791036527818,5,GET View Module,200,OK,Thread Group 1-2,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,5,0,0
+1791036528378,3,GET List Students,200,OK,Thread Group 1-2,text,true,,8066,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036529355,5,POST Add Student,201,Created,Thread Group 1-2,text,true,,377,364,5,5,http://localhost:3000/api/students,4,0,0
+1791036530157,3,POST Add Result,201,Created,Thread Group 1-2,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036527367,11,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-4,,true,,9225,1133,5,5,null,0,3069,0
+1791036527932,4,GET View Module,200,OK,Thread Group 1-4,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791036528932,3,GET List Students,200,OK,Thread Group 1-4,text,true,,8203,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036529734,2,POST Add Student,201,Created,Thread Group 1-4,text,true,,377,364,5,5,http://localhost:3000/api/students,2,0,0
+1791036530445,2,POST Add Result,201,Created,Thread Group 1-4,text,true,,336,329,5,5,http://localhost:3000/api/results,2,0,0
+1791036527794,12,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-1,,true,,9362,1133,5,5,null,0,3642,0
+1791036528696,3,GET View Module,200,OK,Thread Group 1-1,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036529661,4,GET List Students,200,OK,Thread Group 1-1,text,true,,8340,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036530625,2,POST Add Student,201,Created,Thread Group 1-1,text,true,,377,364,5,5,http://localhost:3000/api/students,2,0,0
+1791036531445,3,POST Add Result,201,Created,Thread Group 1-1,text,true,,336,329,5,5,http://localhost:3000/api/results,2,0,0
+1791036528578,15,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-3,,true,,9499,1133,5,5,null,0,3553,0
+1791036529240,4,GET View Module,200,OK,Thread Group 1-3,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791036530238,2,GET List Students,200,OK,Thread Group 1-3,text,true,,8477,217,5,5,http://localhost:3000/api/students,2,0,0
+1791036531143,4,POST Add Student,201,Created,Thread Group 1-3,text,true,,377,364,5,5,http://localhost:3000/api/students,4,0,0
+1791036532141,5,POST Add Result,201,Created,Thread Group 1-3,text,true,,336,329,5,5,http://localhost:3000/api/results,5,0,0
+1791036529489,13,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-5,,true,,9636,1133,5,5,null,0,3094,0
+1791036530252,3,GET View Module,200,OK,Thread Group 1-5,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036531000,5,GET List Students,200,OK,Thread Group 1-5,text,true,,8614,217,5,5,http://localhost:3000/api/students,5,0,0
+1791036531703,3,POST Add Student,201,Created,Thread Group 1-5,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036532593,2,POST Add Result,201,Created,Thread Group 1-5,text,true,,336,329,5,5,http://localhost:3000/api/results,2,0,0
+1791036530448,10,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-4,,true,,9910,1133,5,5,null,0,2574,0
+1791036531125,3,GET View Module,200,OK,Thread Group 1-4,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036531708,2,GET List Students,200,OK,Thread Group 1-4,text,true,,8888,217,5,5,http://localhost:3000/api/students,2,0,0
+1791036532306,3,POST Add Student,201,Created,Thread Group 1-4,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036533030,2,POST Add Result,201,Created,Thread Group 1-4,text,true,,336,329,5,5,http://localhost:3000/api/results,2,0,0
+1791036530160,14,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-2,,true,,9773,1133,5,5,null,0,2895,0
+1791036530967,3,GET View Module,200,OK,Thread Group 1-2,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036531517,5,GET List Students,200,OK,Thread Group 1-2,text,true,,8751,217,5,5,http://localhost:3000/api/students,5,0,0
+1791036532437,3,POST Add Student,201,Created,Thread Group 1-2,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036533065,3,POST Add Result,201,Created,Thread Group 1-2,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036531448,14,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-1,,true,,10184,1133,5,5,null,0,3264,0
+1791036532423,4,GET View Module,200,OK,Thread Group 1-1,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791036533251,4,GET List Students,200,OK,Thread Group 1-1,text,true,,9162,217,5,5,http://localhost:3000/api/students,4,0,0
+1791036533845,4,POST Add Student,201,Created,Thread Group 1-1,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036534723,2,POST Add Result,201,Created,Thread Group 1-1,text,true,,336,329,5,5,http://localhost:3000/api/results,2,0,0
+1791036532147,11,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-3,,true,,10184,1133,5,5,null,0,2913,0
+1791036532942,3,GET View Module,200,OK,Thread Group 1-3,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036533513,2,GET List Students,200,OK,Thread Group 1-3,text,true,,9162,217,5,5,http://localhost:3000/api/students,2,0,0
+1791036534203,3,POST Add Student,201,Created,Thread Group 1-3,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036535068,3,POST Add Result,201,Created,Thread Group 1-3,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036532596,12,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-5,,true,,10458,1133,5,5,null,0,3376,0
+1791036533578,4,GET View Module,200,OK,Thread Group 1-5,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791036534493,3,GET List Students,200,OK,Thread Group 1-5,text,true,,9436,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036535156,2,POST Add Student,201,Created,Thread Group 1-5,text,true,,377,364,5,5,http://localhost:3000/api/students,2,0,0
+1791036535981,3,POST Add Result,201,Created,Thread Group 1-5,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036533069,12,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-2,,true,,10458,1133,5,5,null,0,3091,0
+1791036533749,3,GET View Module,200,OK,Thread Group 1-2,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036534468,3,GET List Students,200,OK,Thread Group 1-2,text,true,,9436,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036535365,3,POST Add Student,201,Created,Thread Group 1-2,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036536168,3,POST Add Result,201,Created,Thread Group 1-2,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036533032,13,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-4,,true,,10458,1133,5,5,null,0,3639,0
+1791036533972,4,GET View Module,200,OK,Thread Group 1-4,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791036534843,2,GET List Students,200,OK,Thread Group 1-4,text,true,,9436,217,5,5,http://localhost:3000/api/students,2,0,0
+1791036535837,4,POST Add Student,201,Created,Thread Group 1-4,text,true,,377,364,5,5,http://localhost:3000/api/students,4,0,0
+1791036536681,3,POST Add Result,201,Created,Thread Group 1-4,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036534726,12,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-1,,true,,10869,1133,5,5,null,0,2986,0
+1791036535705,3,GET View Module,200,OK,Thread Group 1-1,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036536256,3,GET List Students,200,OK,Thread Group 1-1,text,true,,9847,217,5,5,http://localhost:3000/api/students,2,0,0
+1791036536917,4,POST Add Student,201,Created,Thread Group 1-1,text,true,,377,364,5,5,http://localhost:3000/api/students,4,0,0
+1791036537722,2,POST Add Result,201,Created,Thread Group 1-1,text,true,,336,329,5,5,http://localhost:3000/api/results,2,0,0
+1791036535071,14,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-3,,true,,10869,1133,5,5,null,0,3099,0
+1791036536015,3,GET View Module,200,OK,Thread Group 1-3,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036536736,4,GET List Students,200,OK,Thread Group 1-3,text,true,,9847,217,5,5,http://localhost:3000/api/students,4,0,0
+1791036537557,3,POST Add Student,201,Created,Thread Group 1-3,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036538180,4,POST Add Result,201,Created,Thread Group 1-3,text,true,,336,329,5,5,http://localhost:3000/api/results,4,0,0
+1791036536172,12,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-2,,true,,11006,1133,5,5,null,0,2628,0
+1791036536676,3,GET View Module,200,OK,Thread Group 1-2,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036537216,3,GET List Students,200,OK,Thread Group 1-2,text,true,,9984,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036537850,4,POST Add Student,201,Created,Thread Group 1-2,text,true,,377,364,5,5,http://localhost:3000/api/students,4,0,0
+1791036538810,2,POST Add Result,201,Created,Thread Group 1-2,text,true,,336,329,5,5,http://localhost:3000/api/results,2,0,0
+1791036535985,13,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-5,,true,,11006,1133,5,5,null,0,2860,0
+1791036536501,4,GET View Module,200,OK,Thread Group 1-5,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791036537396,4,GET List Students,200,OK,Thread Group 1-5,text,true,,9984,217,5,5,http://localhost:3000/api/students,4,0,0
+1791036538313,3,POST Add Student,201,Created,Thread Group 1-5,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036538855,2,POST Add Result,201,Created,Thread Group 1-5,text,true,,336,329,5,5,http://localhost:3000/api/results,2,0,0
+1791036536684,14,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-4,,true,,11418,1133,5,5,null,0,3160,0
+1791036537396,5,GET View Module,200,OK,Thread Group 1-4,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,5,0,0
+1791036538378,3,GET List Students,200,OK,Thread Group 1-4,text,true,,10396,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036538892,3,POST Add Student,201,Created,Thread Group 1-4,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036539848,3,POST Add Result,201,Created,Thread Group 1-4,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036537725,14,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-1,,true,,11555,1133,5,5,null,0,2880,0
+1791036538281,5,GET View Module,200,OK,Thread Group 1-1,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,5,0,0
+1791036539171,3,GET List Students,200,OK,Thread Group 1-1,text,true,,10533,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036539765,3,POST Add Student,201,Created,Thread Group 1-1,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036540616,3,POST Add Result,201,Created,Thread Group 1-1,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036538184,11,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-3,,true,,11692,1133,5,5,null,0,3123,0
+1791036539067,2,GET View Module,200,OK,Thread Group 1-3,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,2,0,0
+1791036539982,3,GET List Students,200,OK,Thread Group 1-3,text,true,,10670,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036540539,3,POST Add Student,201,Created,Thread Group 1-3,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036541315,3,POST Add Result,201,Created,Thread Group 1-3,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036538813,9,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-2,,true,,11692,1133,5,5,null,0,3076,0
+1791036539440,2,GET View Module,200,OK,Thread Group 1-2,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,2,0,0
+1791036540334,2,GET List Students,200,OK,Thread Group 1-2,text,true,,10670,217,5,5,http://localhost:3000/api/students,2,0,0
+1791036541240,2,POST Add Student,201,Created,Thread Group 1-2,text,true,,377,364,5,5,http://localhost:3000/api/students,2,0,0
+1791036541895,3,POST Add Result,201,Created,Thread Group 1-2,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036538858,12,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-5,,true,,11829,1133,5,5,null,0,3323,0
+1791036539550,3,GET View Module,200,OK,Thread Group 1-5,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036540542,3,GET List Students,200,OK,Thread Group 1-5,text,true,,10807,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036541204,3,POST Add Student,201,Created,Thread Group 1-5,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036542191,3,POST Add Result,201,Created,Thread Group 1-5,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036539859,16,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-4,,true,,12103,1133,5,5,null,0,2689,0
+1791036540362,3,GET View Module,200,OK,Thread Group 1-4,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036541276,6,GET List Students,200,OK,Thread Group 1-4,text,true,,11081,217,5,5,http://localhost:3000/api/students,6,0,0
+1791036541997,4,POST Add Student,201,Created,Thread Group 1-4,text,true,,377,364,5,5,http://localhost:3000/api/students,4,0,0
+1791036542561,3,POST Add Result,201,Created,Thread Group 1-4,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036540619,14,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-1,,true,,12240,1133,5,5,null,0,3130,0
+1791036541381,3,GET View Module,200,OK,Thread Group 1-1,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036542369,4,GET List Students,200,OK,Thread Group 1-1,text,true,,11218,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036542940,3,POST Add Student,201,Created,Thread Group 1-1,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036543760,4,POST Add Result,201,Created,Thread Group 1-1,text,true,,336,329,5,5,http://localhost:3000/api/results,4,0,0
+1791036541318,12,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-3,,true,,12240,1133,5,5,null,0,2753,0
+1791036541980,4,GET View Module,200,OK,Thread Group 1-3,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791036542816,3,GET List Students,200,OK,Thread Group 1-3,text,true,,11218,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036543360,3,POST Add Student,201,Created,Thread Group 1-3,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036544082,2,POST Add Result,201,Created,Thread Group 1-3,text,true,,336,329,5,5,http://localhost:3000/api/results,2,0,0
+1791036542194,18,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-5,,true,,12514,1133,5,5,null,0,2662,0
+1791036542897,6,GET View Module,200,OK,Thread Group 1-5,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,6,0,0
+1791036543507,4,GET List Students,200,OK,Thread Group 1-5,text,true,,11492,217,5,5,http://localhost:3000/api/students,4,0,0
+1791036544218,4,POST Add Student,201,Created,Thread Group 1-5,text,true,,377,364,5,5,http://localhost:3000/api/students,4,0,0
+1791036544870,4,POST Add Result,201,Created,Thread Group 1-5,text,true,,336,329,5,5,http://localhost:3000/api/results,4,0,0
+1791036541899,12,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-2,,true,,12514,1133,5,5,null,0,2985,0
+1791036542804,3,GET View Module,200,OK,Thread Group 1-2,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036543438,3,GET List Students,200,OK,Thread Group 1-2,text,true,,11492,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036544112,2,POST Add Student,201,Created,Thread Group 1-2,text,true,,377,364,5,5,http://localhost:3000/api/students,2,0,0
+1791036544892,4,POST Add Result,201,Created,Thread Group 1-2,text,true,,336,329,5,5,http://localhost:3000/api/results,4,0,0
+1791036542565,14,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-4,,true,,12514,1133,5,5,null,0,2715,0
+1791036543241,3,GET View Module,200,OK,Thread Group 1-4,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036544066,3,GET List Students,200,OK,Thread Group 1-4,text,true,,11492,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036544682,3,POST Add Student,201,Created,Thread Group 1-4,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036545289,5,POST Add Result,201,Created,Thread Group 1-4,text,true,,336,329,5,5,http://localhost:3000/api/results,5,0,0
+1791036543764,13,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-1,,true,,12925,1133,5,5,null,0,2994,0
+1791036544445,3,GET View Module,200,OK,Thread Group 1-1,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036545397,3,GET List Students,200,OK,Thread Group 1-1,text,true,,11903,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036545979,3,POST Add Student,201,Created,Thread Group 1-1,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036546767,4,POST Add Result,201,Created,Thread Group 1-1,text,true,,336,329,5,5,http://localhost:3000/api/results,4,0,0
+1791036544085,10,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-3,,true,,12925,1133,5,5,null,0,3305,0
+1791036544967,2,GET View Module,200,OK,Thread Group 1-3,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,2,0,0
+1791036545920,3,GET List Students,200,OK,Thread Group 1-3,text,true,,11903,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036546792,2,POST Add Student,201,Created,Thread Group 1-3,text,true,,377,364,5,5,http://localhost:3000/api/students,2,0,0
+1791036547396,3,POST Add Result,201,Created,Thread Group 1-3,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036544897,13,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-2,,true,,13062,1133,5,5,null,0,2870,0
+1791036545481,3,GET View Module,200,OK,Thread Group 1-2,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036546450,2,GET List Students,200,OK,Thread Group 1-2,text,true,,12040,217,5,5,http://localhost:3000/api/students,2,0,0
+1791036547154,5,POST Add Student,201,Created,Thread Group 1-2,text,true,,377,364,5,5,http://localhost:3000/api/students,5,0,0
+1791036547776,3,POST Add Result,201,Created,Thread Group 1-2,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036544874,10,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-5,,true,,13062,1133,5,5,null,0,3126,0
+1791036545645,3,GET View Module,200,OK,Thread Group 1-5,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036546492,3,GET List Students,200,OK,Thread Group 1-5,text,true,,12040,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036547287,2,POST Add Student,201,Created,Thread Group 1-5,text,true,,377,364,5,5,http://localhost:3000/api/students,2,0,0
+1791036548007,2,POST Add Result,201,Created,Thread Group 1-5,text,true,,336,329,5,5,http://localhost:3000/api/results,2,0,0
+1791036545294,11,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-4,,true,,13199,1133,5,5,null,0,3103,0
+1791036545915,2,GET View Module,200,OK,Thread Group 1-4,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,2,0,0
+1791036546900,3,GET List Students,200,OK,Thread Group 1-4,text,true,,12177,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036547825,3,POST Add Student,201,Created,Thread Group 1-4,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036548404,3,POST Add Result,201,Created,Thread Group 1-4,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036546771,12,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-1,,true,,13610,1133,5,5,null,0,2802,0
+1791036547694,3,GET View Module,200,OK,Thread Group 1-1,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036548229,2,GET List Students,200,OK,Thread Group 1-1,text,true,,12588,217,5,5,http://localhost:3000/api/students,2,0,0
+1791036548741,3,POST Add Student,201,Created,Thread Group 1-1,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036549580,4,POST Add Result,201,Created,Thread Group 1-1,text,true,,336,329,5,5,http://localhost:3000/api/results,4,0,0
+1791036547399,11,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-3,,true,,13747,1133,5,5,null,0,2995,0
+1791036548074,2,GET View Module,200,OK,Thread Group 1-3,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,2,0,0
+1791036548749,4,GET List Students,200,OK,Thread Group 1-3,text,true,,12725,217,5,5,http://localhost:3000/api/students,4,0,0
+1791036549533,3,POST Add Student,201,Created,Thread Group 1-3,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036550402,2,POST Add Result,201,Created,Thread Group 1-3,text,true,,336,329,5,5,http://localhost:3000/api/results,2,0,0
+1791036547779,12,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-2,,true,,13747,1133,5,5,null,0,3102,0
+1791036548437,3,GET View Module,200,OK,Thread Group 1-2,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036549090,2,GET List Students,200,OK,Thread Group 1-2,text,true,,12725,217,5,5,http://localhost:3000/api/students,2,0,0
+1791036549997,3,POST Add Student,201,Created,Thread Group 1-2,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036550889,4,POST Add Result,201,Created,Thread Group 1-2,text,true,,336,329,5,5,http://localhost:3000/api/results,4,0,0
+1791036548010,14,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-5,,true,,13884,1133,5,5,null,0,3414,0
+1791036548721,3,GET View Module,200,OK,Thread Group 1-5,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036549593,3,GET List Students,200,OK,Thread Group 1-5,text,true,,12862,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036550569,5,POST Add Student,201,Created,Thread Group 1-5,text,true,,377,364,5,5,http://localhost:3000/api/students,5,0,0
+1791036551434,3,POST Add Result,201,Created,Thread Group 1-5,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036548408,11,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-4,,true,,13884,1133,5,5,null,0,3150,0
+1791036549321,3,GET View Module,200,OK,Thread Group 1-4,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036549958,3,GET List Students,200,OK,Thread Group 1-4,text,true,,12862,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036550946,3,POST Add Student,201,Created,Thread Group 1-4,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036551566,2,POST Add Result,201,Created,Thread Group 1-4,text,true,,336,329,5,5,http://localhost:3000/api/results,2,0,0
+1791036549584,17,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-1,,true,,14295,1133,5,5,null,0,3185,3
+1791036550274,3,GET View Module,200,OK,Thread Group 1-1,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036551016,3,GET List Students,200,OK,Thread Group 1-1,text,true,,13273,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036551854,3,POST Add Student,201,Created,Thread Group 1-1,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036552778,8,POST Add Result,201,Created,Thread Group 1-1,text,true,,336,329,5,5,http://localhost:3000/api/results,8,0,3
+1791036550405,12,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-3,,true,,14432,1133,5,5,null,0,3050,0
+1791036551042,2,GET View Module,200,OK,Thread Group 1-3,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,2,0,0
+1791036552002,4,GET List Students,200,OK,Thread Group 1-3,text,true,,13410,217,5,5,http://localhost:3000/api/students,4,0,0
+1791036552859,3,POST Add Student,201,Created,Thread Group 1-3,text,true,,377,364,5,5,http://localhost:3000/api/students,3,0,0
+1791036553464,3,POST Add Result,201,Created,Thread Group 1-3,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036550893,15,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-2,,true,,14432,1133,5,5,null,0,3162,2
+1791036551699,4,GET View Module,200,OK,Thread Group 1-2,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791036552416,3,GET List Students,200,OK,Thread Group 1-2,text,true,,13410,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036553392,5,POST Add Student,201,Created,Thread Group 1-2,text,true,,377,364,5,5,http://localhost:3000/api/students,5,0,2
+1791036554067,3,POST Add Result,201,Created,Thread Group 1-2,text,true,,336,329,5,5,http://localhost:3000/api/results,2,0,0
+1791036551569,11,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-4,,true,,14569,1133,5,5,null,0,3191,0
+1791036552367,3,GET View Module,200,OK,Thread Group 1-4,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036552967,3,GET List Students,200,OK,Thread Group 1-4,text,true,,13547,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036553911,2,POST Add Student,201,Created,Thread Group 1-4,text,true,,377,364,5,5,http://localhost:3000/api/students,2,0,0
+1791036554768,3,POST Add Result,201,Created,Thread Group 1-4,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036551438,17,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-5,,true,,14569,1133,5,5,null,0,3770,0
+1791036552313,3,GET View Module,200,OK,Thread Group 1-5,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036553316,5,GET List Students,200,OK,Thread Group 1-5,text,true,,13547,217,5,5,http://localhost:3000/api/students,4,0,0
+1791036554314,5,POST Add Student,201,Created,Thread Group 1-5,text,true,,377,364,5,5,http://localhost:3000/api/students,5,0,0
+1791036555221,4,POST Add Result,201,Created,Thread Group 1-5,text,true,,336,329,5,5,http://localhost:3000/api/results,4,0,0
+1791036552786,15,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-1,,true,,14844,1134,5,5,null,0,3213,0
+1791036553562,4,GET View Module,200,OK,Thread Group 1-1,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,0
+1791036554198,5,GET List Students,200,OK,Thread Group 1-1,text,true,,13821,217,5,5,http://localhost:3000/api/students,4,0,0
+1791036555063,3,POST Add Student,201,Created,Thread Group 1-1,text,true,,378,365,5,5,http://localhost:3000/api/students,2,0,0
+1791036556011,3,POST Add Result,201,Created,Thread Group 1-1,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036553468,16,Browse and Register Student,200,"Number of samples in transaction : 4, number of failing samples : 0",Thread Group 1-3,,true,,14981,1134,5,5,null,0,2691,3
+1791036554191,7,GET View Module,200,OK,Thread Group 1-3,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,7,0,3
+1791036554950,3,GET List Students,200,OK,Thread Group 1-3,text,true,,13958,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036555476,3,POST Add Student,201,Created,Thread Group 1-3,text,true,,378,365,5,5,http://localhost:3000/api/students,3,0,0
+1791036556172,3,POST Add Result,201,Created,Thread Group 1-3,text,true,,336,329,5,5,http://localhost:3000/api/results,3,0,0
+1791036556175,0,Browse and Register Student,,,Thread Group 1-3,,true,,0,0,5,5,null,0,0,0
+1791036554070,2133,Browse and Register Student,201,,Thread Group 1-2,,true,,14921,805,4,4,null,0,0,0
+1791036554634,3,GET View Module,200,OK,Thread Group 1-2,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036555479,2,GET List Students,200,OK,Thread Group 1-2,text,true,,14234,217,5,5,http://localhost:3000/api/students,2,0,0
+1791036556200,3,POST Add Student,201,Created,Thread Group 1-2,text,true,,378,365,4,4,http://localhost:3000/api/students,3,0,0
+1791036555225,1289,Browse and Register Student,200,,Thread Group 1-5,,true,,14681,440,3,3,null,0,0,0
+1791036555937,3,GET View Module,200,OK,Thread Group 1-5,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,3,0,0
+1791036556508,6,GET List Students,200,OK,Thread Group 1-5,text,true,,14372,217,3,3,http://localhost:3000/api/students,6,0,3
+1791036554771,1973,Browse and Register Student,201,,Thread Group 1-4,,true,,14921,805,2,2,null,0,0,0
+1791036555382,4,GET View Module,200,OK,Thread Group 1-4,text,true,,309,223,5,5,http://localhost:3000/api/modules/SWE302,4,0,2
+1791036555895,3,GET List Students,200,OK,Thread Group 1-4,text,true,,14234,217,5,5,http://localhost:3000/api/students,3,0,0
+1791036556741,3,POST Add Student,201,Created,Thread Group 1-4,text,true,,378,365,2,2,http://localhost:3000/api/students,3,0,0
+1791036556014,742,Browse and Register Student,200,,Thread Group 1-1,,true,,309,223,1,1,null,0,0,0
+1791036556752,4,GET View Module,200,OK,Thread Group 1-1,text,true,,309,223,1,1,http://localhost:3000/api/modules/SWE302,4,0,0
