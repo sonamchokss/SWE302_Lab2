@@ -2,112 +2,195 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Results &mdash; CST SMS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Results · CST SMS</title>
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<header>
-  <span class="crest">CST &middot; RUB</span>
-  <h1>Student Management System</h1>
-</header>
-<nav id="nav"></nav>
-<main>
-  <div class="card">
-    <h2>View Result</h2>
-    <form id="resultForm">
-      <label for="studentIdRes">Student ID</label>
-      <input id="studentIdRes" placeholder="e.g. 02230123" />
-      <button type="submit">View Result</button>
-    </form>
-    <div id="resMsg" class="message"></div>
-    <div id="resultDisplay" style="margin-top:1rem;"></div>
-  </div>
+<div class="app">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="overlay" id="overlay"></div>
+  <div class="content">
+    <header class="topbar">
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Open navigation" aria-controls="sidebar" aria-expanded="false"></button>
+      <h1 class="topbar-title" id="pageTitle">Results</h1>
+      <div class="spacer"></div>
+      <div class="user-chip" id="userChip"></div>
+    </header>
 
-  <div class="card" style="margin-top:1.5rem;">
-    <h2 id="listTitle">My Results</h2>
-    <div id="resultList"></div>
-  </div>
+    <main class="page">
+      <div class="page-head">
+        <h2 id="heading">My results</h2>
+        <p id="subheading">Your published grades. Download a statement for your records.</p>
+      </div>
 
-  <div id="recordCard" class="card" style="margin-top:1.5rem; display:none;">
-    <h2>Record a Grade (admin)</h2>
-    <form id="recordForm">
-      <label for="recStudent">Student ID</label>
-      <input id="recStudent" placeholder="e.g. 02230123" />
-      <label for="recModule">Module</label>
-      <select id="recModule"></select>
-      <label for="recGrade">Grade</label>
-      <input id="recGrade" placeholder="A, B+, C, D, F ..." />
-      <button type="submit">Save Grade</button>
-    </form>
-    <div id="recMsg" class="message"></div>
-  </div></main>
+      <!-- Student view -->
+      <section class="card" id="studentView" hidden>
+        <div class="card-head">
+          <h3>Grades</h3>
+          <button type="button" class="secondary" id="ownStatement" data-download-url="" data-filename="">Download statement (PDF)</button>
+        </div>
+        <div id="ownResults"><div class="empty">Loading...</div></div>
+      </section>
+
+      <!-- Admin view -->
+      <div id="adminView" hidden>
+        <div class="grid cols-2">
+          <section class="card">
+            <div class="card-head"><h3>All results</h3></div>
+            <label for="filter" style="margin-top:0">Filter by student ID or module</label>
+            <input id="filter" placeholder="Type to filter, e.g. 02230123 or SWE302" autocomplete="off" />
+            <div id="allResults" class="section-gap"><div class="empty">Loading...</div></div>
+          </section>
+
+          <div class="stack">
+            <section class="card">
+              <h3 style="margin-bottom:12px">Download a student's statement</h3>
+              <form id="statementForm" novalidate>
+                <label for="stuStatement" style="margin-top:0">Student ID</label>
+                <input id="stuStatement" inputmode="numeric" maxlength="8" placeholder="e.g. 02230123" />
+                <div class="field-error" id="stmtError"></div>
+                <div class="form-actions"><button type="submit" class="secondary" id="stmtBtn">Download statement (PDF)</button></div>
+              </form>
+            </section>
+
+            <section class="card">
+              <h3 style="margin-bottom:12px">Record a grade</h3>
+              <form id="recordForm" novalidate>
+                <label for="recStudent" style="margin-top:0">Student ID</label>
+                <input id="recStudent" inputmode="numeric" maxlength="8" placeholder="e.g. 02230123" />
+                <div class="field-error" id="recStudentError"></div>
+
+                <label for="recModule">Module</label>
+                <select id="recModule"></select>
+
+                <label for="recGrade">Grade</label>
+                <select id="recGrade">
+                  <option value="">Choose a grade</option>
+                  <option>A+</option><option>A</option><option>A-</option>
+                  <option>B+</option><option>B</option><option>B-</option>
+                  <option>C+</option><option>C</option><option>C-</option>
+                  <option>D+</option><option>D</option><option>D-</option>
+                  <option>F</option>
+                </select>
+                <div class="field-error" id="recGradeError"></div>
+
+                <div class="form-actions"><button type="submit" id="recBtn">Save grade</button></div>
+              </form>
+              <div id="recMsg" class="message" role="status"></div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
 <script src="app.js"></script>
 <script>
   const user = requireLogin();
-  const idInput = document.getElementById("studentIdRes");
+  if (user) initShell("results", "Results");
 
-  async function loadList() {
-    // GET list: own results (student) or all results (admin)
+  const ID_PATTERN = /^\d{8}$/;
+  let allResults = [];
+
+  function resultsTable(list, showStudent) {
+    if (!list.length) return `<div class="empty">No results published yet.</div>`;
+    return `<div class="table-wrap"><table>
+      <thead><tr>${showStudent ? "<th>Student</th>" : ""}<th>Code</th><th>Module</th><th>Grade</th></tr></thead>
+      <tbody>${list.map((r) => `<tr>
+        ${showStudent ? `<td class="num">${escapeHtml(r.studentId)}</td>` : ""}
+        <td class="num"><strong>${escapeHtml(r.moduleCode)}</strong></td>
+        <td>${escapeHtml(r.moduleTitle)}</td>
+        <td>${gradeChip(r.grade)}</td></tr>`).join("")}
+      </tbody></table></div>`;
+  }
+
+  async function loadStudent() {
+    document.getElementById("studentView").hidden = false;
+    const btn = document.getElementById("ownStatement");
+    btn.dataset.downloadUrl = `/api/results/${encodeURIComponent(user.studentId)}/pdf`;
+    btn.dataset.filename = `results-${user.studentId}.pdf`;
     const { ok, data } = await getJSON("/api/results");
-    const box = document.getElementById("resultList");
-    if (!ok) return;
-    box.innerHTML = data.length
-      ? `<table><thead><tr>${user.role === "admin" ? "<th>Student</th>" : ""}<th>Module</th><th>Title</th><th>Grade</th></tr></thead><tbody>` +
-        data.map((r) => `<tr>${user.role === "admin" ? `<td>${escapeHtml(r.studentId)}</td>` : ""}<td>${escapeHtml(r.moduleCode)}</td><td>${escapeHtml(r.moduleTitle)}</td><td>${escapeHtml(r.grade)}</td></tr>`).join("") +
-        "</tbody></table>"
-      : '<p class="intro">No results yet.</p>';
+    document.getElementById("ownResults").innerHTML = ok ? resultsTable(data, false) : `<div class="message error show">${escapeHtml(data.message)}</div>`;
   }
 
-  async function init() {
-    if (!user) return;
-    idInput.value = user.studentId;
-    if (user.role !== "admin") idInput.readOnly = true;
-    if (user.role === "admin") {
-      document.getElementById("listTitle").textContent = "All Results";
-      document.getElementById("recordCard").style.display = "block";
-      const mods = await getJSON("/api/modules");
-      if (mods.ok) {
-        document.getElementById("recModule").innerHTML = mods.data
-          .map((m) => `<option value="${escapeHtml(m.moduleCode)}">${escapeHtml(m.moduleCode)} &mdash; ${escapeHtml(m.moduleTitle)}</option>`)
-          .join("");
+  function renderAll() {
+    const q = document.getElementById("filter").value.trim().toLowerCase();
+    const list = allResults.filter((r) =>
+      !q || r.studentId.includes(q) || r.moduleCode.toLowerCase().includes(q) || r.moduleTitle.toLowerCase().includes(q));
+    document.getElementById("allResults").innerHTML = resultsTable(list, true);
+  }
+
+  async function loadAdmin() {
+    document.getElementById("adminView").hidden = false;
+    document.getElementById("heading").textContent = "Results management";
+    document.getElementById("subheading").textContent = "Record grades, search results and download statements.";
+
+    const [res, mods] = await Promise.all([getJSON("/api/results"), getJSON("/api/modules")]);
+    if (res.ok) { allResults = res.data; renderAll(); }
+    if (mods.ok) {
+      document.getElementById("recModule").innerHTML = mods.data
+        .map((m) => `<option value="${escapeHtml(m.moduleCode)}">${escapeHtml(m.moduleCode)} · ${escapeHtml(m.moduleTitle)}</option>`).join("");
+    }
+  }
+
+  function markField(input, errorEl, message) {
+    errorEl.textContent = message;
+    input.setAttribute("aria-invalid", String(!!message));
+  }
+
+  if (user && user.role === "admin") {
+    loadAdmin();
+    document.getElementById("filter").addEventListener("input", renderAll);
+
+    document.getElementById("statementForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const input = document.getElementById("stuStatement");
+      const id = input.value.trim();
+      markField(input, document.getElementById("stmtError"), ID_PATTERN.test(id) ? "" : "Enter an 8-digit Student ID.");
+      if (!ID_PATTERN.test(id)) return input.focus();
+      const btn = document.getElementById("stmtBtn");
+      setBusy(btn, true, "Preparing PDF...");
+      try {
+        await downloadFile(`/api/results/${encodeURIComponent(id)}/pdf`, `results-${id}.pdf`);
+      } catch (err) {
+        notify(err.message, true);
+      } finally {
+        setBusy(btn, false);
       }
-    }
-    loadList();
-  }
-  init();
-
-  // GET by ID
-  document.getElementById("resultForm").addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const msg = document.getElementById("resMsg");
-    const display = document.getElementById("resultDisplay");
-    display.innerHTML = "";
-    const { ok, data } = await getJSON("/api/results/" + encodeURIComponent(idInput.value));
-    if (!ok) {
-      showMessage(msg, data.message, true);
-      return;
-    }
-    msg.classList.remove("show");
-    display.innerHTML = (data.results || [data]).map((r) => `
-      <div class="result-row"><span>Module Code</span><span>${escapeHtml(r.moduleCode)}</span></div>
-      <div class="result-row"><span>Module Title</span><span>${escapeHtml(r.moduleTitle)}</span></div>
-      <div class="result-row"><span>Grade</span><span>${escapeHtml(r.grade)}</span></div>
-      <div style="height:.6rem"></div>`).join("");
-  });
-
-  // POST (admin): record a grade
-  document.getElementById("recordForm").addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const msg = document.getElementById("recMsg");
-    const { ok, data } = await postJSON("/api/results", {
-      studentId: document.getElementById("recStudent").value,
-      moduleCode: document.getElementById("recModule").value,
-      grade: document.getElementById("recGrade").value,
     });
-    showMessage(msg, ok ? "Grade saved" : data.message, !ok);
-    if (ok) loadList();
-  });
+
+    document.getElementById("recordForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const idInput = document.getElementById("recStudent");
+      const gradeSel = document.getElementById("recGrade");
+      const id = idInput.value.trim();
+      markField(idInput, document.getElementById("recStudentError"), ID_PATTERN.test(id) ? "" : "Enter an 8-digit Student ID.");
+      markField(gradeSel, document.getElementById("recGradeError"), gradeSel.value ? "" : "Choose a grade.");
+      if (!ID_PATTERN.test(id) || !gradeSel.value) return;
+
+      const btn = document.getElementById("recBtn");
+      setBusy(btn, true, "Saving...");
+      const { ok, data } = await postJSON("/api/results", {
+        studentId: id,
+        moduleCode: document.getElementById("recModule").value,
+        grade: gradeSel.value,
+      });
+      setBusy(btn, false);
+      const msg = document.getElementById("recMsg");
+      if (ok) {
+        showMessage(msg, `Saved grade ${gradeSel.value} for ${id}`, false);
+        notify("Grade saved");
+        e.target.reset();
+        loadAdmin();
+      } else {
+        showMessage(msg, data.message || "The grade could not be saved.", true);
+      }
+    });
+  } else if (user) {
+    loadStudent();
+  }
 </script>
 </body>
 </html>

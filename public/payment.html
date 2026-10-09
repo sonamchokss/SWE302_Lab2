@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Pay Tuition · CST SMS</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="overlay" id="overlay"></div>
+  <div class="content">
+    <header class="topbar">
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Open navigation" aria-controls="sidebar" aria-expanded="false"></button>
+      <h1 class="topbar-title" id="pageTitle">Pay Tuition</h1>
+      <div class="spacer"></div>
+      <div class="user-chip" id="userChip"></div>
+    </header>
+
+    <main class="page">
+      <div class="page-head">
+        <h2>Pay tuition</h2>
+        <p>Pay by mobile banking, then upload a screenshot of the payment and its transaction number.</p>
+      </div>
+
+      <div class="grid cols-2">
+        <!-- Submission form -->
+        <section class="card" id="formCard">
+          <div class="card-head"><h3>Submit payment proof</h3></div>
+
+          <form id="paymentForm" novalidate>
+            <label for="screenshot">Payment screenshot</label>
+            <label class="file-drop" for="screenshot">
+              <span class="file-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg></span>
+              <span>
+                <strong id="fileName">Choose a file</strong>
+                <small>JPG, JPEG or PNG</small>
+              </span>
+            </label>
+            <input id="screenshot" name="screenshot" type="file" accept=".jpg,.jpeg,.png,image/jpeg,image/png" aria-describedby="fileError" style="position:absolute;width:1px;height:1px;opacity:0" />
+            <img id="preview" class="preview" alt="Preview of the selected screenshot" hidden />
+            <div class="field-error" id="fileError"></div>
+
+            <label for="txn">Transaction number</label>
+            <input id="txn" name="transactionNumber" placeholder="e.g. 123-456789012" autocomplete="off" inputmode="numeric" maxlength="13" aria-describedby="txnHint txnError" />
+            <div class="hint" id="txnHint">Format: 3 digits, a hyphen, then 9 digits. You can find it in your mobile banking receipt.</div>
+            <div class="field-error" id="txnError"></div>
+
+            <div class="form-actions">
+              <button type="submit" id="payBtn">Submit payment</button>
+            </div>
+          </form>
+          <div id="payMsg" class="message" role="status"></div>
+        </section>
+
+        <div class="stack">
+          <!-- Current status -->
+          <section class="card">
+            <div class="card-head"><h3>Payment status</h3></div>
+            <div class="check-row">
+              <div><strong>Tuition payment</strong><small id="statusNote">Checking...</small></div>
+              <span id="statusBadge"></span>
+            </div>
+          </section>
+
+          <!-- Confirmation after a successful submission -->
+          <section class="card" id="confirmCard" hidden aria-live="polite">
+            <div class="card-head"><h3>Payment submitted</h3></div>
+            <div class="checklist" id="confirmDetails"></div>
+            <div class="btn-row" id="confirmActions"></div>
+          </section>
+        </div>
+      </div>
+
+      <!-- History -->
+      <section class="card section-gap">
+        <div class="card-head"><h3>Payment history</h3></div>
+        <div id="history"><div class="empty">Loading payments...</div></div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script src="app.js"></script>
+<script>
+  const user = requireLogin("student");
+  if (user) initShell("payment", "Pay Tuition");
+
+  const TXN_PATTERN = /^\d{3}-\d{9}$/;
+  const form = document.getElementById("paymentForm");
+  const fileInput = document.getElementById("screenshot");
+  const txnInput = document.getElementById("txn");
+  const fileError = document.getElementById("fileError");
+  const txnError = document.getElementById("txnError");
+  const payBtn = document.getElementById("payBtn");
+  const preview = document.getElementById("preview");
+  let previewUrl = null;
+
+  function fileProblem(file) {
+    if (!file) return "Upload a screenshot of your payment.";
+    if (!/\.(jpg|jpeg|png)$/i.test(file.name)) return "Only .jpg, .jpeg or .png files are accepted.";
+    return "";
+  }
+
+  function txnProblem(value) {
+    const v = value.trim();
+    if (!v) return "Enter the transaction number from your payment receipt.";
+    if (!TXN_PATTERN.test(v)) return "Use the format 123-456789012 (3 digits, a hyphen, then 9 digits).";
+    return "";
+  }
+
+  function markField(input, errorEl, message) {
+    errorEl.textContent = message;
+    input.setAttribute("aria-invalid", String(!!message));
+  }
+
+  fileInput.addEventListener("change", () => {
+    const file = fileInput.files[0];
+    document.getElementById("fileName").textContent = file ? file.name : "Choose a file";
+    if (previewUrl) URL.revokeObjectURL(previewUrl);
+    previewUrl = null;
+    preview.hidden = true;
+    if (file && /^image\//.test(file.type)) {
+      previewUrl = URL.createObjectURL(file);
+      preview.src = previewUrl;
+      preview.hidden = false;
+    }
+    markField(fileInput, fileError, file ? fileProblem(file) : "");
+  });
+
+  txnInput.addEventListener("input", () => {
+    txnInput.value = txnInput.value.replace(/[^\d-]/g, "");
+    if (txnError.textContent) markField(txnInput, txnError, txnProblem(txnInput.value));
+  });
+
+  async function loadStatus() {
+    const [status, payments] = await Promise.all([getJSON("/api/status"), getJSON("/api/payments")]);
+    if (status.ok) {
+      const verified = status.data.paymentVerified;
+      document.getElementById("statusBadge").innerHTML = verified ? badge("Verified", "ok") : badge("Not verified", "pending");
+      document.getElementById("statusNote").textContent = verified
+        ? "Your payment is on record. You can register for modules."
+        : "No verified payment yet. Submit your proof to continue.";
+    }
+    renderHistory(payments.ok ? payments.data : []);
+  }
+
+  function receiptButton(p, label) {
+    return `<button class="secondary small" type="button" data-download-url="/api/payments/${encodeURIComponent(p.id)}/receipt"
+              data-filename="receipt-${escapeHtml(p.receiptNumber)}.pdf">${icon("download")} ${label}</button>`;
+  }
+
+  function renderHistory(list) {
+    const box = document.getElementById("history");
+    if (!list.length) {
+      box.innerHTML = `<div class="empty">No payments submitted yet.</div>`;
+      return;
+    }
+    const rows = list.slice().reverse().map((p) => `
+      <tr>
+        <td class="num">${escapeHtml(p.receiptNumber)}</td>
+        <td class="num">${escapeHtml(p.transactionNumber)}</td>
+        <td class="hide-sm">${formatDateTime(p.createdAt)}</td>
+        <td>${badge("Verified", "ok")}</td>
+        <td>${receiptButton(p, "Receipt")}</td>
+      </tr>`).join("");
+    box.innerHTML = `<div class="table-wrap"><table>
+      <thead><tr><th>Receipt no.</th><th>Transaction</th><th class="hide-sm">Submitted</th><th>Status</th><th>Download</th></tr></thead>
+      <tbody>${rows}</tbody></table></div>`;
+  }
+
+  function showConfirmation(payment) {
+    document.getElementById("formCard").hidden = true;
+    const card = document.getElementById("confirmCard");
+    card.hidden = false;
+    document.getElementById("confirmDetails").innerHTML = `
+      <div class="check-row"><div><strong>Receipt number</strong><small>${escapeHtml(payment.receiptNumber)}</small></div>${badge("Verified", "ok")}</div>
+      <div class="check-row"><div><strong>Transaction number</strong><small>${escapeHtml(payment.transactionNumber)}</small></div></div>
+      <div class="check-row"><div><strong>Submitted</strong><small>${formatDateTime(payment.createdAt)}</small></div></div>`;
+    document.getElementById("confirmActions").innerHTML = `
+      ${receiptButton(payment, "Download receipt (PDF)")}
+      <a class="btn secondary" href="register.html">Go to registration</a>
+      <button class="secondary" type="button" id="another">Submit another</button>`;
+    document.getElementById("another").addEventListener("click", () => {
+      card.hidden = true;
+      form.reset();
+      document.getElementById("fileName").textContent = "Choose a file";
+      preview.hidden = true;
+      formCardReset();
+      document.getElementById("formCard").hidden = false;
+    });
+    card.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function formCardReset() {
+    fileError.textContent = "";
+    txnError.textContent = "";
+    fileInput.setAttribute("aria-invalid", "false");
+    txnInput.setAttribute("aria-invalid", "false");
+    clearMessage(document.getElementById("payMsg"));
+  }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const msg = document.getElementById("payMsg");
+    clearMessage(msg);
+
+    const fileProb = fileProblem(fileInput.files[0]);
+    const txnProb = txnProblem(txnInput.value);
+    markField(fileInput, fileError, fileProb);
+    markField(txnInput, txnError, txnProb);
+    if (fileProb || txnProb) {
+      (fileProb ? fileInput : txnInput).focus();
+      return;
+    }
+
+    const fd = new FormData();
+    fd.append("screenshot", fileInput.files[0]);
+    fd.append("transactionNumber", txnInput.value.trim());
+    setBusy(payBtn, true, "Submitting...");
+    const { ok, data } = await apiFetch("/api/payment", { method: "POST", body: fd });
+    setBusy(payBtn, false);
+
+    if (ok) {
+      notify("Payment submitted and receipt generated");
+      showConfirmation(data.payment);
+      loadStatus();
+    } else {
+      showMessage(msg, data.message || "The payment could not be submitted. Please try again.", true);
+    }
+  });
+
+  if (user) loadStatus();
+</script>
+</body>
+</html>

@@ -2,48 +2,80 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Login &mdash; CST SMS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Log in · CST SMS</title>
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<header>
-  <span class="crest">CST &middot; RUB</span>
-  <h1>Student Management System</h1>
-</header>
-<nav id="nav"></nav>
-<main>
-  <div class="card">
-    <h2>Student Login</h2>
-    <form id="loginForm">
+<main class="login-screen">
+  <div class="login-card">
+    <img class="login-logo" src="assets/cst-logo.jpg" alt="College of Science and Technology logo" />
+    <h1>Student Management System</h1>
+    <p class="login-sub">College of Science and Technology</p>
+
+    <form id="loginForm" class="login-form" novalidate>
       <label for="studentId">Student ID</label>
-      <input id="studentId" name="studentId" placeholder="e.g. 02230123" autocomplete="username" />
+      <input id="studentId" name="studentId" inputmode="numeric" maxlength="8" placeholder="8-digit Student ID" autocomplete="username" aria-describedby="idError" />
+      <div class="field-error" id="idError"></div>
 
       <label for="password">Password</label>
-      <input id="password" name="password" type="password" placeholder="e.g. Passw0rd" autocomplete="current-password" />
+      <div class="pw-wrap">
+        <input id="password" name="password" type="password" placeholder="Enter your password" autocomplete="current-password" aria-describedby="pwError" />
+        <button class="pw-toggle" id="pwToggle" type="button" aria-controls="password" aria-label="Show password">Show</button>
+      </div>
+      <div class="field-error" id="pwError"></div>
 
-      <button type="submit">Log In</button>
+      <button class="login-btn" type="submit" id="loginBtn">Log in</button>
     </form>
-    <div id="msg" class="message"></div>
-    <p class="hint">
-      Demo student: 02230123 / Passw0rd<br />
-      Demo admin: 00000001 / Admin123
-    </p>
-  </div></main>
+    <div id="msg" class="message" role="status"></div>
+    <p class="login-foot">Use the Student ID and password issued by the college.</p>
+  </div>
+</main>
+
 <script src="app.js"></script>
 <script>
   if (getToken() && getUser()) window.location.href = "index.html";
 
+  const msg = document.getElementById("msg");
+  const flash = sessionStorage.getItem("flash");
+  if (flash) {
+    showMessage(msg, flash, true);
+    sessionStorage.removeItem("flash");
+  }
+
+  const idInput = document.getElementById("studentId");
+  const pwInput = document.getElementById("password");
+  const idError = document.getElementById("idError");
+  const pwError = document.getElementById("pwError");
+
+  idInput.addEventListener("input", () => { idInput.value = idInput.value.replace(/\D/g, ""); });
+
+  document.getElementById("pwToggle").addEventListener("click", (e) => {
+    const show = pwInput.type === "password";
+    pwInput.type = show ? "text" : "password";
+    e.currentTarget.textContent = show ? "Hide" : "Show";
+    e.currentTarget.setAttribute("aria-label", show ? "Hide password" : "Show password");
+  });
+
   document.getElementById("loginForm").addEventListener("submit", async (e) => {
     e.preventDefault();
-    const studentId = document.getElementById("studentId").value;
-    const password = document.getElementById("password").value;
-    const msg = document.getElementById("msg");
-    const { ok, data } = await postJSON("/api/login", { studentId, password });
-    showMessage(msg, data.message, !ok);
+    clearMessage(msg);
+    idError.textContent = idInput.value.length === 8 ? "" : (idInput.value ? "Student ID must be exactly 8 digits." : "Enter your Student ID.");
+    pwError.textContent = pwInput.value ? "" : "Enter your password.";
+    idInput.setAttribute("aria-invalid", String(!!idError.textContent));
+    pwInput.setAttribute("aria-invalid", String(!!pwError.textContent));
+    if (idError.textContent || pwError.textContent) return;
+
+    const btn = document.getElementById("loginBtn");
+    setBusy(btn, true, "Logging in...");
+    const { ok, data } = await postJSON("/api/login", { studentId: idInput.value, password: pwInput.value });
     if (ok) {
       saveSession(data.token, data.user);
-      setTimeout(() => (window.location.href = "index.html"), 600);
+      showMessage(msg, "Login successful. Opening your dashboard...", false);
+      setTimeout(() => (window.location.href = "index.html"), 500);
+    } else {
+      setBusy(btn, false);
+      showMessage(msg, data.message || "Log in failed. Please try again.", true);
     }
   });
 </script>

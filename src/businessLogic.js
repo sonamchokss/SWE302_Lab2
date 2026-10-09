@@ -52,9 +52,24 @@ function getStudentResult(resultsDb, studentId) {
   };
 }
 
+// A tuition payment counts as verified when the student has at least one stored payment.
+function isPaymentVerified(payments, studentId) {
+  return payments.some((p) => p.studentId === studentId && p.status === "verified");
+}
+
+// Each transaction number may only be submitted once, across all students.
+function checkDuplicateTransaction(payments, transactionNumber) {
+  if (payments.some((p) => p.transactionNumber === transactionNumber)) {
+    return { allowed: false, message: "This transaction number has already been submitted" };
+  }
+  return { allowed: true, message: "Transaction number is new" };
+}
+
 module.exports = {
   processPayment,
   decideRegistration,
   checkDuplicateRegistration,
   getStudentResult,
+  isPaymentVerified,
+  checkDuplicateTransaction,
 };

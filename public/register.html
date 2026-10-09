@@ -2,111 +2,162 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Registration &mdash; CST SMS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Register Modules · CST SMS</title>
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<header>
-  <span class="crest">CST &middot; RUB</span>
-  <h1>Student Management System</h1>
-</header>
-<nav id="nav"></nav>
-<main>
-  <div class="card">
-    <h2>Tuition Payment</h2>
-    <form id="paymentForm">
-      <label for="screenshot">Payment Screenshot (.jpg, .jpeg, .png)</label>
-      <input id="screenshot" name="screenshot" type="file" accept=".jpg,.jpeg,.png" />
+<div class="app">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="overlay" id="overlay"></div>
+  <div class="content">
+    <header class="topbar">
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Open navigation" aria-controls="sidebar" aria-expanded="false"></button>
+      <h1 class="topbar-title" id="pageTitle">Register Modules</h1>
+      <div class="spacer"></div>
+      <div class="user-chip" id="userChip"></div>
+    </header>
 
-      <label for="txn">Transaction Number</label>
-      <input id="txn" name="txn" placeholder="e.g. 123-123456789" />
+    <main class="page">
+      <div class="page-head">
+        <h2>Register for modules</h2>
+        <p>Registration opens once your tuition payment and drug testing clearance are on record and the registration window is open.</p>
+      </div>
 
-      <button type="submit">Submit Payment</button>
-    </form>
-    <div id="payMsg" class="message"></div>
+      <div class="grid cols-2">
+        <div class="stack">
+          <section class="card">
+            <div class="card-head"><h3>Before you register</h3></div>
+            <div class="checklist" id="checklist"><div class="empty">Checking your status...</div></div>
+          </section>
+
+          <section class="card">
+            <div class="card-head"><h3>Choose a module</h3></div>
+            <form id="registerForm" novalidate>
+              <label for="moduleSelect">Module</label>
+              <select id="moduleSelect" disabled><option>Loading modules...</option></select>
+              <div class="hint" id="moduleInfo"></div>
+              <div class="field-error" id="moduleError"></div>
+              <div class="form-actions">
+                <button type="submit" id="registerBtn" disabled>Register module</button>
+              </div>
+            </form>
+            <div id="regMsg" class="message" role="status"></div>
+          </section>
+        </div>
+
+        <section class="card">
+          <div class="card-head"><h3>My registered modules</h3></div>
+          <div id="myModules"><div class="empty">Loading...</div></div>
+        </section>
+      </div>
+    </main>
   </div>
+</div>
 
-  <div class="card" style="margin-top:1.5rem;">
-    <h2>Module Registration</h2>
-    <form id="registerForm">
-      <label for="studentIdReg">Student ID</label>
-      <input id="studentIdReg" placeholder="e.g. 02230123" />
-
-      <label for="moduleCode">Module</label>
-      <select id="moduleCode"></select>
-
-      <label for="paymentVerified">Tuition Payment Verified?</label>
-      <select id="paymentVerified"><option value="true">Yes</option><option value="false">No</option></select>
-
-      <label for="drugTestVerified">Drug Testing Report Verified?</label>
-      <select id="drugTestVerified"><option value="true">Yes</option><option value="false">No</option></select>
-
-      <label for="periodOpen">Registration Period Open?</label>
-      <select id="periodOpen"><option value="true">Yes</option><option value="false">No</option></select>
-
-      <button type="submit">Register Module</button>
-    </form>
-    <div id="regMsg" class="message"></div>
-  </div>
-
-  <div class="card" style="margin-top:1.5rem;">
-    <h2>My Registered Modules</h2>
-    <div id="myModules"></div>
-  </div></main>
 <script src="app.js"></script>
 <script>
-  const user = requireLogin();
+  const user = requireLogin("student");
+  if (user) initShell("register", "Register Modules");
 
-  async function loadMyModules() {
-    const { ok, data } = await getJSON("/api/registrations");
-    document.getElementById("myModules").innerHTML = ok && data.length
-      ? data.map((m) => `<div class="result-row"><span>${escapeHtml(m.moduleCode)}</span><span>${escapeHtml(m.moduleTitle)}</span></div>`).join("")
-      : '<p class="intro">No modules registered yet.</p>';
+  const registerBtn = document.getElementById("registerBtn");
+  const select = document.getElementById("moduleSelect");
+  const moduleInfo = document.getElementById("moduleInfo");
+  const moduleError = document.getElementById("moduleError");
+
+  let status = null;
+  let allModules = [];
+  let registeredCodes = [];
+
+  function checkRow(title, ok, okText, pendingText, linkHtml) {
+    return `<div class="check-row">
+      <div><strong>${title}</strong><small>${ok ? okText : pendingText}</small></div>
+      <div class="btn-row">${ok ? badge("Complete", "ok") : badge("Action needed", "pending")}${!ok && linkHtml ? linkHtml : ""}</div>
+    </div>`;
   }
 
-  async function init() {
-    if (!user) return;
-    const idInput = document.getElementById("studentIdReg");
-    idInput.value = user.studentId;
-    if (user.role !== "admin") idInput.readOnly = true; // students register for themselves
+  function renderChecklist() {
+    const s = status;
+    document.getElementById("checklist").innerHTML = [
+      checkRow("Tuition payment", s.paymentVerified, "Payment is on record.",
+        "No verified payment yet.", `<a class="btn small" href="payment.html">Pay tuition</a>`),
+      checkRow("Drug testing clearance", s.drugTestVerified, "Drug testing report is cleared.",
+        "Waiting for the administrator to clear your drug testing report.", ""),
+      checkRow("Registration period", s.registrationPeriodOpen, "The registration window is open.",
+        "The registration window is currently closed.", ""),
+    ].join("");
+    updateRegisterState();
+  }
 
-    // GET list: modules available
-    const mods = await getJSON("/api/modules");
-    if (mods.ok) {
-      document.getElementById("moduleCode").innerHTML = mods.data
-        .map((m) => `<option value="${escapeHtml(m.moduleCode)}">${escapeHtml(m.moduleCode)} &mdash; ${escapeHtml(m.moduleTitle)}</option>`)
-        .join("");
+  function updateRegisterState() {
+    const eligible = status && status.paymentVerified && status.drugTestVerified && status.registrationPeriodOpen;
+    const available = allModules.filter((m) => !registeredCodes.includes(m.moduleCode));
+    select.disabled = !eligible || !available.length;
+    registerBtn.disabled = !eligible || !select.value;
+    if (!eligible) moduleInfo.textContent = "You can register once all three checks above are complete.";
+    else if (!available.length) moduleInfo.textContent = "You are registered for every available module.";
+    else moduleInfo.textContent = "";
+  }
+
+  function renderModules() {
+    const available = allModules.filter((m) => !registeredCodes.includes(m.moduleCode));
+    select.innerHTML = available.length
+      ? available.map((m) => `<option value="${escapeHtml(m.moduleCode)}">${escapeHtml(m.moduleCode)} · ${escapeHtml(m.moduleTitle)} (${escapeHtml(m.credits)} credits)</option>`).join("")
+      : `<option value="">No modules available</option>`;
+    updateRegisterState();
+  }
+
+  function renderMine(list) {
+    const box = document.getElementById("myModules");
+    box.innerHTML = list.length
+      ? `<div class="table-wrap"><table>
+          <thead><tr><th>Code</th><th>Module</th><th class="hide-sm">Credits</th></tr></thead>
+          <tbody>${list.map((m) => `<tr><td class="num"><strong>${escapeHtml(m.moduleCode)}</strong></td>
+            <td>${escapeHtml(m.moduleTitle)}</td><td class="hide-sm">${escapeHtml(m.credits)}</td></tr>`).join("")}
+          </tbody></table></div>`
+      : `<div class="empty">You have not registered for any modules yet.</div>`;
+  }
+
+  async function loadAll() {
+    const [st, mods, regs] = await Promise.all([getJSON("/api/status"), getJSON("/api/modules"), getJSON("/api/registrations")]);
+    if (!st.ok || !mods.ok || !regs.ok) {
+      document.getElementById("checklist").innerHTML = `<div class="message error show">Could not load your registration status. Please refresh.</div>`;
+      return;
     }
-    loadMyModules();
+    status = st.data;
+    allModules = mods.data;
+    registeredCodes = regs.data.map((m) => m.moduleCode);
+    renderChecklist();
+    renderModules();
+    renderMine(regs.data);
   }
-  init();
 
-  document.getElementById("paymentForm").addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const fileInput = document.getElementById("screenshot");
-    const msg = document.getElementById("payMsg");
-    const fd = new FormData();
-    if (fileInput.files[0]) fd.append("screenshot", fileInput.files[0]);
-    fd.append("transactionNumber", document.getElementById("txn").value);
-    const { ok, data } = await apiFetch("/api/payment", { method: "POST", body: fd });
-    showMessage(msg, data.message, !ok);
+  select.addEventListener("change", () => {
+    moduleError.textContent = "";
+    updateRegisterState();
   });
 
   document.getElementById("registerForm").addEventListener("submit", async (e) => {
     e.preventDefault();
     const msg = document.getElementById("regMsg");
-    const body = {
-      studentId: document.getElementById("studentIdReg").value,
-      moduleCode: document.getElementById("moduleCode").value,
-      paymentVerified: document.getElementById("paymentVerified").value === "true",
-      drugTestVerified: document.getElementById("drugTestVerified").value === "true",
-      registrationPeriodOpen: document.getElementById("periodOpen").value === "true",
-    };
-    const { ok, data } = await postJSON("/api/register", body);
-    showMessage(msg, data.message, !ok);
-    if (ok) loadMyModules();
+    clearMessage(msg);
+    if (!select.value) {
+      moduleError.textContent = "Choose a module to register.";
+      return;
+    }
+    const code = select.value;
+    setBusy(registerBtn, true, "Registering...");
+    const { ok, data } = await postJSON("/api/register", { moduleCode: code });
+    setBusy(registerBtn, false);
+    if (ok) {
+      notify(`${code} registered`);
+      await loadAll();
+    } else {
+      showMessage(msg, data.message || "Registration failed. Please try again.", true);
+    }
   });
+
+  if (user) loadAll();
 </script>
 </body>
 </html>

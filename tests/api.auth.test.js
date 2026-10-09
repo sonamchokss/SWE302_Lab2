@@ -175,43 +175,104 @@ describe("POST create", () => {
   });
 });
 
-describe("Module registration (POST /api/register)", () => {
-  const ok = { paymentVerified: true, drugTestVerified: true, registrationPeriodOpen: true };
+const BINARY = (res, cb) => {
+  const chunks = [];
+  res.on("data", (c) => chunks.push(c));
+  res.on("end", () => cb(null, Buffer.concat(chunks)));
+};
 
-  test("registers a new module for the logged-in student", async () => {
-    const res = await request(app)
-      .post("/api/register")
-      .set(bearer(studentToken))
-      .send({ moduleCode: "dbm301", ...ok });
+async function payTuition(token, transactionNumber) {
+  return request(app)
+    .post("/api/payment")
+    .set(bearer(token))
+    .field("transactionNumber", transactionNumber)
+    .attach("screenshot", Buffer.from("fake"), "proof.png");
+}
+
+async function createStudent(studentId) {
+  await request(app)
+    .post("/api/students")
+    .set(bearer(adminToken))
+    .send({ studentId, fullName: "Test Student", email: `${studentId}@rub.edu.bt`, program: "BE IT", password: "Passw0rd" });
+  return (await login(studentId, "Passw0rd")).body.token;
+}
+
+describe("Module registration (POST /api/register)", () => {
+  let pendingToken;
+
+  beforeAll(async () => {
+    // Demo student has clearance already; pay tuition so the payment rule passes.
+    const pay = await payTuition(studentToken, "456-000000001");
+    expect(pay.status).toBe(200);
+    pendingToken = await createStudent("02230555");
+  });
+
+  test("registers a new module once payment, clearance and period are in order", async () => {
+    const res = await request(app).post("/api/register").set(bearer(studentToken)).send({ moduleCode: "dbm301" });
     expect(res.status).toBe(200);
     const mine = await request(app).get("/api/registrations").set(bearer(studentToken));
     expect(mine.body.some((m) => m.moduleCode === "DBM301")).toBe(true);
   });
   test("duplicate registration -> 400", async () => {
-    const res = await request(app)
-      .post("/api/register")
-      .set(bearer(studentToken))
-      .send({ moduleCode: "SWE302", ...ok });
+    const res = await request(app).post("/api/register").set(bearer(studentToken)).send({ moduleCode: "SWE302" });
     expect(res.status).toBe(400);
-  });
-  test("decision table still applies (payment not verified)", async () => {
-    const res = await request(app)
-      .post("/api/register")
-      .set(bearer(studentToken))
-      .send({ moduleCode: "NET301", ...ok, paymentVerified: false });
-    expect(res.status).toBe(400);
-    expect(res.body.message).toBe("Tuition payment not verified.");
   });
   test("unknown module -> 400", async () => {
-    const res = await request(app)
-      .post("/api/register")
-      .set(bearer(studentToken))
-      .send({ moduleCode: "XXX999", ...ok });
+    const res = await request(app).post("/api/register").set(bearer(studentToken)).send({ moduleCode: "XXX999" });
     expect(res.status).toBe(400);
   });
   test("requires login", async () => {
-    const res = await request(app).post("/api/register").send({ moduleCode: "NET301", ...ok });
+    const res = await request(app).post("/api/register").send({ moduleCode: "NET301" });
     expect(res.status).toBe(401);
+  });
+  test("cannot register without a stored tuition payment (ignores client flags)", async () => {
+    const res = await request(app)
+      .post("/api/register")
+      .set(bearer(pendingToken))
+      .send({ moduleCode: "SWE301", paymentVerified: true, drugTestVerified: true, registrationPeriodOpen: true });
+    expect(res.status).toBe(400);
+    expect(res.body.message).toBe("Tuition payment not verified.");
+  });
+  test("payment made but no drug testing clearance -> rejected until admin clears", async () => {
+    await payTuition(pendingToken, "456-000000002");
+    let res = await request(app).post("/api/register").set(bearer(pendingToken)).send({ moduleCode: "SWE301" });
+    expect(res.body.message).toBe("Drug testing report not verified.");
+
+    await request(app).put("/api/clearance/02230555").set(bearer(adminToken)).send({ drugTestVerified: true }).expect(200);
+    res = await request(app).post("/api/register").set(bearer(pendingToken)).send({ moduleCode: "SWE301" });
+    expect(res.status).toBe(200);
+  });
+  test("registration period closed -> rejected", async () => {
+    await request(app).put("/api/settings").set(bearer(adminToken)).send({ registrationPeriodOpen: false }).expect(200);
+    const res = await request(app).post("/api/register").set(bearer(pendingToken)).send({ moduleCode: "NET301" });
+    expect(res.body.message).toBe("Registration period is closed.");
+    await request(app).put("/api/settings").set(bearer(adminToken)).send({ registrationPeriodOpen: true }).expect(200);
+  });
+});
+
+describe("Clearance and settings permissions", () => {
+  test("student cannot change clearance -> 403", async () => {
+    const res = await request(app).put("/api/clearance/02230123").set(bearer(studentToken)).send({ drugTestVerified: false });
+    expect(res.status).toBe(403);
+  });
+  test("clearance rejects a non-boolean value -> 400", async () => {
+    const res = await request(app).put("/api/clearance/02230123").set(bearer(adminToken)).send({ drugTestVerified: "yes" });
+    expect(res.status).toBe(400);
+  });
+  test("student cannot change the registration period -> 403", async () => {
+    const res = await request(app).put("/api/settings").set(bearer(studentToken)).send({ registrationPeriodOpen: false });
+    expect(res.status).toBe(403);
+  });
+  test("GET /api/status returns the three registration checks", async () => {
+    const res = await request(app).get("/api/status").set(bearer(studentToken));
+    expect(res.status).toBe(200);
+    expect(typeof res.body.paymentVerified).toBe("boolean");
+    expect(typeof res.body.drugTestVerified).toBe("boolean");
+    expect(typeof res.body.registrationPeriodOpen).toBe("boolean");
+  });
+  test("student cannot view another student's status -> 403", async () => {
+    const res = await request(app).get("/api/status/02230999").set(bearer(studentToken));
+    expect(res.status).toBe(403);
   });
 });
 
@@ -220,20 +281,87 @@ describe("POST /api/payment", () => {
     expect((await request(app).post("/api/payment")).status).toBe(401);
   });
   test("valid screenshot + transaction number -> receipt", async () => {
-    const res = await request(app)
-      .post("/api/payment")
-      .set(bearer(studentToken))
-      .field("transactionNumber", "123-123456789")
-      .attach("screenshot", Buffer.from("fake"), "proof.png");
+    const res = await payTuition(studentToken, "123-123456789");
     expect(res.status).toBe(200);
     expect(res.body.status).toBe("receipt_generated");
+    expect(res.body.payment.receiptNumber).toMatch(/^RCPT-\d{4}-\d+$/);
+  });
+  test("the same transaction number cannot be submitted twice -> 409", async () => {
+    const res = await payTuition(studentToken, "123-123456789");
+    expect(res.status).toBe(409);
   });
   test("bad file type -> 400", async () => {
     const res = await request(app)
       .post("/api/payment")
       .set(bearer(studentToken))
-      .field("transactionNumber", "123-123456789")
+      .field("transactionNumber", "789-000000001")
       .attach("screenshot", Buffer.from("fake"), "proof.pdf");
     expect(res.status).toBe(400);
+  });
+  test("bad transaction number -> 400 with the expected format in the message", async () => {
+    const res = await payTuition(studentToken, "12-123456789");
+    expect(res.status).toBe(400);
+    expect(res.body.message).toMatch(/123-456789012/);
+  });
+});
+
+describe("Payments and receipts", () => {
+  let receiptId;
+
+  beforeAll(async () => {
+    const res = await payTuition(studentToken, "789-000000002");
+    receiptId = res.body.payment.id;
+  });
+
+  test("student sees only their own payments", async () => {
+    const res = await request(app).get("/api/payments").set(bearer(studentToken));
+    expect(res.status).toBe(200);
+    expect(res.body.every((p) => p.studentId === "02230123")).toBe(true);
+  });
+  test("student downloads own receipt as PDF", async () => {
+    const res = await request(app)
+      .get(`/api/payments/${receiptId}/receipt`)
+      .set(bearer(studentToken))
+      .buffer(true)
+      .parse(BINARY);
+    expect(res.status).toBe(200);
+    expect(res.headers["content-type"]).toMatch(/application\/pdf/);
+    expect(res.body.slice(0, 4).toString()).toBe("%PDF");
+  });
+  test("student cannot download someone else's receipt -> 403", async () => {
+    const other = await createStudent("02230666");
+    const paid = await payTuition(other, "789-000000003");
+    const res = await request(app).get(`/api/payments/${paid.body.payment.id}/receipt`).set(bearer(studentToken));
+    expect(res.status).toBe(403);
+  });
+  test("unknown receipt -> 404", async () => {
+    const res = await request(app).get("/api/payments/does-not-exist/receipt").set(bearer(studentToken));
+    expect(res.status).toBe(404);
+  });
+});
+
+describe("Results PDF", () => {
+  test("student downloads own result statement as PDF", async () => {
+    const res = await request(app)
+      .get("/api/results/02230123/pdf")
+      .set(bearer(studentToken))
+      .buffer(true)
+      .parse(BINARY);
+    expect(res.status).toBe(200);
+    expect(res.headers["content-type"]).toMatch(/application\/pdf/);
+    expect(res.body.slice(0, 4).toString()).toBe("%PDF");
+  });
+  test("admin can download any student's result statement", async () => {
+    const res = await request(app).get("/api/results/02230123/pdf").set(bearer(adminToken));
+    expect(res.status).toBe(200);
+  });
+  test("student cannot download another student's result -> 403", async () => {
+    const res = await request(app).get("/api/results/02230999/pdf").set(bearer(studentToken));
+    expect(res.status).toBe(403);
+  });
+  test("student with no results -> 404", async () => {
+    const token = await createStudent("02230771");
+    const res = await request(app).get("/api/results/02230771/pdf").set(bearer(token));
+    expect(res.status).toBe(404);
   });
 });

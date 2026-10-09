@@ -85,3 +85,33 @@ describe("Result viewing (Section 4)", () => {
     expect(r.found).toBe(false);
   });
 });
+
+const { isPaymentVerified, checkDuplicateTransaction } = require("../src/businessLogic");
+
+describe("Payment verification from stored records", () => {
+  const payments = [{ studentId: "02230123", transactionNumber: "123-123456789", status: "verified" }];
+
+  test("student with a verified payment is verified", () => {
+    expect(isPaymentVerified(payments, "02230123")).toBe(true);
+  });
+  test("student with no payment is not verified", () => {
+    expect(isPaymentVerified(payments, "02230999")).toBe(false);
+  });
+  test("a payment that is not verified does not count", () => {
+    const pending = [{ studentId: "02230999", transactionNumber: "111-111111111", status: "pending" }];
+    expect(isPaymentVerified(pending, "02230999")).toBe(false);
+  });
+});
+
+describe("Duplicate transaction numbers", () => {
+  const payments = [{ transactionNumber: "123-123456789" }];
+
+  test("a new transaction number is allowed", () => {
+    expect(checkDuplicateTransaction(payments, "456-456456456").allowed).toBe(true);
+  });
+  test("a transaction number already used is rejected", () => {
+    const r = checkDuplicateTransaction(payments, "123-123456789");
+    expect(r.allowed).toBe(false);
+    expect(r.message).toMatch(/already been submitted/);
+  });
+});

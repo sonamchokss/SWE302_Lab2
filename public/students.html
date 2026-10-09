@@ -2,92 +2,182 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Students &mdash; CST SMS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Students · CST SMS</title>
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<header>
-  <span class="crest">CST &middot; RUB</span>
-  <h1>Student Management System</h1>
-</header>
-<nav id="nav"></nav>
-<main class="wide">
-  <div class="card">
-    <h2>All Students</h2>
-    <div id="studentList"></div>
-    <div id="listMsg" class="message"></div>
-  </div>
+<div class="app">
+  <aside class="sidebar" id="sidebar"></aside>
+  <div class="overlay" id="overlay"></div>
+  <div class="content">
+    <header class="topbar">
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Open navigation" aria-controls="sidebar" aria-expanded="false"></button>
+      <h1 class="topbar-title" id="pageTitle">Students</h1>
+      <div class="spacer"></div>
+      <div class="user-chip" id="userChip"></div>
+    </header>
 
-  <div class="card" style="margin-top:1.5rem;">
-    <h2>Find Student by ID</h2>
-    <form id="findForm">
-      <label for="findId">Student ID</label>
-      <input id="findId" placeholder="e.g. 02230123" />
-      <button type="submit">Find</button>
-    </form>
-    <div id="findMsg" class="message"></div>
-    <div id="findDisplay" style="margin-top:1rem;"></div>
-  </div>
+    <main class="page">
+      <div class="page-head">
+        <h2>Student administration</h2>
+        <p>Manage student accounts, drug testing clearance and the registration window.</p>
+      </div>
 
-  <div class="card" style="margin-top:1.5rem;">
-    <h2>Add New Student</h2>
-    <form id="createForm">
-      <label for="newId">Student ID</label>
-      <input id="newId" placeholder="8 digits, e.g. 02230456" />
-      <label for="newName">Full Name</label>
-      <input id="newName" />
-      <label for="newEmail">Email</label>
-      <input id="newEmail" type="email" />
-      <label for="newProgram">Program</label>
-      <input id="newProgram" placeholder="e.g. BE Software Engineering" />
-      <label for="newPassword">Initial Password (8-12 chars, upper, lower, digit)</label>
-      <input id="newPassword" type="password" />
-      <button type="submit">Create Student</button>
-    </form>
-    <div id="createMsg" class="message"></div>
-  </div></main>
+      <div class="grid cols-2">
+        <section class="card">
+          <div class="card-head"><h3>All students</h3></div>
+          <label for="search" style="margin-top:0">Search by ID, name or program</label>
+          <input id="search" placeholder="Type to search" autocomplete="off" />
+          <div id="studentList" class="section-gap"><div class="empty">Loading students...</div></div>
+        </section>
+
+        <div class="stack">
+          <section class="card">
+            <div class="card-head"><h3>Registration window</h3>
+              <span id="regBadge"></span></div>
+            <p class="muted" style="margin-bottom:14px">When closed, students cannot register for modules.</p>
+            <button type="button" id="toggleReg">Loading...</button>
+          </section>
+
+          <section class="card">
+            <h3 style="margin-bottom:12px">Drug testing clearance</h3>
+            <form id="clearanceForm" novalidate>
+              <label for="clrId" style="margin-top:0">Student ID</label>
+              <input id="clrId" inputmode="numeric" maxlength="8" placeholder="e.g. 02230123" />
+              <div class="field-error" id="clrIdError"></div>
+
+              <label for="clrStatus">Status</label>
+              <select id="clrStatus">
+                <option value="true">Cleared</option>
+                <option value="false">Pending</option>
+              </select>
+              <div class="form-actions"><button type="submit" id="clrBtn">Save clearance</button></div>
+            </form>
+            <div id="clrMsg" class="message" role="status"></div>
+          </section>
+
+          <section class="card">
+            <h3 style="margin-bottom:12px">Add a student</h3>
+            <form id="createForm" novalidate>
+              <label for="newId" style="margin-top:0">Student ID</label>
+              <input id="newId" inputmode="numeric" maxlength="8" placeholder="8 digits, e.g. 02230456" />
+              <label for="newName">Full name</label>
+              <input id="newName" autocomplete="off" />
+              <label for="newEmail">Email</label>
+              <input id="newEmail" type="email" autocomplete="off" />
+              <label for="newProgram">Program</label>
+              <input id="newProgram" placeholder="e.g. BE Software Engineering" autocomplete="off" />
+              <label for="newPassword">Initial password</label>
+              <input id="newPassword" type="password" autocomplete="new-password" />
+              <div class="hint">8 to 12 characters with an uppercase letter, a lowercase letter and a digit.</div>
+              <div class="form-actions"><button type="submit" id="createBtn">Create student</button></div>
+            </form>
+            <div id="createMsg" class="message" role="status"></div>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
 <script src="app.js"></script>
 <script>
   const user = requireLogin("admin");
+  if (user) initShell("students", "Students");
+
+  let students = [];
+
+  function renderStudents() {
+    const q = document.getElementById("search").value.trim().toLowerCase();
+    const list = students.filter((s) =>
+      !q || [s.student_id, s.full_name, s.program].some((v) => String(v || "").toLowerCase().includes(q)));
+    document.getElementById("studentList").innerHTML = list.length
+      ? `<div class="table-wrap"><table>
+          <thead><tr><th>ID</th><th>Name</th><th class="hide-sm">Email</th><th>Program</th></tr></thead>
+          <tbody>${list.map((s) => `<tr>
+            <td class="num"><strong>${escapeHtml(s.student_id)}</strong></td>
+            <td>${escapeHtml(s.full_name)}</td>
+            <td class="hide-sm">${escapeHtml(s.email)}</td>
+            <td>${escapeHtml(s.program)}</td></tr>`).join("")}
+          </tbody></table></div>`
+      : `<div class="empty">${students.length ? "No students match your search." : "No students yet."}</div>`;
+  }
 
   async function loadStudents() {
     const { ok, data } = await getJSON("/api/students");
-    const box = document.getElementById("studentList");
-    if (!ok) { showMessage(document.getElementById("listMsg"), data.message, true); return; }
-    box.innerHTML = data.length
-      ? '<table><thead><tr><th>ID</th><th>Name</th><th>Email</th><th>Program</th></tr></thead><tbody>' +
-        data.map((s) => `<tr><td>${escapeHtml(s.student_id)}</td><td>${escapeHtml(s.full_name)}</td><td>${escapeHtml(s.email)}</td><td>${escapeHtml(s.program)}</td></tr>`).join("") +
-        "</tbody></table>"
-      : '<p class="intro">No students yet.</p>';
+    if (ok) { students = data; renderStudents(); }
+    else document.getElementById("studentList").innerHTML = `<div class="message error show">${escapeHtml(data.message)}</div>`;
   }
-  if (user) loadStudents();
 
-  document.getElementById("findForm").addEventListener("submit", async (e) => {
+  async function loadRegistration() {
+    const { ok, data } = await getJSON("/api/settings");
+    if (!ok) return;
+    const open = data.registrationPeriodOpen;
+    document.getElementById("regBadge").innerHTML = open ? badge("Open", "ok") : badge("Closed", "closed");
+    const btn = document.getElementById("toggleReg");
+    btn.textContent = open ? "Close registration" : "Open registration";
+    btn.className = open ? "danger" : "";
+    btn.dataset.open = String(open);
+  }
+
+  document.getElementById("search").addEventListener("input", renderStudents);
+
+  document.getElementById("toggleReg").addEventListener("click", async (e) => {
+    const btn = e.currentTarget;
+    const open = btn.dataset.open === "true";
+    setBusy(btn, true, "Saving...");
+    const { ok, data } = await putJSON("/api/settings", { registrationPeriodOpen: !open });
+    setBusy(btn, false);
+    if (ok) { notify(data.registrationPeriodOpen ? "Registration opened" : "Registration closed"); loadRegistration(); }
+    else notify(data.message, true);
+  });
+
+  document.getElementById("clearanceForm").addEventListener("submit", async (e) => {
     e.preventDefault();
-    const msg = document.getElementById("findMsg");
-    const display = document.getElementById("findDisplay");
-    display.innerHTML = "";
-    const { ok, data } = await getJSON("/api/students/" + encodeURIComponent(document.getElementById("findId").value));
-    if (!ok) { showMessage(msg, data.message, true); return; }
-    msg.classList.remove("show");
-    const row = (k, v) => `<div class="result-row"><span>${k}</span><span>${escapeHtml(v)}</span></div>`;
-    display.innerHTML = row("Student ID", data.student_id) + row("Name", data.full_name) + row("Email", data.email) + row("Program", data.program);
+    const idInput = document.getElementById("clrId");
+    const err = document.getElementById("clrIdError");
+    const id = idInput.value.trim();
+    const valid = /^\d{8}$/.test(id);
+    err.textContent = valid ? "" : "Enter an 8-digit Student ID.";
+    idInput.setAttribute("aria-invalid", String(!valid));
+    if (!valid) return idInput.focus();
+
+    const btn = document.getElementById("clrBtn");
+    setBusy(btn, true, "Saving...");
+    const cleared = document.getElementById("clrStatus").value === "true";
+    const { ok, data } = await putJSON(`/api/clearance/${encodeURIComponent(id)}`, { drugTestVerified: cleared });
+    setBusy(btn, false);
+    const msg = document.getElementById("clrMsg");
+    if (ok) showMessage(msg, `Drug testing clearance for ${id} is now ${cleared ? "cleared" : "pending"}.`, false);
+    else showMessage(msg, data.message, true);
   });
 
   document.getElementById("createForm").addEventListener("submit", async (e) => {
     e.preventDefault();
     const msg = document.getElementById("createMsg");
-    const { ok, data } = await postJSON("/api/students", {
-      studentId: document.getElementById("newId").value,
-      fullName: document.getElementById("newName").value,
-      email: document.getElementById("newEmail").value,
-      program: document.getElementById("newProgram").value,
+    clearMessage(msg);
+    const body = {
+      studentId: document.getElementById("newId").value.trim(),
+      fullName: document.getElementById("newName").value.trim(),
+      email: document.getElementById("newEmail").value.trim(),
+      program: document.getElementById("newProgram").value.trim(),
       password: document.getElementById("newPassword").value,
-    });
-    showMessage(msg, ok ? `Student ${data.student_id} created` : data.message, !ok);
-    if (ok) { e.target.reset(); loadStudents(); }
+    };
+    const btn = document.getElementById("createBtn");
+    setBusy(btn, true, "Creating...");
+    const { ok, data } = await postJSON("/api/students", body);
+    setBusy(btn, false);
+    if (ok) {
+      showMessage(msg, `Student ${data.student_id} created. They can now log in.`, false);
+      e.target.reset();
+      loadStudents();
+    } else {
+      showMessage(msg, data.message || "The student could not be created.", true);
+    }
   });
+
+  if (user) { loadStudents(); loadRegistration(); }
 </script>
 </body>
 </html>

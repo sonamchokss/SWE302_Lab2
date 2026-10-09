@@ -65,7 +65,10 @@ function validateTransactionNumber(txn) {
     return { valid: false, message: "Transaction number is required" };
   }
   if (!/^\d{3}-\d{9}$/.test(txn)) {
-    return { valid: false, message: "Invalid transaction number format" };
+    return {
+      valid: false,
+      message: "Transaction number must look like 123-456789012 (3 digits, a hyphen, then 9 digits)",
+    };
   }
   return { valid: true, message: "Transaction number is valid" };
 }
