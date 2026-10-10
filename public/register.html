@@ -111,9 +111,10 @@
     const box = document.getElementById("myModules");
     box.innerHTML = list.length
       ? `<div class="table-wrap"><table>
-          <thead><tr><th>Code</th><th>Module</th><th class="hide-sm">Credits</th></tr></thead>
+          <thead><tr><th>Code</th><th>Module</th><th class="hide-sm">Credits</th><th>Action</th></tr></thead>
           <tbody>${list.map((m) => `<tr><td class="num"><strong>${escapeHtml(m.moduleCode)}</strong></td>
-            <td>${escapeHtml(m.moduleTitle)}</td><td class="hide-sm">${escapeHtml(m.credits)}</td></tr>`).join("")}
+            <td>${escapeHtml(m.moduleTitle)}</td><td class="hide-sm">${escapeHtml(m.credits)}</td>
+            <td><button type="button" class="secondary small" data-unregister="${escapeHtml(m.moduleCode)}">Unregister</button></td></tr>`).join("")}
           </tbody></table></div>`
       : `<div class="empty">You have not registered for any modules yet.</div>`;
   }
@@ -135,6 +136,23 @@
   select.addEventListener("change", () => {
     moduleError.textContent = "";
     updateRegisterState();
+  });
+
+  document.getElementById("myModules").addEventListener("click", async (e) => {
+    const button = e.target.closest("[data-unregister]");
+    if (!button) return;
+    const code = button.dataset.unregister;
+    if (!window.confirm(`Unregister from ${code}?`)) return;
+
+    setBusy(button, true, "Removing...");
+    const response = await apiFetch(`/api/registrations/${encodeURIComponent(code)}`, { method: "DELETE" });
+    setBusy(button, false);
+    if (response.ok) {
+      notify(`${code} unregistered`);
+      await loadAll();
+    } else {
+      notify(response.data.message || "The module could not be unregistered.", true);
+    }
   });
 
   document.getElementById("registerForm").addEventListener("submit", async (e) => {
