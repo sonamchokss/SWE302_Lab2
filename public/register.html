@@ -28,27 +28,27 @@
         <div class="stack">
           <section class="card">
             <div class="card-head"><h3>Before you register</h3></div>
-            <div class="checklist" id="checklist"><div class="empty">Checking your status...</div></div>
+            <div class="checklist" id="checklist" data-cy="checklist"><div class="empty">Checking your status...</div></div>
           </section>
 
           <section class="card">
             <div class="card-head"><h3>Choose a module</h3></div>
             <form id="registerForm" novalidate>
               <label for="moduleSelect">Module</label>
-              <select id="moduleSelect" disabled><option>Loading modules...</option></select>
+              <select id="moduleSelect" data-cy="module-select" disabled><option>Loading modules...</option></select>
               <div class="hint" id="moduleInfo"></div>
               <div class="field-error" id="moduleError"></div>
               <div class="form-actions">
-                <button type="submit" id="registerBtn" disabled>Register module</button>
+                <button type="submit" id="registerBtn" data-cy="register-btn" disabled>Register module</button>
               </div>
             </form>
-            <div id="regMsg" class="message" role="status"></div>
+            <div id="regMsg" class="message" role="status" data-cy="register-message"></div>
           </section>
         </div>
 
         <section class="card">
           <div class="card-head"><h3>My registered modules</h3></div>
-          <div id="myModules"><div class="empty">Loading...</div></div>
+          <div id="myModules" data-cy="my-modules"><div class="empty">Loading...</div></div>
         </section>
       </div>
     </main>
@@ -111,11 +111,12 @@
     const box = document.getElementById("myModules");
     box.innerHTML = list.length
       ? `<div class="table-wrap"><table>
-          <thead><tr><th>Code</th><th>Module</th><th class="hide-sm">Credits</th></tr></thead>
-          <tbody>${list.map((m) => `<tr><td class="num"><strong>${escapeHtml(m.moduleCode)}</strong></td>
-            <td>${escapeHtml(m.moduleTitle)}</td><td class="hide-sm">${escapeHtml(m.credits)}</td></tr>`).join("")}
+          <thead><tr><th>Code</th><th>Module</th><th class="hide-sm">Credits</th><th>Action</th></tr></thead>
+          <tbody>${list.map((m) => `<tr data-cy="registered-module" data-code="${escapeHtml(m.moduleCode)}"><td class="num"><strong>${escapeHtml(m.moduleCode)}</strong></td>
+            <td>${escapeHtml(m.moduleTitle)}</td><td class="hide-sm">${escapeHtml(m.credits)}</td>
+            <td><button type="button" class="secondary small" data-cy="unregister-btn" data-unregister="${escapeHtml(m.moduleCode)}">Unregister</button></td></tr>`).join("")}
           </tbody></table></div>`
-      : `<div class="empty">You have not registered for any modules yet.</div>`;
+      : `<div class="empty" data-cy="no-modules">You have not registered for any modules yet.</div>`;
   }
 
   async function loadAll() {
@@ -135,6 +136,23 @@
   select.addEventListener("change", () => {
     moduleError.textContent = "";
     updateRegisterState();
+  });
+
+  document.getElementById("myModules").addEventListener("click", async (e) => {
+    const button = e.target.closest("[data-unregister]");
+    if (!button) return;
+    const code = button.dataset.unregister;
+    if (!window.confirm(`Unregister from ${code}?`)) return;
+
+    setBusy(button, true, "Removing...");
+    const response = await apiFetch(`/api/registrations/${encodeURIComponent(code)}`, { method: "DELETE" });
+    setBusy(button, false);
+    if (response.ok) {
+      notify(`${code} unregistered`);
+      await loadAll();
+    } else {
+      notify(response.data.message || "The module could not be unregistered.", true);
+    }
   });
 
   document.getElementById("registerForm").addEventListener("submit", async (e) => {

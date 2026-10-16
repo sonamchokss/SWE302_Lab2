@@ -24,6 +24,7 @@ function notify(text, isError) {
   if (!toast) {
     toast = document.createElement("div");
     toast.id = "toast";
+    toast.setAttribute("data-cy", "toast");
     toast.className = "toast";
     toast.setAttribute("role", "status");
     document.body.appendChild(toast);

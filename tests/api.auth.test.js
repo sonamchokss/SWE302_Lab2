@@ -217,6 +217,17 @@ describe("Module registration (POST /api/register)", () => {
     const res = await request(app).post("/api/register").set(bearer(studentToken)).send({ moduleCode: "SWE302" });
     expect(res.status).toBe(400);
   });
+  test("unregisters an existing module", async () => {
+    const res = await request(app).delete("/api/registrations/DBM301").set(bearer(studentToken));
+    expect(res.status).toBe(200);
+    expect(res.body.message).toBe("Module DBM301 unregistered successfully");
+    const mine = await request(app).get("/api/registrations").set(bearer(studentToken));
+    expect(mine.body.some((m) => m.moduleCode === "DBM301")).toBe(false);
+  });
+  test("unregistering a module that is not registered -> 404", async () => {
+    const res = await request(app).delete("/api/registrations/DBM301").set(bearer(studentToken));
+    expect(res.status).toBe(404);
+  });
   test("unknown module -> 400", async () => {
     const res = await request(app).post("/api/register").set(bearer(studentToken)).send({ moduleCode: "XXX999" });
     expect(res.status).toBe(400);

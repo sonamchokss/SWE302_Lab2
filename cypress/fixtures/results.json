@@ -1,0 +1,4 @@
+{
+  "headers": ["Module code", "Module title", "Grade"],
+  "expected": { "moduleCode": "SWE302", "moduleTitle": "Software Testing & QA", "grade": "A" }
+}

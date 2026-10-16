@@ -274,6 +274,24 @@ app.get("/api/registrations", requireAuth, (req, res) => {
   res.json(store.modules.filter((m) => codes.includes(m.moduleCode)));
 });
 
+// DELETE /api/registrations/:moduleCode - students remove their own registration
+app.delete("/api/registrations/:moduleCode", requireAuth, (req, res) => {
+  const code = String(req.params.moduleCode || "").toUpperCase();
+  if (!store.modules.some((m) => m.moduleCode === code)) {
+    return res.status(404).json({ message: `Module ${req.params.moduleCode} not found` });
+  }
+
+  const existing = store.registeredModules[req.user.studentId] || [];
+  const index = existing.indexOf(code);
+  if (index === -1) {
+    return res.status(404).json({ message: `Module ${code} is not registered` });
+  }
+
+  existing.splice(index, 1);
+  store.registeredModules[req.user.studentId] = existing;
+  res.json({ message: `Module ${code} unregistered successfully` });
+});
+
 // =====================================================================
 // Results
 // =====================================================================

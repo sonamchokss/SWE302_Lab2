@@ -19,7 +19,7 @@
     </header>
 
     <main class="page" id="main">
-      <div id="dashboard" aria-live="polite">
+      <div id="dashboard" data-cy="dashboard" aria-live="polite">
         <div class="empty">Loading your dashboard...</div>
       </div>
     </main>
@@ -44,7 +44,7 @@
 
   function welcome(subtitle) {
     const firstName = escapeHtml(String(user.fullName || user.studentId).split(" ")[0]);
-    return `<section class="welcome">
+    return `<section class="welcome" data-cy="welcome">
       <div>
         <h2>${greeting()}, ${firstName}</h2>
         <p>${subtitle}</p>

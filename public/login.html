@@ -13,21 +13,21 @@
     <h1>Student Management System</h1>
     <p class="login-sub">College of Science and Technology</p>
 
-    <form id="loginForm" class="login-form" novalidate>
+    <form id="loginForm" class="login-form" data-cy="login-form" novalidate>
       <label for="studentId">Student ID</label>
-      <input id="studentId" name="studentId" inputmode="numeric" maxlength="8" placeholder="8-digit Student ID" autocomplete="username" aria-describedby="idError" />
-      <div class="field-error" id="idError"></div>
+      <input id="studentId" data-cy="student-id" name="studentId" inputmode="numeric" maxlength="8" placeholder="8-digit Student ID" autocomplete="username" aria-describedby="idError" />
+      <div class="field-error" id="idError" data-cy="student-id-error"></div>
 
       <label for="password">Password</label>
       <div class="pw-wrap">
-        <input id="password" name="password" type="password" placeholder="Enter your password" autocomplete="current-password" aria-describedby="pwError" />
-        <button class="pw-toggle" id="pwToggle" type="button" aria-controls="password" aria-label="Show password">Show</button>
+        <input id="password" data-cy="password" name="password" type="password" placeholder="Enter your password" autocomplete="current-password" aria-describedby="pwError" />
+        <button class="pw-toggle" id="pwToggle" data-cy="password-toggle" type="button" aria-controls="password" aria-label="Show password">Show</button>
       </div>
-      <div class="field-error" id="pwError"></div>
+      <div class="field-error" id="pwError" data-cy="password-error"></div>
 
-      <button class="login-btn" type="submit" id="loginBtn">Log in</button>
+      <button class="login-btn" type="submit" id="loginBtn" data-cy="login-btn">Log in</button>
     </form>
-    <div id="msg" class="message" role="status"></div>
+    <div id="msg" class="message" role="status" data-cy="login-message"></div>
     <p class="login-foot">Use the Student ID and password issued by the college.</p>
   </div>
 </main>

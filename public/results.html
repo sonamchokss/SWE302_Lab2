@@ -28,9 +28,9 @@
       <section class="card" id="studentView" hidden>
         <div class="card-head">
           <h3>Grades</h3>
-          <button type="button" class="secondary" id="ownStatement" data-download-url="" data-filename="">Download statement (PDF)</button>
+          <button type="button" class="secondary" id="ownStatement" data-cy="download-statement-btn" data-download-url="" data-filename="">Download statement (PDF)</button>
         </div>
-        <div id="ownResults"><div class="empty">Loading...</div></div>
+        <div id="ownResults" data-cy="own-results"><div class="empty">Loading...</div></div>
       </section>
 
       <!-- Admin view -->
@@ -96,8 +96,8 @@
 
   function resultsTable(list, showStudent) {
     if (!list.length) return `<div class="empty">No results published yet.</div>`;
-    return `<div class="table-wrap"><table>
-      <thead><tr>${showStudent ? "<th>Student</th>" : ""}<th>Code</th><th>Module</th><th>Grade</th></tr></thead>
+    return `<div class="table-wrap"><table data-cy="results-table">
+      <thead><tr>${showStudent ? "<th>Student</th>" : ""}<th>Module code</th><th>Module title</th><th>Grade</th></tr></thead>
       <tbody>${list.map((r) => `<tr>
         ${showStudent ? `<td class="num">${escapeHtml(r.studentId)}</td>` : ""}
         <td class="num"><strong>${escapeHtml(r.moduleCode)}</strong></td>

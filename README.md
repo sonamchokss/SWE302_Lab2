@@ -82,6 +82,27 @@ Runs all Jest suites and prints a coverage table for `src/validators.js` and
 `src/businessLogic.js` (thresholds: 90% statements/functions/lines, 85% branches).
 The PostgreSQL integration tests run separately with `npm run test:db` (requires Docker).
 
+## End-to-end GUI tests (Cypress)
+
+The login, payment, results and enhanced-feature (receipt and Unregister) tests are in `cypress/e2e/`.
+
+```bash
+npm install                      # project dependencies
+npm install cypress --save-dev   # once, installs Cypress
+npm start                        # terminal 1: the app on http://localhost:3000
+npx cypress open                 # terminal 2: Test Runner (choose E2E Testing)
+npx cypress run                  # terminal 2: headless run of every spec
+```
+
+| File | Purpose |
+|------|---------|
+| `cypress.config.js` | `baseUrl` and a task that clears a downloaded file |
+| `cypress/support/commands.js` | custom commands: `cy.login()`, `cy.payTuition()`, `cy.setupRegisteredModule()`, `cy.uniqueTransaction()` |
+| `cypress/fixtures/` | test data (IDs, passwords, transaction formats) and the upload files |
+| `cypress/e2e/*.cy.js` | `login`, `payment`, `results`, `feature` specs |
+
+Start with a freshly restarted server so the demo data is in its original state. Elements are selected with `data-cy` attributes.
+
 ## Project structure
 
 ```

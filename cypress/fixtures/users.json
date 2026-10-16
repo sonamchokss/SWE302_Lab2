@@ -1,0 +1,6 @@
+{
+  "student": { "studentId": "02230123", "password": "Passw0rd", "firstName": "Demo" },
+  "invalidStudentId": "0223012",
+  "wrongPassword": "Wrong1234",
+  "otherStudentId": "02230999"
+}

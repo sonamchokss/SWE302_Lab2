@@ -1,0 +1,6 @@
+{
+  "validPrefix": "555",
+  "invalidTransaction": "12-123456789",
+  "validFile": "cypress/fixtures/payment-proof.png",
+  "invalidFile": "cypress/fixtures/not-an-image.pdf"
+}
